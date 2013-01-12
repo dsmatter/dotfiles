@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[
+\begin{figure}[htpb]
+  \begin{center}
+	\includegraphics[width=0.5\textwidth]{images/$1.pdf}
+  \end{center}
+  \caption{Architektur der virtuellen Maschinen}
+  \label{fig:$1}
+\end{figure}
+]]></content>
+	<tabTrigger>fig</tabTrigger>
+	<scope>text.tex</scope>
+</snippet>

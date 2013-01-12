@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+\begin{cmde}
+$1
+\end{cmde}
+]]></content>
+	<tabTrigger>cmde</tabTrigger>
+	<scope>text.tex</scope>
+</snippet>

@@ -1,0 +1,10 @@
+[
+	// Switch tabs with Command-{Left,Right}
+	{ "keys": ["super+right"], "command": "next_view_in_stack" },
+	{ "keys": ["super+left"], "command": "prev_view_in_stack" },
+
+    // Use ; as : to save Shift press
+    { "keys": [";"], "command": "show_overlay", "args": {"overlay": "command_palette", "text": ""},
+        "context": [{"key": "setting.command_mode"}]
+    }
+]

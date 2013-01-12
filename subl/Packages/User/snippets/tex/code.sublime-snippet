@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+\lstset{basicstyle=\ttfamily}
+\begin{lstlisting}
+$1
+\end{lstlisting}
+]]></content>
+	<tabTrigger>code</tabTrigger>
+	<scope>text.tex</scope>
+</snippet>

@@ -1,0 +1,17 @@
+<snippet>
+	<content><![CDATA[
+class $1 < ActiveRecord::Migration
+	def self.up
+		create_table :$2 do |t|
+			$3
+		end
+	end
+
+	def self.down
+		drop_table :$2
+	end
+end
+]]></content>
+	<tabTrigger>mig</tabTrigger>
+	<scope>source.ruby</scope>
+</snippet>

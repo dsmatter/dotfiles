@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+\section*{$1}
+$2
+]]></content>
+	<tabTrigger>seca</tabTrigger>
+	<scope>text.tex</scope>
+</snippet>
