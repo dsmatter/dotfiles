@@ -26,7 +26,7 @@ run() {
 for module in *(/); do
   echo "> In module $module"
 
-  find $module -type f '!' -name '.git' -print | while read f; do
+  find $module '(' -type f -or -type l ')' '!' -name '.git' -print | while read f; do
     local src=$(pwd)/$f
     local target=$HOME/${f/$module\//}
 
