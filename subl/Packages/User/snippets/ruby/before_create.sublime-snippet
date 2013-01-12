@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+before_create :initial_values
+
+def initial_values
+	self.$1
+end
+]]></content>
+	<tabTrigger>before_create</tabTrigger>
+	<scope>source.ruby</scope>
+</snippet>

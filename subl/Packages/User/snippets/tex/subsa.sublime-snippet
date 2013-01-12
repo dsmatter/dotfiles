@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+\subsubsection*{$1}
+$2
+]]></content>
+	<tabTrigger>subsa</tabTrigger>
+	<scope>text.tex</scope>
+</snippet>

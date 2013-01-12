@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+\begin{cmdv}
+$1
+\end{cmdv}
+]]></content>
+	<tabTrigger>cmdv</tabTrigger>
+	<scope>text.tex</scope>
+</snippet>

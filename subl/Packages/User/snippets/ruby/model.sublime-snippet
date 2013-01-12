@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+module $1
+	class $2 < ActiveRecord::Base
+		$3
+	end
+end
+]]></content>
+	<tabTrigger>model</tabTrigger>
+	<scope>source.ruby</scope>
+</snippet>

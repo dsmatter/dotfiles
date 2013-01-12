@@ -1,0 +1,7 @@
+<snippet>
+  <content><![CDATA[
+printk(KERN_ALERT "$1"${2:,});
+]]></content>
+  <tabTrigger>pk</tabTrigger>
+  <scope>source</scope>
+</snippet>

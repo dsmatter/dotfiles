@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+\begin{cmdout}
+$1
+\end{cmdout}
+]]></content>
+	<tabTrigger>cmdout</tabTrigger>
+	<scope>text.tex</scope>
+</snippet>

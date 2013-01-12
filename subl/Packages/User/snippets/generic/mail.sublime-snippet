@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+Hallo $1,
+
+$2
+
+Schöne Grüße
+Daniel
+]]></content>
+	<tabTrigger>mail</tabTrigger>
+</snippet>
