@@ -47,7 +47,6 @@ alias yap="yaourt -Syu --aur --noconfirm"
 alias yapp="yap --devel"
 
 #abbreviations
-alias g="git"
 alias c="clear"
 alias h="history"
 alias mm='mplayerTcp -af scaletempo'
