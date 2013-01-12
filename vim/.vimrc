@@ -274,6 +274,9 @@ endfunction
 " === Handling of crontabs === "
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 
+" === Yankring config === "
+let g:yankring_history_dir="~/.vim/cache"
+
 " === Key Mappings === "
 
 " Enable Command key
