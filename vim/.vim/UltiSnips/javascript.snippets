@@ -1,0 +1,28 @@
+snippet /f/ "Function" r
+function(${1}) {
+  ${2:// Body}
+}
+endsnippet
+
+snippet hover "Hover" !b
+$('$1').hover(function() {
+  $(this).addClass('hover');
+}, function() {
+  $(this).removeClass('hover');
+});
+endsnippet
+
+snippet click "Click" !b
+$('$1').click(function() {
+  $2
+});
+endsnippet
+
+snippet ajax "Ajax" !b
+$.ajax({
+  type: '${1:GET}',
+  url:  '$2'
+}).done(function() {
+  $3
+});
+endsnippet

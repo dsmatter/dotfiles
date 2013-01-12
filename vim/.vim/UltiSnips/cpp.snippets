@@ -1,0 +1,34 @@
+snippet forit "Iterate throgh iterator" !b
+for (auto ${1:i} = $2.begin(); $1 != $2.end(); $1++) {
+  $3
+}
+endsnippet
+
+snippet use "Use namespace std" !b
+using namespace std;
+$1
+endsnippet
+
+snippet temp "Template" !b
+template<class ${1:T}>
+endsnippet
+
+snippet guard "#ifndef ... guard" !b
+#ifndef ${1:`!p snip.rv = ''.join(list(map((lambda c: c.isupper() and '_' + c or c.upper()), snip.basename)))[1:] + '_H'`}
+#define $1
+
+$2
+
+#endif 
+endsnippet
+
+snippet class "Class" !b
+class ${1:`!p snip.rv = snip.basename`}
+{
+  private:
+    $2
+
+  public:
+    $3
+};
+endsnippet

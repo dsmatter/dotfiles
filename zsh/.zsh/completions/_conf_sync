@@ -1,0 +1,59 @@
+#compdef conf_sync
+
+_cs() {
+  _arguments '-v[Show version]' '--version[Show version]'
+
+  local i=2
+  while (( i <= CURRENT )); do
+    if [[ ! "${words[$i]}" =~ "^-" ]]; then
+      break
+    fi
+    (( i++ ))
+  done
+
+  if (( i == CURRENT )); then
+    _alternative "cs-repos:cs repos:_cs_repos"
+  else
+    if (( CURRENT - i == 1 )); then
+      _alternative "cs-commands:cs commands:_cs_cmds"
+    fi
+
+    # Shift arguments and use git completion
+    service="git"
+    local numopts=0
+    for i in $(seq 2 $CURRENT); do
+      (( j = i + 1 + numopts ))
+      if [[ "$words[$i]" =~ "^-" ]]; then
+        (( numopts++ ))
+        (( j++ ))
+      fi
+      words[$i]="${words[${j}]}"
+    done
+    (( CURRENT = CURRENT - 1 - numopts ))
+    _alternative "git:git completion:_git"
+    _alternative "files:files:_files"
+  fi
+}
+
+_cs_repos() {
+  local -a repolist
+  for r in $XDG_CONFIG_HOME/conf_sync/repo.d/*.git(/); do
+    repolist=($repolist ${r:t:r})
+  done
+
+  local expl
+  _description repos expl 'conf_sync repos'
+  compadd "$expl[@]" -a repolist
+  _description special_repos expl 'conf_sync special repos'
+  compadd "$expl[@]" 'all'
+}
+
+_cs_cmds() {
+  local -a cmds
+  conf_sync | sed -ne '/Commands:/,/Options:/p' | head -n-1 | tail -n+2 | egrep -v '^\s*\*|^\s{10}' | awk '{print $1}' | while read c; do
+    cmds=($cmds $c)
+  done
+  compadd "$@" -a cmds
+}
+
+_cs "$@"

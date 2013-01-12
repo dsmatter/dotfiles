@@ -1,0 +1,40 @@
+# Replicate snippets
+
+snippet 'rep (\d+) (\w+)$' "Replicate string" r
+`!p snip.rv = int(match.group(1)) * match.group(2)`
+endsnippet
+
+snippet 'rep (\d+) "(.+)"$' "Replicate string" r
+`!p snip.rv = int(match.group(1)) * match.group(2)`
+endsnippet
+
+snippet 'rep (\d+) (.+)\|$' "Replicate string" r
+`!p snip.rv = int(match.group(1)) * match.group(2)`
+endsnippet
+
+# Complete script
+global !p
+def complete(t, opts):
+  opts = [ m[len(t):] for m in opts if m.startswith(t) ]
+  if len(opts) == 1:
+    return opts[0]
+  return '(' + '|'.join(opts) + ')'
+endglobal
+
+snippet mail "Mail" !b
+Hallo $1,
+
+$2
+
+Schöne Grüße
+Daniel
+endsnippet
+
+snippet mailf "Mail formal" !b
+Sehr geehrte${1:r} ${2:Herr} $3,
+
+$4
+
+Mit freundlichen Grüßen
+Daniel Strittmatter
+endsnippet

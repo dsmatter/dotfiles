@@ -1,0 +1,43 @@
+snippet p "Print" !b
+fmt.Println($1)
+endsnippet
+
+snippet /\{/ "Description" !r
+{
+	$1
+
+endsnippet
+
+snippet for "Classical for loop" !
+for i := ${1:0}; i < ${2:len($3)}; i++ {
+	$4
+}
+endsnippet
+
+snippet /f/ "Function" !r
+func($1) $2{
+	$3
+}
+endsnippet
+
+snippet /forr/ "For range" !r
+for ${1:_}, ${2:_} := range ${3:xs} {
+	$4
+}
+endsnippet
+
+snippet main "Pre for main program" !b
+package main
+
+import (
+	"fmt"$1
+)
+
+func main() {
+	$2
+}
+endsnippet
+
+snippet sleep "Sleep" !b
+time.Sleep($1 * time.${2:Second})
+endsnippet

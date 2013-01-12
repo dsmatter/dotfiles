@@ -1,0 +1,5 @@
+*.zwc
+.netrwhist
+*.cache
+*.pyc
+*.sublime-session

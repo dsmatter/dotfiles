@@ -1,0 +1,10 @@
+#compdef cfg
+
+_cfg() {
+  local expl
+  _description 'Configuabe' expl 'cfg_args'
+  cfg | tail -n+2 | while read a; do
+    compadd "$expl[@]" $a
+  done
+}
+_cfg "$@"
