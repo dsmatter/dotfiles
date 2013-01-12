@@ -1,0 +1,112 @@
+[submodule "vim/.vim/bundle/ack.vim"]
+	path = vim/.vim/bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "vim/.vim/bundle/align"]
+	path = vim/.vim/bundle/align
+	url = https://github.com/tsaleh/vim-align.git
+[submodule "vim/.vim/bundle/autocomplpop"]
+	path = vim/.vim/bundle/autocomplpop
+	url = https://github.com/chrismetcalf/vim-autocomplpop.git
+[submodule "vim/.vim/bundle/buftabs"]
+	path = vim/.vim/bundle/buftabs
+	url = https://github.com/vim-scripts/buftabs.git
+[submodule "vim/.vim/bundle/coffee-script"]
+	path = vim/.vim/bundle/coffee-script
+	url = git://github.com/kchmck/vim-coffee-script.git
+[submodule "vim/.vim/bundle/compview"]
+	path = vim/.vim/bundle/compview
+	url = https://github.com/vim-scripts/compview.git
+[submodule "vim/.vim/bundle/ctrlp.vim"]
+	path = vim/.vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "vim/.vim/bundle/delimitMate"]
+	path = vim/.vim/bundle/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule "vim/.vim/bundle/doxygenToolkit.vim"]
+	path = vim/.vim/bundle/doxygenToolkit.vim
+	url = https://github.com/vim-scripts/DoxygenToolkit.vim.git
+[submodule "vim/.vim/bundle/guicolorscheme"]
+	path = vim/.vim/bundle/guicolorscheme
+	url = https://github.com/thinca/vim-guicolorscheme.git
+[submodule "vim/.vim/bundle/jquery"]
+	path = vim/.vim/bundle/jquery
+	url = https://github.com/itspriddle/vim-jquery.git
+[submodule "vim/.vim/bundle/matchit"]
+	path = vim/.vim/bundle/matchit
+	url = https://github.com/tsaleh/vim-matchit.git
+[submodule "vim/.vim/bundle/nerdcommenter"]
+	path = vim/.vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/.vim/bundle/nerdtree"]
+	path = vim/.vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim/.vim/bundle/nerdtree-tabs"]
+	path = vim/.vim/bundle/nerdtree-tabs
+	url = https://github.com/jistr/vim-nerdtree-tabs.git
+[submodule "vim/.vim/bundle/omniCppComplete"]
+	path = vim/.vim/bundle/omniCppComplete
+	url = https://github.com/drakeguan/vim-OmniCppComplete.git
+[submodule "vim/.vim/bundle/tagbar"]
+	path = vim/.vim/bundle/tagbar
+	url = https://github.com/timgreen/vim-tagbar.git
+[submodule "vim/.vim/bundle/tvo"]
+	path = vim/.vim/bundle/tvo
+	url = https://github.com/vim-scripts/TVO--The-Vim-Outliner.git
+[submodule "vim/.vim/bundle/ultiSnips"]
+	path = vim/.vim/bundle/ultiSnips
+	url = https://github.com/vim-scripts/UltiSnips.git
+[submodule "vim/.vim/bundle/vim-jade"]
+	path = vim/.vim/bundle/vim-jade
+	url = https://github.com/digitaltoad/vim-jade.git
+[submodule "vim/.vim/bundle/xml.vim"]
+	path = vim/.vim/bundle/xml.vim
+	url = https://github.com/othree/xml.vim.git
+[submodule "vim/.vim/bundle/yankring"]
+	path = vim/.vim/bundle/yankring
+	url = https://github.com/vim-scripts/YankRing.vim.git
+[submodule "vim/.vim/bundle/surround"]
+	path = vim/.vim/bundle/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/.vim/bundle/command-t"]
+	path = vim/.vim/bundle/command-t
+	url = https://github.com/wincent/Command-T.git
+[submodule "vim/.vim/bundle/repeat"]
+	path = vim/.vim/bundle/repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "vim/.vim/bundle/speeddating"]
+	path = vim/.vim/bundle/speeddating
+	url = https://github.com/tpope/vim-speeddating.git
+[submodule "vim/.vim/bundle/scratch"]
+	path = vim/.vim/bundle/scratch
+	url = https://github.com/duff/vim-scratch.git
+[submodule "vim/.vim/bundle/rainbow-parentheses"]
+	path = vim/.vim/bundle/rainbow-parentheses
+	url = https://github.com/kien/rainbow_parentheses.vim.git
+[submodule "vim/.vim/bundle/gundo"]
+	path = vim/.vim/bundle/gundo
+	url = https://github.com/sjl/gundo.vim.git
+[submodule "vim/.vim/bundle/slime"]
+	path = vim/.vim/bundle/slime
+	url = git://github.com/jpalardy/vim-slime.git
+[submodule "vim/.vim/bundle/abolish"]
+	path = vim/.vim/bundle/abolish
+	url = https://github.com/tpope/vim-abolish.git
+[submodule "vim/.vim/bundle/fugitive"]
+	path = vim/.vim/bundle/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/.vim/bundle/go-lang"]
+	path = vim/.vim/bundle/go-lang
+	url = https://github.com/jnwhiteh/vim-golang.git
+[submodule "vim/.vim/bundle/vimux"]
+	path = vim/.vim/bundle/vimux
+	url = https://github.com/benmills/vimux.git
+[submodule "vim/.vim/bundle/google"]
+	path = vim/.vim/bundle/google
+	url = https://github.com/vim-scripts/google.vim.git
+
+[submodule "zsh/.zsh/completions/zsh-completions"]
+	path = zsh/.zsh/completions/zsh-completions
+	url = git://github.com/zsh-users/zsh-completions.git
+[submodule "zsh/.zsh/lib/zsh-syntax-highlighting"]
+	path = zsh/.zsh/lib/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
