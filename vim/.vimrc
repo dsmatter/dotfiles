@@ -51,10 +51,38 @@ set laststatus=2
 " Show relative line numbers
 set relativenumber
 
-" Hide TAB and EOL markers
-set nolist
-set listchars=tab:▸\ ,trail:·
-"set listchars=tab:\ \ ,trail:·
+" Display invisible characters
+"
+" For utf-8 use the following characters
+"
+"   ▸ for tabs
+"   . for trailing spaces
+"   ¬ for line breaks
+"
+" otherwise, fall back to
+"
+"   > for tabs
+"   . for trailing spaces
+"   - for line breaks
+"
+if &encoding == "utf-8"
+  set list
+  set listchars=tab:▸\ ,trail:.,eol:¬
+else
+  set list
+  set listchars=tab:>\ ,trail:.,eol:-
+endif
+
+" Color invisible characters
+"
+" NonText    affects eol, extends and precedes
+" SpecialKey affects nbsp, tab and trail
+highlight NonText ctermfg=DarkGrey
+highlight SpecialKey ctermfg=DarkGrey
+
+" Color line numbers
+highlight LineNr ctermfg=DarkGrey
+
 
 " Allow hidden buffers
 set hidden
@@ -357,4 +385,3 @@ nnoremap <leader>S :Scratch<CR>
 
 " Toggle listchars
 noremap <leader>l :set list!<CR>
-
