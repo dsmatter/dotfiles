@@ -18,17 +18,30 @@ while getopts fv opt; do
   esac
 done
 
+shift $OPTIND-1
+
 run() {
   test $verbose && echo $*
-  $*
+    $*
 }
 
-for module in *(/); do
+install_module() {
+  local module="$1"
   echo "> In module $module"
 
-  find $module '(' -type f -or -type l ')' '!' -name '.git' -print | while read f; do
+  # Find base path
+  local base="$HOME"
+  if [[ -f $module/.basepath ]]; then
+    base="$(cat $module/.basepath | head -n1)"
+  fi
+
+  # Create symlinks for each file or symlink
+  find $module '(' -type f -or -type l ')' \
+    '!' '(' -name '.git' -or -name '.basepath' ')' -print \
+    | while read f
+  do
     local src=$(pwd)/$f
-    local target=$HOME/${f/$module\//}
+    local target=$base/${f/$module\//}
 
     if [[ -f $target ]]; then
       if [[ ! -z $force ]]; then
@@ -42,4 +55,13 @@ for module in *(/); do
     run mkdir -p $(dirname $target)
     run ln -s "$src" "$target"
   done
-done
+}
+
+if [[ ! -z "$1" ]]; then
+  install_module "$1"
+else
+  for module in *(/); do
+    install_module "$module"
+  done
+fi
+
