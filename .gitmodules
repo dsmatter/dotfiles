@@ -110,3 +110,6 @@
 [submodule "zsh/.zsh/lib/zsh-syntax-highlighting"]
 	path = zsh/.zsh/lib/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "vim/.vim/bundle/powerline"]
+	path = vim/.vim/bundle/powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
