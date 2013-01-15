@@ -48,7 +48,7 @@
 	url = https://github.com/drakeguan/vim-OmniCppComplete.git
 [submodule "vim/.vim/bundle/tagbar"]
 	path = vim/.vim/bundle/tagbar
-	url = https://github.com/timgreen/vim-tagbar.git
+	url = https://github.com/majutsushi/tagbar.git
 [submodule "vim/.vim/bundle/tvo"]
 	path = vim/.vim/bundle/tvo
 	url = https://github.com/vim-scripts/TVO--The-Vim-Outliner.git
