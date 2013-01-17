@@ -120,7 +120,7 @@ set mouse=a
 set wrap
 set textwidth=79
 set formatoptions=qn1
-set colorcolumn=80
+"set colorcolumn=80
 
 " Highlight characters behind the 80 chars margin
 :au BufWinEnter (*.rb|*.py) let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
@@ -374,3 +374,6 @@ nnoremap <leader>S :Scratch<CR>
 
 " Toggle listchars
 noremap <leader>l :set list!<CR>
+
+" Show color column
+noremap <leader>co :set colorcolumn=80<CR>
