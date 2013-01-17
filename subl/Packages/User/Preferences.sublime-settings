@@ -2,14 +2,16 @@
 	"auto_complete_commit_on_tab": true,
 	"bold_folder_labels": true,
 	"caret_style": "phase",
-	"color_scheme": "Packages/Color Scheme - smattR/LaravelSmatter.tmTheme",
+	"color_scheme": "Packages/User/Color Schemes/Peacock.tmTheme",
+	// "color_scheme": "Packages/Dayle Rees Color Schemes/Peacock.tmTheme",
+	// "color_scheme": "Packages/Color Scheme - smattR/LaravelSmatter.tmTheme",
 	"font_face": "Menlo",
 	"font_size": 14.0,
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"Vintage",
-		"SublimeBlockCursor"
+		"SublimeBlockCursor",
+		"Vintage"
 	],
 	"rulers":
 	[
