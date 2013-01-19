@@ -236,6 +236,10 @@ dev() {
 	tmux new-session \; split-window -v
 }
 
+rmDownloadHistory() {
+  sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'
+}
+
 # Less
 LESSOPEN="|/usr/bin/lesspipe.sh %s"
 export LESSOPEN
