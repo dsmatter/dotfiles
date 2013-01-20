@@ -107,7 +107,8 @@ weckr() {
     sleep ${interval}
   done
 
-  notify Wecker klingelt
+  shift
+  notify Wecker klingelt: $*
 }
 
 att() {
