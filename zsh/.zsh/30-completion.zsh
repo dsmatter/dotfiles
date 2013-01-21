@@ -10,9 +10,14 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 zstyle ':completion:*:cd:*' tag-order local-directories
 
 # Extended completion
-zstyle ':completion:*' completer _complete _approximate:-one _complete:-extended _approximate:-four
+zstyle ':completion:*' completer _complete _complete:-case _approximate:-one _complete:-extended _approximate:-four
+# Case transformation and substring completion afterwards
+zstyle ':completion:*:complete-case:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'l:|=* r:|=*'
+# Correct one error
 zstyle ':completion:*:approximate-one:*' max-errors 1
+# Partial word completion (e.g. f-b => foo-bar)
 zstyle ':completion:*:complete-extended:*' matcher 'r:|[.,_-]=* r:|=*'
+# Correct four errors
 zstyle ':completion:*:approximate-four:*' max-errors 4
 
 # Show completion context
