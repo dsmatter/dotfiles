@@ -246,6 +246,10 @@ openTerminal() {
   end tell"
 }
 
+sshh() {
+  TERM=screen ssh -t $* 'tmux attach || tmux new || screen -DR';
+}
+
 # Less
 LESSOPEN="|/usr/bin/lesspipe.sh %s"
 export LESSOPEN
