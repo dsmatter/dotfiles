@@ -98,7 +98,7 @@ alias mo='sleep 1 && xset dpms force off'
 alias mol='slock && sleep 1 && xset dpms force off'
 alias iown="sudo chown smatter:smatter -R ."
 alias bat="watch cat /proc/acpi/battery/BAT1/state"
-alias zconf="vim \"+set cmdheight=2\" $HOME/.zshrc $HOME/dev/zsh/**/*.zsh"
+alias zconf="vim \"+set cmdheight=2\" $HOME/.zshrc $HOME/.zsh/**/*.zsh"
 alias gg="gpaste"
 alias menubarFix="killall -KILL SystemUIServer"
 
