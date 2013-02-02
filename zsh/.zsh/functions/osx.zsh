@@ -4,3 +4,7 @@ fixOpenWith() {
   killall Finder
   echo "Open With has been rebuilt, Finder will relaunch"
 }
+
+robotsay() {
+  say -v Zarvox $*
+}
