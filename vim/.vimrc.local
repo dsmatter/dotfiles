@@ -266,6 +266,9 @@ let g:yankring_history_dir="~/.vim/cache"
 " === Indent guides config === "
 let g:indent_guides_enable_on_vim_startup=0
 
+" === Disable spellchecking by default === "
+set nospell
+
 " === Key Mappings === "
 
 " Enable Command key
