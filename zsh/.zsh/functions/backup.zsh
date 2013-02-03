@@ -101,9 +101,11 @@ backup_podcasts() {
 }
 
 sync_mails() {
+  local sparkle_dir="$HOME/SparkleShare/Maildir/"
 	if offlineimap; then
     echo 'Rsync to SparkleShare'
-    rsync -r ~/Maildir-daniel-strittmatter/* ~/SparkleShare/Maildir/
+    rsync -r ~/Maildir-daniel-strittmatter/* $sparkle_dir
+    (cd $sparkle_dir && git push smserver master)
 		notify_libnotify Mails synced
 	else
 		notify_libnotify Mail sync failed
