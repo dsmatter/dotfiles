@@ -22,7 +22,7 @@ shift $OPTIND-1
 
 run() {
   test $verbose && echo $*
-    $*
+  $*
 }
 
 install_module() {
@@ -52,7 +52,7 @@ install_module() {
       fi
     fi
 
-    run mkdir -p $(dirname $target)
+    run mkdir -p "$(dirname $target)"
     run ln -s "$src" "$target"
   done
 }
