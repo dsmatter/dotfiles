@@ -105,7 +105,7 @@ sync_mails() {
 	if offlineimap; then
     echo 'Rsync to SparkleShare'
     rsync -r ~/Maildir-daniel-strittmatter/* $sparkle_dir
-    (cd $sparkle_dir && git push smserver master)
+    (cd $sparkle_dir && sleep 10 && git push smserver master)
 		notify_libnotify Mails synced
 	else
 		notify_libnotify Mail sync failed
