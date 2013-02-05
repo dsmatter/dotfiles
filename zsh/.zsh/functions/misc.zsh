@@ -264,8 +264,13 @@ send2kindle() {
 
   file_path="$1"
   file_name="$(basename $file_path)"
+  local subject="hello"
+  if [[ ${file_name:e} == "pdf" ]]; then
+    echo "Using convert option"
+    subject="convert"
+  fi
   scp $file_path smt:/tmp
-  ssh smt "echo have fun | mutt -s hello -a \"/tmp/${file_name}\" -- $mail_addr && rm \"/tmp/${file_name}\""
+  ssh smt "echo have fun | mutt -s $subject -a \"/tmp/${file_name}\" -- $mail_addr && rm \"/tmp/${file_name}\""
 }
 
 # Less
