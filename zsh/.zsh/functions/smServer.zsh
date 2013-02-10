@@ -84,3 +84,9 @@ smVlc() {
 	curl "http://smserver:8080/requests/status.xml?command=in_play&input=${url}"
 }
 
+# Wake smServer
+wolSmServer() {}
+  wol c8:60:00:6d:cf:e9
+  curl -L "http://pi.smatterling.de/api/wol/smServer?token=$PISERVER_TOKEN"
+}
+
