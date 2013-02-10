@@ -85,8 +85,8 @@ smVlc() {
 }
 
 # Wake smServer
-wolSmServer() {}
-  wol c8:60:00:6d:cf:e9
+wolSmServer() {
+  wol "c8:60:00:6d:cf:e9"
   curl -L "http://pi.smatterling.de/api/wol/smServer?token=$PISERVER_TOKEN"
 }
 
