@@ -213,18 +213,19 @@ gistsearch () {
 
 	gista -l | egrep -i $* | while read l; do
 		gists[i]="$(echo $l | cut -d' ' -f1)"
-		echo "$i > $l"
+		echo "$i > $l" >&2
 		(( i = i + 1 ))
 	done
 
 	if (( i > 1)); then
-		echo -n "Choice: "
+		echo -n "Choice: " >&2
 		read ans
 
+    [[ -z $ans ]] && ans=1
 		if (( ans > 0 && ans < i )); then
 			gista -f ${gists[ans]}
 		else
-			echo "Not in range..."
+			echo "Not in range..." &>2
 			return 1
 		fi
 	fi
