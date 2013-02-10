@@ -85,7 +85,6 @@ alias rcd="sudo rc.d"
 alias fu="fusermount -u"
 alias ssh="TERM=screen ssh"
 
-alias wolSmServer="wol c8:60:00:6d:cf:e9"
 alias syncTime='sudo ntpdate ntp1.lrz-muenchen.de'
 alias xconf="sudo vim /etc/X11/xorg.conf"
 alias rmpkg="rm *.pkg.tar.gz"
