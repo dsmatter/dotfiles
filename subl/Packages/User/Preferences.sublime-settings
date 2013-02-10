@@ -1,8 +1,14 @@
 {
+	"alignment_chars":
+	[
+		"=",
+		":"
+	],
 	"auto_complete_commit_on_tab": true,
 	"bold_folder_labels": true,
 	"caret_style": "phase",
-	"color_scheme": "Packages/Color Scheme - smattR/LaravelSmatter.tmTheme",
+	"color_scheme": "Packages/User/Color Schemes/Peacock.tmTheme",
+	"fade_fold_buttons": false,
 	"font_face": "Menlo",
 	"font_size": 14.0,
 	"highlight_line": true,
@@ -11,17 +17,14 @@
 		"Vintage",
 		"SublimeBlockCursor"
 	],
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
 	"rulers":
 	[
 		80
 	],
-	"line_padding_bottom": 1,
-	"line_padding_top": 1,
-	"fade_fold_buttons": false,
-	"bold_folder_labels": true,
 	"scroll_past_end": true,
 	"tab_size": 2,
 	"theme": "Phoenix Dark.sublime-theme",
-	"translate_tabs_to_spaces": true,
-	"alignment_chars": ["=", ":"]
+	"translate_tabs_to_spaces": true
 }
