@@ -33,5 +33,4 @@ export MPD_HOST=smServer
 export MPD_PORT=6600
 
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$ZSH_HOME/lib/zsh-syntax-highlighting/highlighters"
-export GISTA_TOKEN="bacb7d50da941c6501543aa4ce8c6ff72a0e9f20"
 export GOPATH="$HOME/dev/go/mygo"
