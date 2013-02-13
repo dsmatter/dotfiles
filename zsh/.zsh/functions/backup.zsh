@@ -97,7 +97,7 @@ backup_dbs() {
 }
 
 backup_podcasts() {
-	ssh smserver 'cd /tank/Backup/daniel/media/podcasts && ./export_tar.sh' > $HOME/Dropbox/backups/podcasts-$(date +"%Y%m%d%H%M").tar
+	ssh smserver 'cd /jet/podcasts && ./export_tar.sh' > $HOME/Dropbox/backups/podcasts-$(date +"%Y%m%d%H%M").tar
 }
 
 sync_mails() {

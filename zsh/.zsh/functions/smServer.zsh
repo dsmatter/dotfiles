@@ -41,9 +41,14 @@ umountSmServer() {
 	done
 }
 
+remountSmServer() {
+  umountSmServer
+  mountSmServer
+}
+
 # Show and prompt the most recent podcast files on the server
 pods() {
-	local podcast_dir=/media/smServer/Backup/daniel/media/podcasts
+	local podcast_dir=/media/smJet/podcasts
   local days=7
 
 	# Test user passed $days as an argument
