@@ -69,7 +69,7 @@ pods() {
 		-mtime -${days}d -print0 | xargs -0 ls -at | while read line
 	do
     file_array=($file_array $line)
-    echo "[${c}] $(basename ${line})"
+    echo "[${c}] $(basename "$(dirname ${line})")/$(basename ${line})"
     (( c = c + 1 ))
   done
 
