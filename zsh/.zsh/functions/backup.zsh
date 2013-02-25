@@ -93,7 +93,7 @@ backup_duplicity() {
 }
 
 backup_dbs() {
-	ssh smt 'cd /srv/db && tar cz *.db' | gpg -er high > $HOME/Dropbox/backups/dbs-$(date +"%Y%m%d%H%M").tar.gz.gpg
+	ssh smt 'cd /srv/db && tar cz *.db *.sqlite3' | gpg -er high > $HOME/Dropbox/backups/dbs-$(date +"%Y%m%d%H%M").tar.gz.gpg
 }
 
 backup_podcasts() {
