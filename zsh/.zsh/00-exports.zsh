@@ -34,3 +34,5 @@ export MPD_PORT=6600
 
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$ZSH_HOME/lib/zsh-syntax-highlighting/highlighters"
 export GOPATH="$HOME/dev/go/mygo"
+export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent:4559:1"
+
