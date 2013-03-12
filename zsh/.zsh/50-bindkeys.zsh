@@ -46,6 +46,15 @@ bindkey -M viins '^X' push-line-or-edit
 # Completion debugging
 bindkey '' _complete_help
 
+# Increase any number in the line
+_increase_number() {
+  local -a match mbegin mend
+  [[ $LBUFFER =~ '([0-9]+)[^0-9]*$' ]] &&
+  LBUFFER[mbegin,mend]=$(printf %0${#match[1]}d $((10#$match+${NUMERIC:-1})))
+}
+zle -N increase-number _increase_number
+bindkey '^A' increase-number
+
 # Pasting the prompt makes it disappear
 # That's a non-breaking space
 nbsp=$'\u00A0'
