@@ -46,6 +46,11 @@ bindkey -M viins '^X' push-line-or-edit
 # Completion debugging
 bindkey '' _complete_help
 
+# Pasting the prompt makes it disappear
+# That's a non-breaking space
+nbsp=$'\u00A0'
+bindkey -s $nbsp '^u'
+
 # fooling around
 #bindkey -s 'ss ' 'sudo '
 
