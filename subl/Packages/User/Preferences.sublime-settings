@@ -8,6 +8,7 @@
 	"bold_folder_labels": true,
 	"caret_style": "phase",
 	"color_scheme": "Packages/User/Color Schemes/Peacock.tmTheme",
+	"dictionary": "Packages/Language - German/de_DE_frami.dic",
 	"fade_fold_buttons": false,
 	"font_face": "Menlo",
 	"font_size": 13.0,
@@ -26,7 +27,5 @@
 	"scroll_past_end": true,
 	"tab_size": 2,
 	"theme": "Phoenix Dark.sublime-theme",
-	"dictionary": "Packages/Language - English/en_US.dic",
-	"dictionary": "Packages/Language - German/de_DE_frami.dic",
 	"translate_tabs_to_spaces": true
 }
