@@ -80,7 +80,6 @@ alias weg='setImStatus weg'
 alias grepc="grep --color "
 alias pg="ps aux | grep -v grep | grep -i"
 alias px="ps auxf"
-alias cs="conf_sync"
 alias rcd="sudo rc.d"
 alias fu="fusermount -u"
 alias ssh="TERM=screen ssh"
