@@ -36,3 +36,4 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$ZSH_HOME/lib/zsh-syntax-highlighting/hig
 export GOPATH="$HOME/dev/go/mygo"
 export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent:4559:1"
 
+export ANDROID_HOME="/usr/local/Cellar/android-sdk/r21.1"
