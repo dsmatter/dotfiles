@@ -55,6 +55,7 @@ alias mx='mplayerx'
 alias mp='echo pause >$HOME/mctl'
 alias n='notify'
 alias s='sudo'
+alias doch='sudo $(fc -ln -1)'
 alias v="vim"
 alias :q='exit'
 alias vipdf='apvlv'
