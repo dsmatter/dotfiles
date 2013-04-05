@@ -274,6 +274,7 @@ send2kindle() {
   ssh smt "echo have fun | mutt -s $subject -a \"/tmp/${file_name}\" -- $mail_addr && rm \"/tmp/${file_name}\""
 }
 
+# Interactively rename files
 imv() {
   local src dst
   for src; do
@@ -282,6 +283,14 @@ imv() {
     vared dst
     [[ $src != $dst ]] && mkdir -p $dst:h && mv -n $src $dst
   done
+}
+
+sb() {
+  if [[ -z "$1" ]]; then
+    subl3 -n .
+  else
+    subl3 $*
+  fi
 }
 
 # Less
