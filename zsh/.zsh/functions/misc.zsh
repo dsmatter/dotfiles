@@ -293,6 +293,12 @@ sb() {
   fi
 }
 
+tm() {
+  tmux-layout $* 2>/dev/null ||
+  tmux-layout $HOME/.tmux-layouts/$1.json 2>/dev/null ||
+  tmux $*
+}
+
 # Less
 LESSOPEN="|/usr/bin/lesspipe.sh %s"
 export LESSOPEN

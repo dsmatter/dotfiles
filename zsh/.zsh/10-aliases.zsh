@@ -61,7 +61,6 @@ alias :q='exit'
 alias vipdf='apvlv'
 alias pdfvi='apvlv'
 alias sup="LD_LIBRARY_PATH=/usr/lib/ruby/gems/1.9.1/gems/xapian-full-1.2.3/lib/ sup"
-alias tm='tmux'
 alias ta='tmux attach'
 alias svi="sudo vim"
 alias ___="source ~/.zshrc && rehash"
