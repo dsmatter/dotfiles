@@ -1,2 +1,3 @@
 Bundle 'custom-colorschemes'
 Bundle 'lukerandall/haskellmode-vim'
+Bundle 'sjl/badwolf'
