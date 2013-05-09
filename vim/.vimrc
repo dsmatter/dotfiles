@@ -134,7 +134,7 @@ set mouse=a
 set wrap
 set textwidth=79
 set formatoptions=qn1
-set colorcolumn=80
+set colorcolumn=100
 
 " Highlight characters behind the 80 chars margin
 :au BufWinEnter (*.rb|*.py) let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
