@@ -48,8 +48,9 @@ remountSmServer() {
 
 # Show and prompt the most recent podcast files on the server
 pods() {
-	local podcast_dir=/media/smJet/podcasts
-  local days=7
+	local local_podcast_dir=/media/smJet/podcasts
+  local remote_podcast_dir=/jet/podcasts
+  local days=14
 
 	# Test user passed $days as an argument
   if [[ ! -z "$1" ]]; then
@@ -64,9 +65,9 @@ pods() {
   local c=1
 
 	# Find the episodes within the $days boundary
-	find $podcast_dir -type f \
-		'(' -iname '*.mp3' -or -iname '*.m4a' -or -iname '*.ogg' ')' \
-		-mtime -${days}d -print0 | xargs -0 ls -at | while read line
+  ssh smserver "find $remote_podcast_dir -type f \
+    '(' -iname '*.mp3' -or -iname '*.m4a' -or -iname '*.ogg' ')' \
+    -mtime -${days}d -print0 | xargs -0 ls -at" | while read line
 	do
     file_array=($file_array $line)
     echo "[${c}] $(basename "$(dirname ${line})")/$(basename ${line})"
@@ -78,7 +79,7 @@ pods() {
   echo -n "Play no > "
   read no
   local toplay="${file_array[${no}]}"
-  mplay $toplay
+  mplay ${toplay/$remote_podcast_dir/$local_podcast_dir}
 }
 
 # Open file in remote VLC
