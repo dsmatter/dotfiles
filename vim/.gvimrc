@@ -11,7 +11,7 @@ set guioptions-=m
 
 " Font settings
 "set guifont=Monaco\ 11
-set guifont=Source\ Code\ Pro:h12
+set guifont=Source\ Code\ Pro:h13
 
 " Disable autochdir in graphical vim (for projects)
 set noautochdir
