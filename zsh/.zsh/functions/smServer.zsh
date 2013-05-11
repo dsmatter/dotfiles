@@ -1,5 +1,5 @@
 sssh() {
-  mosh --ssh "ssh -p 2222" smatter@smattr.de $*
+  ssh -p 2222 smatter@smattr.de $*
 }
 
 ssshx() {
