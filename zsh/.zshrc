@@ -40,4 +40,15 @@ for f in $ZSH_HOME/*.zsh; do
   source $f;
 done
 
+# Always a good read ;)
+if hash fortune; then
+	echo
+	echo ---------------------
+	echo
+	fortune -s
+	echo
+	echo ---------------------
+	echo
+fi
+
 return 0
