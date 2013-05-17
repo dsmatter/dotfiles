@@ -3,6 +3,20 @@ filetype off
 call pathogen#infect()
 filetype plugin indent on
 
+" Vundle settings
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Plugins
+Bundle 'gmarik/vundle'
+Bundle 'mileszs/ack.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'ervandew/supertab'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'vim-scripts/UltiSnips'
+
 " === Global settings === "
 
 " It's 2012
@@ -66,12 +80,11 @@ set relativenumber
 "   - for line breaks
 "
 if &encoding == "utf-8"
-  set list
   set listchars=tab:▸\ ,trail:.,eol:¬
 else
-  set list
   set listchars=tab:>\ ,trail:.,eol:-
 endif
+set nolist
 
 " Color invisible characters
 "
@@ -302,6 +315,8 @@ map <A-l> <C-w>l
 " Mappings for Macvim w/ Command-Key
 map <D-k> <C-w>k
 map <D-j> <C-w>j
+map <D-h> <C-w>h
+map <D-l> <C-w>l
 
 map <D-up> <C-w>k
 map <D-down> <C-w>j
@@ -319,10 +334,6 @@ map <C-d> :bd<CR>
 " Toggle search highlighting
 map <F8> :set hlsearch! hlsearch?<CR>
 map <leader><space> :set hlsearch! hlsearch?<CR>
-
-" Dmenu open dialog
-map <c-t> :call DmenuOpen("tabe")<CR>
-map <c-p> :call DmenuOpen("e")<CR>
 
 " Write files using sudo
 cmap w!! w !sudo tee % >/dev/null
@@ -351,7 +362,7 @@ nnoremap <right> <nop>
 " === Custom <leader> mappings === "
 
 " Build TeX and open viewer
-nmap <Leader>lf :call SyncTexForward()<CR>
+nmap <Leader>ff :call SyncTexForward()<CR>
 
 " Command-T open dialog
 nmap <leader>' :CommandT<CR>
@@ -387,4 +398,11 @@ nnoremap <leader>r :RainbowParenthesesToggle<CR>
 nnoremap <leader>S :Scratch<CR>
 
 " Toggle listchars
-noremap <leader>l :set list!<CR>
+noremap <leader>u :set list!<CR>
+
+" Easier window management
+noremap <leader>w <C-w>
+
+" Map Command-p to Ctrl-p
+map <D-p> <C-p>
+
