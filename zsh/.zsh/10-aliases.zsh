@@ -103,7 +103,7 @@ alias menubarFix="killall -KILL SystemUIServer"
 alias serveHTTP="python -m SimpleHTTPServer"
 
 alias mountRkvm="sshfs rkvm:rootkit /media/rkvm"
-alias sm="mountSmServer"
+alias sm="remountSmServer"
 
 alias androidScreenshot='/home/smatter/dl/apps/androidScreenshot/screenshot'
 alias remember='aloop'
