@@ -16,6 +16,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/UltiSnips'
+Bundle 'jcf/vim-latex'
 
 " === Global settings === "
 
@@ -210,7 +211,7 @@ set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 let g:Tex_DefaultTargetFormat = "pdf"
 let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode --synctex=1 $*'
-let g:Tex_ViewRule_pdf = 'evince'
+let g:Tex_ViewRule_pdf = 'skim'
 
 " === TVO settings === "
 let g:otl_bold_headers = 1
