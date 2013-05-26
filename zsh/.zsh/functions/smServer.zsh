@@ -18,14 +18,13 @@ smlp() {
 
 mountSmServer() {
 	if ! mount | grep -i smserver; then
-		sshfs -p 2222 smatter@smattr.de:/tank /media/smServer
-		sshfs -p 2222 smatter@smattr.de:/jet /media/smJet
+		sshfs -p 2222 smatter@smattr.de:/ /media/smserver
 	fi
 }
 
 umountSmServer() {
 	local -a mpoints
-	mpoints=(/media/smServer /media/smJet)
+	mpoints=(/media/smserver)
 
 	for mpoint in $mpoints; do
 		if mount | grep -i $mpoint; then
@@ -48,8 +47,8 @@ remountSmServer() {
 
 # Show and prompt the most recent podcast files on the server
 pods() {
-	local local_podcast_dir=/media/smJet/podcasts
-  local remote_podcast_dir=/jet/podcasts
+  local remote_podcast_dir=/heaven/podcasts
+	local local_podcast_dir=/media/smserver${remote_podcast_dir}
   local days=14
 
 	# Test user passed $days as an argument
@@ -67,7 +66,7 @@ pods() {
 	# Find the episodes within the $days boundary
   ssh smserver "find $remote_podcast_dir -type f \
     '(' -iname '*.mp3' -or -iname '*.m4a' -or -iname '*.ogg' ')' \
-    -mtime -${days}d -print0 | xargs -0 ls -at" | while read line
+    -mtime -${days} -print0 | xargs -0 ls -at" | while read line
 	do
     file_array=($file_array $line)
     echo "[${c}] $(basename "$(dirname ${line})")/$(basename ${line})"
