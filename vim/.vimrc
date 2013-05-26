@@ -30,7 +30,7 @@ set autoindent
 " Tab settings
 set shiftwidth=2
 set tabstop=2
-set noexpandtab
+set expandtab
 set softtabstop=2
 
 " Set color scheme (theme)
