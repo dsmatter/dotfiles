@@ -299,6 +299,21 @@ tm() {
   tmux $*
 }
 
+lineSelect() {
+  local -a lines
+  local i=0
+  local no
+
+  cat | while read line; do
+    lines=($lines $line)
+    echo "$i $line"
+    (( i += 1 ))
+  done >&2
+  echo -n "Line: " >&2
+  read no </dev/tty
+  echo -n "${lines[$no]}"
+}
+
 # Less
 LESSOPEN="|/usr/bin/lesspipe.sh %s"
 export LESSOPEN
