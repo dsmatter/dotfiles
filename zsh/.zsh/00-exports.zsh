@@ -20,9 +20,10 @@ export BIN_HOME="$HOME/bin"
 export DOC_HOME="$HOME/Documents"
 export MEDIA_HOME="$HOME/dl/media"
 export SMSERVER="$HOME/smserver"
+export GOPATH="$HOME/dev/go/mygo"
 
 #export PATH="${PATH}:$HOME/bin:/opt/java/bin"
-path=(/usr/local/bin /usr/local/sbin $path $HOME/bin /opt/local/bin /usr/local/share/npm/bin $HOME/.cabal/bin)
+path=(/usr/local/bin /usr/local/sbin $path $HOME/bin /opt/local/bin /usr/local/share/npm/bin $HOME/.cabal/bin $GOPATH/bin)
 
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=5000
@@ -33,7 +34,6 @@ export MPD_HOST=smServer
 export MPD_PORT=6600
 
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$ZSH_HOME/lib/zsh-syntax-highlighting/highlighters"
-export GOPATH="$HOME/dev/go/mygo"
 export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent:4559:1"
 
 export ANDROID_HOME="/usr/local/Cellar/android-sdk/r21.1"
