@@ -65,7 +65,7 @@ pods() {
 
 	# Find the episodes within the $days boundary
   ssh smserver "find $remote_podcast_dir -type f \
-    '(' -iname '*.mp3' -or -iname '*.m4a' -or -iname '*.ogg' ')' \
+    '(' -iname '*.mp3' -or -iname '*.m4a' -or -iname '*.ogg' -or -iname '*.oga' ')' \
     -mtime -${days} -print0 | xargs -0 ls -at" | while read line
 	do
     file_array=($file_array $line)
@@ -78,7 +78,7 @@ pods() {
   echo -n "Play no > "
   read no
   local toplay="${file_array[${no}]}"
-  mplay ${toplay/$remote_podcast_dir/$local_podcast_dir}
+  mplay -novideo ${toplay/$remote_podcast_dir/$local_podcast_dir}
 }
 
 # Open file in remote VLC
