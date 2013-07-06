@@ -17,6 +17,7 @@ Bundle 'ervandew/supertab'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/UltiSnips'
 Bundle 'jcf/vim-latex'
+Bundle 'jergason/scala.vim'
 
 " === Global settings === "
 
@@ -321,8 +322,8 @@ map <D-l> <C-w>l
 
 map <D-up> <C-w>k
 map <D-down> <C-w>j
-map <D-left> <C-w>h
-map <D-right> <C-w>l
+map <D-left> :bp<CR>
+map <D-right> :b#<CR>
 
 " Toggle sidebars
 map <F4> :NERDTreeToggle<CR>
