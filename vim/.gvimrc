@@ -3,7 +3,9 @@
 " colorscheme nucolors
 "colorscheme smyck_org
 "colorscheme github
-colorscheme twilight
+"colorscheme twilight
+"colorscheme lucius
+colorscheme rails
 
 " Hide clutter
 set guioptions-=T
