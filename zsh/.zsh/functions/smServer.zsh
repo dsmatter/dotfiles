@@ -97,8 +97,7 @@ wolSmServer() {
 
 merte() {
  cd /media/smserver/hell/temp
- merte.rb $* &
- sleep 10
- smVlc /hell/temp/merte.mp4
+ (sleep 10; smVlc /hell/temp/merte.mp4) &
+ merte.rb $*
 }
 
