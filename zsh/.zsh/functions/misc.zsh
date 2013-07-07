@@ -256,7 +256,7 @@ dashboard() {
 }
 
 send2kindle() {
-  local mail_addr="amazon_68987@kindle.com"
+  local mail_addr="amazon_10697@kindle.com"
 
   if [[ -z $1 ]]; then
     echo "Please provide a file"
@@ -266,7 +266,7 @@ send2kindle() {
   file_path="$1"
   file_name="$(basename $file_path)"
   local subject="hello"
-  if [[ ${file_name:e} == "pdf" ]]; then
+  if [[ ${file_name:e} == "pdf" ]] && [[ $2 != "noconvert" ]]; then
     echo "Using convert option"
     subject="convert"
   fi
