@@ -21,6 +21,7 @@ export DOC_HOME="$HOME/Documents"
 export MEDIA_HOME="$HOME/dl/media"
 export SMSERVER="$HOME/smserver"
 export GOPATH="$HOME/dev/go/mygo"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_21.jdk/Contents/Home"
 
 #export PATH="${PATH}:$HOME/bin:/opt/java/bin"
 path=(/usr/local/bin /usr/local/sbin $path $HOME/bin /opt/local/bin /usr/local/share/npm/bin $HOME/.cabal/bin $GOPATH/bin)
