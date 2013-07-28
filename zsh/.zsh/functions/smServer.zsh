@@ -95,9 +95,7 @@ wolSmServer() {
   curl -L "http://pi.smatterling.de/api/wol/smServer?token=$PISERVER_TOKEN"
 }
 
-merte() {
- cd /media/smserver/hell/temp
- (sleep 10; smVlc /hell/temp/merte.mp4) &
- merte.rb $*
+smerte() {
+  sssh "bin/smerte"
 }
 
