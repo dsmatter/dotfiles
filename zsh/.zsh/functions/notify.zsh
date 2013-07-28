@@ -41,6 +41,11 @@ notify_cow() {
   gnome-terminal --geometry=+630+375 -e "sh -c \"cowsay $* ; figlet $* ; cowthink $* ; read\"" &>/dev/null &|
 }
 
+notify_led() {
+  local color=${1-red}
+  led on_${color}
+}
+
 notify_email() {
   echo $* | mutt -s "Notification from smPc" notify@smattr.de
 }
@@ -54,11 +59,13 @@ notify_() {
     lib) shift; notify_libnotify $* ;;
     cow) shift; notify_cow $* ;;
     mail) shift; notify_email $* ;;
+    led) shift; notify_led $* ;;
     vis) shift; notify_libnotify $*
                 notify_cow $* ;;
     *) notify_sound &
       notify_libnotify $*
-      notify_cow $* ;;
+      notify_cow $*
+      notify_led red ;;
    esac
 }
 
