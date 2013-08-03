@@ -5,7 +5,8 @@
 "colorscheme github
 "colorscheme twilight
 "colorscheme lucius
-colorscheme rails
+"colorscheme rails
+colorscheme darkburn
 
 " Hide clutter
 set guioptions-=T

@@ -37,6 +37,11 @@ set softtabstop=2
 " Set color scheme (theme)
 colorscheme smyck
 "colorscheme ir_black_smatter
+"colorscheme badwolf
+"colorscheme vitamin
+"colorscheme monokai
+"colorscheme bvemu
+"colorscheme darkburn
 
 " Use utf8
 set encoding=utf8
