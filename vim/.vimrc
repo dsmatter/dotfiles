@@ -18,10 +18,14 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/UltiSnips'
 Bundle 'jcf/vim-latex'
 Bundle 'jergason/scala.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'vim-scripts/CycleColor'
+Bundle 'vim-scripts/CSApprox'
 
 " === Global settings === "
 
-" It's 2012
+" It's 2013
 set nocompatible
 
 " Enable indentation
@@ -328,9 +332,10 @@ map <D-l> <C-w>l
 map <D-up> <C-w>k
 map <D-down> <C-w>j
 map <D-left> :bp<CR>
-map <D-right> :b#<CR>
+map <D-right> :bn<CR>
 
 " Toggle sidebars
+nmap <leader>n :NERDTreeToggle<CR>
 map <F4> :NERDTreeToggle<CR>
 map <F3> :TagbarToggle<CR>
 map <F5> :TagbarToggle<CR>:NERDTreeToggle<CR>
@@ -346,7 +351,7 @@ map <leader><space> :set hlsearch! hlsearch?<CR>
 cmap w!! w !sudo tee % >/dev/null
 
 " Use ; as : (i.e. w/o holding SHIFT)
-nnoremap ; :
+"nnoremap ; :
 
 " Jump to matching brackets with TAB
 nnoremap <tab> %
@@ -412,4 +417,16 @@ noremap <leader>w <C-w>
 
 " Map Command-p to Ctrl-p
 map <D-p> <C-p>
+
+" Switch to last buffer
+map <C-e> :e#<CR>
+nmap <leader>e :e#<CR>
+
+" Move around in buffers
+map <C-n> :bn<CR>
+map <C-m> :bp<CR>
+
+map <F5> :CycleColorNext<CR>
+map <F6> :CycleColorPrev<CR>
+
 
