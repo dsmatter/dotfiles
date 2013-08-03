@@ -96,6 +96,6 @@ wolSmServer() {
 }
 
 smerte() {
-  sssh "bin/smerte"
+  sssh "bin/smerte $*"
 }
 
