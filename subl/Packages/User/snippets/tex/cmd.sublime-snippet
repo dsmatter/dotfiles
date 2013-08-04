@@ -1,9 +1,0 @@
-<snippet>
-	<content><![CDATA[
-\begin{cmd}
-$1
-\end{cmd}
-]]></content>
-	<tabTrigger>cmd</tabTrigger>
-	<scope>text.tex</scope>
-</snippet>

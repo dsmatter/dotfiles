@@ -1,7 +1,0 @@
-<snippet>
-	<content><![CDATA[
-\item $1
-]]></content>
-	<tabTrigger>i</tabTrigger>
-	<scope>text.tex</scope>
-</snippet>

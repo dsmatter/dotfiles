@@ -15,7 +15,6 @@ alias ..2="cd ../.."
 alias ..3="cd ../../.."
 alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
-alias bd=". bd -s"
 
 # cp mv rm
 alias cp='cp -v'
@@ -36,28 +35,25 @@ alias gc='git commit'
 
 #apt-get
 alias apt="sudo apt-get"
-alias apdate="sudo apt-get dist-upgrade"
 alias asearch="apt-cache search "
 
 #abbreviations
 alias c="clear"
 alias h="history"
-alias m='mplay'
-alias mx='mplayerx'
+alias m='mplayer'
 alias n='notify'
 alias s='sudo'
 alias doch='sudo $(fc -ln -1)'
 alias v="vim"
 alias :q='exit'
+alias ta='tmux attach'
 alias svi="sudo vim"
 alias ___="source ~/.zshrc && rehash"
 alias xx="gpgOpen"
 alias xxx="f -e"
 alias t="notify lib"
 alias tt="todoUrgent"
-alias pdf="open"
 alias vv="gvim"
-alias dv="dotView"
 
 alias grepc="grep --color "
 alias pg="ps aux | grep -v grep | grep -i"
@@ -67,20 +63,11 @@ alias fu="fusermount -u"
 alias ssh="TERM=screen ssh"
 
 alias syncTime='sudo ntpdate ntp1.lrz-muenchen.de'
-alias xconf="sudo vim /etc/X11/xorg.conf"
-alias rmpkg="rm *.pkg.tar.gz"
-alias pkginstall="p -U *.pkg.tar.gz"
-alias rec='ffmpeg -f x11grab -s 3360x1050 -r 150 -i :0.0 -sameq /tmp/foo.mpg'
-alias screen="TERM=xterm-new screen"
-alias mo='sleep 1 && xset dpms force off'
-alias mol='slock && sleep 1 && xset dpms force off'
-alias iown="sudo chown $(id -nu):$(id -ng) -R ."
+alias iown="sudo chown -R $(id -nu):(id -ng) ."
 alias zconf="vim \"+set cmdheight=2\" $HOME/.zshrc $HOME/.zsh/**/*.zsh"
 alias serveHTTP="python -m SimpleHTTPServer"
 
-alias sm="remountSmServer"
-
-### Things from feh ###
+### Things taken from feh ###
 # Job-Control
 alias 1='fg %1'
 alias 2='fg %2'
