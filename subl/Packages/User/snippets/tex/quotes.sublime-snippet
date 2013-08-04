@@ -1,7 +1,0 @@
-<snippet>
-	<content><![CDATA[
-\enquote{$1} $2
-]]></content>
-	<tabTrigger>q</tabTrigger>
-	<scope>text.tex</scope>
-</snippet>
