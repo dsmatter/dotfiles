@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-alias -g A='| alert'
+alias -g A='; alert'
 alias -g C='$(pbpaste)'
 alias -g E=' 2>/dev/null'
 alias -g EE=' 2>&1'

@@ -1,12 +1,11 @@
 alert() {
   local RET_VAL=$?
   if [[ "$1" == "" ]]; then
-    local CMD=$(history|tail -n1|sed -e 's/^\s*[0-9]\+\s*//;s/;\s*alert//')
+    local CMD="$(history|tail -n1|sed -e 's/^\s*[0-9]\+\s*//;s/;\s*alert//')"
   else
-    local CMD="$@"
+    local CMD="$*"
   fi
-  
-  notify-send -i gnome-terminal -u critical "[${RET_VAL}] ${CMD}" "Finished!"
+  notify lib "Finished: [${RET_VAL}] ${CMD}"
 }
 
 notify_mpd() {
@@ -37,10 +36,6 @@ notify_libnotify() {
   terminal-notifier -message ${TEXT}
 }
 
-notify_cow() {
-  gnome-terminal --geometry=+630+375 -e "sh -c \"cowsay $* ; figlet $* ; cowthink $* ; read\"" &>/dev/null &|
-}
-
 notify_led() {
   local color=${1-red}
   led on_${color}
@@ -50,49 +45,42 @@ notify_email() {
   echo $* | mutt -s "Notification from smPc" notify@smattr.de
 }
 
-notify_() {
+notify() {
   local TYPE=$1
 
   case $TYPE in
     mpd) notify_mpd ;;
     snd) notify_sound ;;
     lib) shift; notify_libnotify $* ;;
-    cow) shift; notify_cow $* ;;
     mail) shift; notify_email $* ;;
     led) shift; notify_led $* ;;
-    vis) shift; notify_libnotify $*
-                notify_cow $* ;;
+    vis) shift; notify_libnotify $* ;;
     *) notify_sound &
       notify_libnotify $*
-      notify_cow $*
       notify_led red ;;
    esac
 }
 
-notify() {
-  [[ -z "$DISPLAY" ]] && getTheEnvs
-  notify_ $*
-}
-
-aloop() {
+# Notify every 30 seconds
+remember() {
   local INTERVAL=30
 
-  if [[ $# -ge 1 ]]; then
+  if [[ $# -gt 1 ]]; then
     INTERVAL=$1
+    shift
   fi
-
-  shift
 
   while true; do
     echo "Alerting in $INTERVAL seconds"
     sleep $INTERVAL
-    alert "Alerting $*"
+    notify "Alerting $*"
   done
 }
 
+# Notifiy after timeout
 weckr() {
   typeset -A units
-  units=(m 60 h 1440)
+  units=(s 1 m 60 h 1440)
 
   [[ $# -eq 0 ]] && return 1
 
@@ -118,6 +106,7 @@ weckr() {
   notify Wecker klingelt: $*
 }
 
+# Notify at specified time
 att() {
   local msg="alert"
   [[ -z $1 ]] && echo "Usage: $0 timestring [msg=${msg}]" && return
@@ -127,6 +116,7 @@ att() {
   echo "zsh -ic \"notify ${msg}\"" | at "${time}"
 }
 
+# Notify via email at specified time
 atm() {
   local msg="alert"
   [[ -z $1 ]] && echo "Usage: $0 timestring [msg=${msg}]" && return

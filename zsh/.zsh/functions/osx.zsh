@@ -8,3 +8,14 @@ fixOpenWith() {
 robotsay() {
   say -v Zarvox $*
 }
+
+rmDownloadHistory() {
+  sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'
+}
+
+openTerminal() {
+  osascript -e "tell app \"Terminal\"
+    do script \"$*\"
+  end tell"
+}
+

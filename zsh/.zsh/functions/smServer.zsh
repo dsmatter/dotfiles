@@ -6,10 +6,6 @@ ssshx() {
   ssh -Y smatter@smServer $*
 }
 
-mixer() {
-  ssshx pavucontrol $*
-}
-
 smlp() {
   fn="$1"
   shift

@@ -10,18 +10,21 @@ mplay() {
   fi
 }
 
+# Stop mplayer using UNIX signals
 mstop() {
   pgrep mplayer | while read pid; do
     kill -STOP $pid
   done
 }
 
+# Resume mplayer using UNIX signals
 mcont() {
   pgrep mplayer | while read pid; do
     kill -CONT $pid
   done
 }
 
+# Play/pause mplayer
 mtoggle() {
   if ps axo state,pid,command | egrep '^T.*s?mplayer' &>/dev/null; then
     # At least one mplayer process is stopped
