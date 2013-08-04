@@ -38,9 +38,6 @@ zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*evince*' file-patterns '*.pdf:PDF\ files'
 zstyle ':completion:*pdf*' file-patterns '*.pdf:PDF\ files'
 
-compdef _pacman powerpill bauerbill clyde p
-compdef _pacman autojump
-
 # Complete dots for parent directories while typing
 rationalise-dot() {
   if [[ $LBUFFER = *.. ]]; then

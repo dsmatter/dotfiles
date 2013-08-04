@@ -12,9 +12,6 @@ export EDITOR=vim
 export PAGER=vimpager
 export BROWSER=chromium
 
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
 export DEVEL_HOME="$HOME/dev"
 export BIN_HOME="$HOME/bin"
 export DOC_HOME="$HOME/Documents"

@@ -1,31 +1,3 @@
-KPDB_PATH='/home/smatter/Documents/secrets/pws.kdb'
-
-getpass() {
-  local what="pass"
-
-  if [[ "$1" == "user" ]] || [[ "$1" == "pass" ]] || [[ "$1" == "dump" ]]; then
-    what=$1
-    shift
-  fi
-
-  keepassc.py open ${KPDB_PATH} dump -f '%(group_name)s/%(title)s|%(username)s|%(password)s' -p | egrep -i "$*" | egrep -i -v "^Backup" |
-  while read l; do
-    echo You chose $(echo $l | awk -F '|' '{print $1}')
-    if [[ "$what" == "dump" ]]; then
-      echo $l
-    elif [[ "$what" == "user" ]]; then
-      echo $l | awk -F '|' '{printf $2}' | xsel
-      echo "User copied to clipboard"
-    else
-      echo $l | awk -F '|' '{printf $3}' | xsel
-      echo "Password copied to clipboard"
-    fi
-    return
-  done
-
-  echo "No such entry found"
-}
-
 bankdata() {
   cd $HOME/.tmp
   local BANKDIR="$HOME/Documents/Bank"
@@ -48,20 +20,6 @@ bankdata() {
   done
   
   rm -rf ${TMPDIR}
-}
-
-mountStick() {
-  sudo cryptsetup luksOpen /dev/sandisk-sec sandisk-sec
-  sudo mount /dev/mapper/sandisk-sec /media/sandisk-sec
-  echo done
-}
-
-mountStickGUI() {
-  getTheEnvs
-  local PW=$(zenity --entry --hide-text --text "Password for sandisk-sec" --title "Password please")
-  echo ${PW} | sudo cryptsetup luksOpen /dev/sandisk-sec sandisk-sec 
-  sudo mount /dev/mapper/sandisk-sec /media/sandisk-sec 
-  echo done
 }
 
 passman_() {
