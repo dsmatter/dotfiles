@@ -19,3 +19,6 @@ openTerminal() {
   end tell"
 }
 
+um() {
+  sudo diskutil umount $*
+}
