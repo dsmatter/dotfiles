@@ -1,4 +1,4 @@
-" Initialize pathogen
+>" Initialize pathogen
 filetype off
 call pathogen#infect()
 filetype plugin indent on
@@ -39,12 +39,12 @@ set expandtab
 set softtabstop=2
 
 " Set color scheme (theme)
-colorscheme smyck
+"colorscheme smyck
 "colorscheme ir_black_smatter
 "colorscheme badwolf
 "colorscheme vitamin
 "colorscheme monokai
-"colorscheme bvemu
+colorscheme bvemu
 "colorscheme darkburn
 
 " Use utf8
