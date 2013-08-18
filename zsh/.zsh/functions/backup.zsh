@@ -6,23 +6,24 @@ backup_duplicity() {
 	read -s pass
 	echo Backing up...
 	if PASSPHRASE=${pass} duplicity ~/dev scp://smatter@smattr.de:2222//safe/Backup/daniel/duplicity/dev; then
-		notify_libnotify "dev synced"
+		#notify_libnotify "dev synced"
 	else
 		notify_libnotify "sync failed!"
 		return 1
 	fi
 	if PASSPHRASE=${pass} duplicity ~/Documents scp://smatter@smattr.de:2222//safe/Backup/daniel/duplicity/Documents; then
-		notify_libnotify "docs synced"
+		#notify_libnotify "docs synced"
 	else
 		notify_libnotify "sync failed!"
 		return 1
 	fi
 	if PASSPHRASE=${pass} duplicity ~/dl/media scp://smatter@smattr.de:2222//safe/Backup/daniel/duplicity/media; then
-		notify_libnotify "media synced"
+		#notify_libnotify "media synced"
 	else
 		notify_libnotify "sync failed!"
 		return 1
 	fi
+  notify_libnotify "sync complete"
 	ulimit -n $old_ulimit
 }
 
