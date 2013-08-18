@@ -22,6 +22,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'vim-scripts/CycleColor'
 Bundle 'vim-scripts/CSApprox'
+Bundle 'gkz/vim-ls'
+Bundle 'vim-scripts/Align'
 
 " === Global settings === "
 
