@@ -1,0 +1,15 @@
+# Base
+dd if=... of=...
+
+# Block size
+bs=
+
+# Number of blocks
+count=
+
+# Seek input
+skip=
+
+# Seek output
+seek=
+
