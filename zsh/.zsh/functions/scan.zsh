@@ -1,4 +1,4 @@
-scan() {
+function scan() {
   local FN=$1
 
   if [[ ! ${FN} =~ pdf$ ]]; then

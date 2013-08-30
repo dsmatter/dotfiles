@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-cfg() {
+function cfg() {
   if [[ -z $1 ]]; then
     echo "Supply at least one of these arguments:"
     for a in grub zsh mirror rc vi gvi offlineimap sup xm; do

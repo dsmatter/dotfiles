@@ -1,4 +1,4 @@
-alert() {
+function alert() {
   local RET_VAL=$?
   if [[ "$1" == "" ]]; then
     local CMD="$(history|tail -n1|sed -e 's/^\s*[0-9]\+\s*//;s/;\s*alert//')"
@@ -45,7 +45,7 @@ notify_email() {
   echo $* | mutt -s "Notification from smPc" notify@smattr.de
 }
 
-notify() {
+function notify() {
   local TYPE=$1
 
   case $TYPE in
@@ -62,7 +62,7 @@ notify() {
 }
 
 # Notify every 30 seconds
-remember() {
+function remember() {
   local INTERVAL=30
 
   if [[ $# -gt 1 ]]; then
@@ -78,7 +78,7 @@ remember() {
 }
 
 # Notifiy after timeout
-weckr() {
+function weckr() {
   typeset -A units
   units=(s 1 m 60 h 1440)
 
@@ -107,7 +107,7 @@ weckr() {
 }
 
 # Notify at specified time
-att() {
+function att() {
   local msg="alert"
   [[ -z $1 ]] && echo "Usage: $0 timestring [msg=${msg}]" && return
   local time="$1"
@@ -117,7 +117,7 @@ att() {
 }
 
 # Notify via email at specified time
-atm() {
+function atm() {
   local msg="alert"
   [[ -z $1 ]] && echo "Usage: $0 timestring [msg=${msg}]" && return
   local time="$1"

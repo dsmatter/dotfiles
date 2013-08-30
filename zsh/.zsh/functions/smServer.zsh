@@ -1,24 +1,24 @@
-sssh() {
+function sssh() {
   ssh -p 2222 smatter@smattr.de $*
 }
 
-ssshx() {
+function ssshx() {
   ssh -Y smatter@smServer $*
 }
 
-smlp() {
+function smlp() {
   fn="$1"
   shift
   cat $fn | sssh /usr/local/bin/lp $*
 }
 
-mountSmServer() {
+function mountSmServer() {
 	if ! mount | grep -i smserver; then
 		sshfs -p 2222 smatter@smattr.de:/ /media/smserver
 	fi
 }
 
-umountSmServer() {
+function umountSmServer() {
 	local -a mpoints
 	mpoints=(/media/smserver)
 
@@ -36,13 +36,13 @@ umountSmServer() {
 	done
 }
 
-remountSmServer() {
+function remountSmServer() {
   umountSmServer
   mountSmServer
 }
 
 # Show and prompt the most recent podcast files on the server
-pods() {
+function pods() {
   local remote_podcast_dir=/heaven/podcasts
 	local local_podcast_dir=/media/smserver${remote_podcast_dir}
   local days=14
@@ -78,7 +78,7 @@ pods() {
 }
 
 # Open file in remote VLC
-smVlc() {
+function smVlc() {
 	# URL encode the argument
 	local url="$(ruby -e "require \"open-uri\"; puts URI::encode(\"${1}\")")"
 	# Ask the remote VLC to play the file
@@ -86,12 +86,12 @@ smVlc() {
 }
 
 # Wake smServer
-wolSmServer() {
+function wolSmServer() {
   wol "c8:60:00:6d:cf:e9"
   curl -L "http://pi.smatterling.de/api/wol/smServer?token=$PISERVER_TOKEN"
 }
 
-smerte() {
+function smerte() {
   sssh "bin/smerte $*"
 }
 
