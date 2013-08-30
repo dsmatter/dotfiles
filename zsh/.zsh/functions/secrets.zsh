@@ -1,4 +1,4 @@
-bankdata() {
+function bankdata() {
   cd $HOME/.tmp
   local BANKDIR="$HOME/Documents/Bank"
   local TMPDIR=`mktemp -d bankdata`
@@ -44,11 +44,11 @@ passman_() {
   gpg --no-use-agent -r "high" -a -o ${PASSFILE} -e ${TMPFILE} 
 }
 
-passman() {
+function passman() {
 	zsh -ic "passman_ $*"
 }
 
-gpgAll() {
+function gpgAll() {
   find . -type f ! -name "*.gpg" -exec gpg -r high -e {} ';'
   echo -n "done. Wanna delete unencrypted files? [y/N] > "
   if read -q; then
@@ -56,15 +56,15 @@ gpgAll() {
   fi
 }
 
-gpgDecAll() {
+function gpgDecAll() {
   gpg --decrypt-files **/*.gpg
 }
 
-showPwDialog() {
+function showPwDialog() {
 	osascript -e 'Tell application "System Events" to display dialog "Password:" default answer "" with hidden answer' -e 'text returned of result'
 }
 
-genpasswd() {
+function genpasswd() {
 	local l=$1
 	[[ "$l" == "" ]] && l=16
 	tr -dc 'A-Za-z0-9_' < /dev/urandom | head -c ${l} | xargs

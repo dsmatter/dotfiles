@@ -1,5 +1,5 @@
 # Use g as an intelligent git alias
-g() {
+function g() {
 	if [[ $# -eq 0 ]]; then
 		git status --short -b
 	elif [[ "$1" == "ppick" ]]; then

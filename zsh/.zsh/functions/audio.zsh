@@ -1,6 +1,6 @@
 # Wraps mplayer process in order to pause/resume
 # using UNIX signals
-mplay() {
+function mplay() {
   local -a cmd
   cmd=(wrapCmd mplayer -af scaletempo $*)
   if [[ -t 0 ]]; then
@@ -11,21 +11,21 @@ mplay() {
 }
 
 # Stop mplayer using UNIX signals
-mstop() {
+function mstop() {
   pgrep mplayer | while read pid; do
     kill -STOP $pid
   done
 }
 
 # Resume mplayer using UNIX signals
-mcont() {
+function mcont() {
   pgrep mplayer | while read pid; do
     kill -CONT $pid
   done
 }
 
 # Play/pause mplayer
-mtoggle() {
+function mtoggle() {
   if ps axo state,pid,command | egrep '^T.*s?mplayer' &>/dev/null; then
     # At least one mplayer process is stopped
     mcont
@@ -35,7 +35,7 @@ mtoggle() {
 }
 
 # Play/pause mplayer processes (if any) or MPD
-musicToggle() {
+function musicToggle() {
 	if pg mplayer &>/dev/null; then
     mtoggle
   else
@@ -45,7 +45,7 @@ musicToggle() {
 
 # Play the most recent audio file in the current directory
 # (useful for podcast dirs)
-ml() {
+function ml() {
 	local fn="$(command ls -t | egrep '(mp3|mp4|m4a|m4v|wmv|mkv|avi|ogg|flac|opus)$' | head -n1)"
 	echo "Playing $fn"
 	mplay $fn

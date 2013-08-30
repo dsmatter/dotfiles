@@ -1,19 +1,19 @@
-dumpasx() {
+function dumpasx() {
   mplayer -dumpstream -playlist $*
 }
 
-getVideoLink() {
+function getVideoLink() {
   sudo tcpflow -c | egrep --color 'mp4|flv|f4v|asx|rtmp'
 }
 
-dumpFlash() {
+function dumpFlash() {
   local FPID=$(ps ax | grep npviewer | grep -v grep | awk '{ print $1 }' | head -n1)
   find /proc/${FPID}/fd -lname "*deleted*" | while read l; do
     ls -al $l
   done
 }
 
-screencast() {
+function screencast() {
   local fn="/tmp/out.mpg"
   if [[ "$1" != "" ]]; then
     fn="$1"

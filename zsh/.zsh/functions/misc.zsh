@@ -6,7 +6,7 @@ function cdmkdir {
 }
 
 # Extract archives
-extract() {
+function extract() {
   if [ -f $1 ]; then
     case $1 in
       *.tar.bz2)        tar xvjf $1     ;;
@@ -28,7 +28,7 @@ extract() {
 }
 
 # Change to containing directory if file argument is given
-cd() {
+function cd() {
   [[ -z "$1" ]] && builtin cd && return
   local dest="$1"
   [[ -f "$dest" ]] && dest="$(dirname $dest)"
@@ -36,57 +36,57 @@ cd() {
 }
 
 # Hook function
-chpwd() {
+function chpwd() {
   [[ -t 1 ]] || return
   command ls -a
 }
 
 # Download URL in clipboard
-getit() {
+function getit() {
   aria2c $(pbpaste)
 }
 
-minimalPrompt() {
+function minimalPrompt() {
   PS1="$ "
   clear
 }
 
 # Fuzzy find in current directory
-findhere() {
+function findhere() {
   local what="$1"
   shift
   find . -iname "*${what}*" $*
 }
 
-scpunihp() {
+function scpunihp() {
   scp $1 uni:../home_page/html-data/$2
   echo "http://home.in.tum.de/~strittma/${2}/${1}"
 }
 
 # Match line with regex and return the content of the first group
-sgrep() {
+function sgrep() {
   cat | perl -ne "print \"\$1\\n\" if $1"
 }
 
-beep() {
+function beep() {
   echo -n "\07"
 }
 
-google() {
+function google() {
   chromium "http://www.google.de/search?q=$*"
 }
 
-pdfmerge() {
+function pdfmerge() {
   command gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=finished.pdf $*
 }
 
-pdfgrayscale() {
+function pdfgrayscale() {
   command gs -sOutputFile=grayscale.pdf -sDEVICE=pdfwrite -sColorConversionStrategy=Gray -dProcessColorModel=/DeviceGray -dCompatibilityLevel=1.4 -dNOPAUSE -dBATCH $*
 
 }
 
 # Open argument or current directory
-x() {
+function x() {
   if [[ $# -eq 0 ]]; then
     open . &>/dev/null &|
   else
@@ -95,7 +95,7 @@ x() {
 }
 
 # Nice df layout
-df() {
+function df() {
   if [[ -z "$*" ]]; then
     command df -h | column -t
   else
@@ -103,7 +103,7 @@ df() {
   fi
 }
 
-matrix() {
+function matrix() {
   tr -c "[:digit:]" " " < /dev/urandom | dd cbs=$COLUMNS conv=unblock | GREP_COLOR="1;32" grep --color "[^ ]"
 }
 
@@ -113,7 +113,7 @@ spectrum_ls() {
   done
 }
 
-dotView() {
+function dotView() {
   if [[ -z $1 ]]; then
     echo "Usage: $0 dotfile [options]"
     exit 1
@@ -123,20 +123,20 @@ dotView() {
   dot -Tpng -o /tmp/${fn:t:r}.png $fn $* && open /tmp/${fn:t:r}.png
 }
 
-workflowy2otl() {
+function workflowy2otl() {
 	sed -e 's/^\(\s*\)-/\1/' -e 's/  /\t/g' $*
 }
 
-sshh() {
+function sshh() {
   TERM=screen ssh -t $* 'tmux attach || tmux new || screen -DR';
 }
 
-dashboard() {
+function dashboard() {
   tmux new-session \; send-keys "cd ~/.hubble && hubble" "C-m" \; split-window -v \; send-keys "while true; do clear; lsof -i -nP | grep -i establish | awk '{print \$1\" \"\$9}'; sleep 10; done" "C-m" \; split-window -h \; send-keys "ssh smserver 'while true; do echo -----------------------------; lsof -i -nP | grep -i listen | sort -u; sleep 10; done'" "C-m"
 }
 
 # Send document to kindle email address
-send2kindle() {
+function send2kindle() {
   local mail_addr="amazon_10697@kindle.com"
 
   if [[ -z $1 ]]; then
@@ -156,7 +156,7 @@ send2kindle() {
 }
 
 # Interactively rename files
-imv() {
+function imv() {
   local src dst
   for src; do
     [[ -e $src ]] || { print -u2 "$src does not exist"; continue }
@@ -166,7 +166,7 @@ imv() {
   done
 }
 
-sb() {
+function sb() {
   if [[ -z "$1" ]]; then
     subl3 -n .
   else
@@ -174,7 +174,7 @@ sb() {
   fi
 }
 
-tm() {
+function tm() {
   tmux-layout $* 2>/dev/null ||
   tmux-layout $HOME/.tmux-layouts/$1.json 2>/dev/null ||
   tmux $*
@@ -184,7 +184,7 @@ function ta() {
   tmux attach $* || tm $*
 }
 
-lineSelect() {
+function lineSelect() {
   local -a lines
   local i=0
   local no
