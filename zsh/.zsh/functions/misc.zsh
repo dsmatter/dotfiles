@@ -180,6 +180,10 @@ tm() {
   tmux $*
 }
 
+function ta() {
+  tmux attach $* || tm $*
+}
+
 lineSelect() {
   local -a lines
   local i=0
