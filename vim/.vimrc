@@ -1,4 +1,4 @@
->" Initialize pathogen
+" Initialize pathogen
 filetype off
 call pathogen#infect()
 filetype plugin indent on
