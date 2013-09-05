@@ -115,4 +115,4 @@
 	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule "vim/.vim/snippets"]
 	path = vim/.vim/snippets
-	url = git://github.com/honza/vim-snippets.git
+	url = git://github.com/dsmatter/vim-snippets.git
