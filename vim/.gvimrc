@@ -2,11 +2,14 @@
 " colorscheme ir_black_smatter
 " colorscheme nucolors
 "colorscheme smyck_org
-"colorscheme github
+colorscheme github
 "colorscheme twilight
 "colorscheme lucius
 "colorscheme rails
-colorscheme darkburn
+"colorscheme darkburn
+"colorscheme codeschool
+"colorscheme gruvbox
+"colorscheme Slime
 
 " Hide clutter
 set guioptions-=T
