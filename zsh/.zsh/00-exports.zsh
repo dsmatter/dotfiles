@@ -37,3 +37,6 @@ export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent:4559:1"
 export ANDROID_HOME="/usr/local/Cellar/android-sdk/r21.1"
 
 export GISTY_DIR="$HOME/dev/gists"
+
+export SBT_OPTS=-XX:MaxPermSize=256m
+
