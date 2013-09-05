@@ -24,6 +24,7 @@ Bundle 'vim-scripts/CycleColor'
 Bundle 'vim-scripts/CSApprox'
 Bundle 'gkz/vim-ls'
 Bundle 'vim-scripts/Align'
+Bundle 'morhetz/gruvbox'
 
 " === Global settings === "
 
