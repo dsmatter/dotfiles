@@ -10,5 +10,5 @@ set_theme() {
 }
 
 # Use set_theme function to select a theme
-set_theme smatter
+set_theme star
 
