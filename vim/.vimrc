@@ -13,7 +13,6 @@ Bundle 'mileszs/ack.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
-Bundle 'ervandew/supertab'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/UltiSnips'
 Bundle 'jcf/vim-latex'
@@ -25,6 +24,9 @@ Bundle 'vim-scripts/CSApprox'
 Bundle 'gkz/vim-ls'
 Bundle 'vim-scripts/Align'
 Bundle 'morhetz/gruvbox'
+Bundle 'vim-scripts/a.vim'
+Bundle 'vim-scripts/refactor'
+Bundle 'Valloric/YouCompleteMe'
 
 " === Global settings === "
 
@@ -200,6 +202,10 @@ set tags+=~/.vim/tags/gtk-3.0
 " Build tags of your own project with Ctrl-F12
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
+" === Syntastic === "
+"let g:syntastic_cpp_compiler = 'clang++'
+"let g:syntastic_cpp_compiler_options = ' -std=c++11 '
+
 " === SLIME === "
 let g:slime_target = "tmux"
 
@@ -215,6 +221,7 @@ let OmniCpp_MayCompleteDot = 1 " autocomplete after .
 let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
 let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+
 " Automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
@@ -236,9 +243,10 @@ endfunction
 
 " === UltiSnips settings === "
 
- let g:UltiSnipsExpandTrigger="<tab>"
- let g:UltiSnipsJumpForwardTrigger="<tab>"
- let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsExpandTrigger="<c-j>"
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<tab>"
+"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 
 " === Remove trailing spaces === "
@@ -303,6 +311,9 @@ au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 
 " === Yankring config === "
 let g:yankring_history_dir="~/.vim/cache"
+
+"=== YCM config === "
+let g:ycm_extra_conf_globlist = ["~/.ycm_extra_conf.py"]
 
 " === Key Mappings === "
 
