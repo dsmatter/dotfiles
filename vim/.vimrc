@@ -27,6 +27,7 @@ Bundle 'morhetz/gruvbox'
 Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/refactor'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'vim-scripts/buffergrep'
 
 " === Global settings === "
 
