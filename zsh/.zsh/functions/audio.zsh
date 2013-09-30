@@ -46,7 +46,7 @@ function musicToggle() {
 # Play the most recent audio file in the current directory
 # (useful for podcast dirs)
 function ml() {
-	local fn="$(command ls -t | egrep '(mp3|mp4|m4a|m4v|wmv|mkv|avi|ogg|flac|opus)$' | head -n1)"
+	local fn="$(command ls -t | egrep '(mp3|mp4|m4a|m4v|wmv|mkv|avi|ogg|oga|flac|opus)$' | head -n1)"
 	echo "Playing $fn"
 	mplay $fn
 }
