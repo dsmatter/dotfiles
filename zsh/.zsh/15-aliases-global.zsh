@@ -2,6 +2,7 @@
 
 alias -g A='; alert'
 alias -g C='$(pbpaste)'
+alias -g CC='| pbcopy'
 alias -g E=' 2>/dev/null'
 alias -g EE=' 2>&1'
 alias -g G='| egrep -i --color'
