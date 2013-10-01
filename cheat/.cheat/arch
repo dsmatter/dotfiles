@@ -1,0 +1,38 @@
+# Static IP with systemd
+# (https://wiki.archlinux.org/index.php/Static_IP_and_DHCP#Static_IP_address)
+
+# /etc/conf.d/network@<interface>
+address=192.168.0.15
+netmask=24
+broadcast=192.168.0.255
+gateway=192.168.0.1
+
+# /etc/systemd/system/network@.service
+[Unit]
+Description=Network connectivity (%i)
+Wants=network.target
+Before=network.target
+BindsTo=sys-subsystem-net-devices-%i.device
+After=sys-subsystem-net-devices-%i.device
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+EnvironmentFile=/etc/conf.d/network@%i
+
+ExecStart=/usr/bin/ip link set dev %i up
+ExecStart=/usr/bin/ip addr add ${address}/${netmask} broadcast ${broadcast} dev %i
+ExecStart=/usr/bin/ip route add default via ${gateway}
+
+ExecStop=/usr/bin/ip addr flush dev %i
+ExecStop=/usr/bin/ip link set dev %i down
+
+[Install]
+WantedBy=multi-user.target
+
+# Disable DHCP
+systemctl disable dhcpcd@eth0
+
+# Enable static IP
+systemctl enable network@eth0
+
