@@ -444,4 +444,13 @@ map <C-m> :bp<CR>
 map <F5> :CycleColorNext<CR>
 map <F6> :CycleColorPrev<CR>
 
+" Umlauts
+inoremap ;;a ä
+inoremap ;;A Ä
+inoremap ;;o ö
+inoremap ;;O Ö
+inoremap ;;u ü
+inoremap ;;U Ü
+inoremap ;;s ß
+
 
