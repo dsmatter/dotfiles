@@ -18,9 +18,9 @@ set guioptions-=r
 set guioptions-=m
 
 " Font settings
-set guifont=Monaco:h13
+set guifont=Monaco:h14
 "set guifont=Menlo:h14
-"set guifont=Source\ Code\ Pro:h15
+"set guifont=Source\ Code\ Pro:h14
 "set guifont=Inconsolata-g:h14
 "set guifont=Hermit:h14
 
