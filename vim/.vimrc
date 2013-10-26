@@ -453,4 +453,6 @@ inoremap ;;u ü
 inoremap ;;U Ü
 inoremap ;;s ß
 
+" Copy file to clipboard
+map <leader>cp :!cat % \| pbcopy<CR>
 
