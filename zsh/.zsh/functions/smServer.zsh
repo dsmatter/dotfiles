@@ -95,3 +95,7 @@ function smerte() {
   sssh "bin/smerte $*"
 }
 
+function bt() {
+  sssh "zsh -ic 'bt $*'"
+}
+
