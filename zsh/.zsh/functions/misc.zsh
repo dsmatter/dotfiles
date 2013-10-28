@@ -199,6 +199,10 @@ function lineSelect() {
   echo -n "${lines[$no]}"
 }
 
+function scratch() {
+  mvim $HOME/Documents/scratch
+}
+
 # Less
 LESSOPEN="|/usr/bin/lesspipe.sh %s"
 export LESSOPEN

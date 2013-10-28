@@ -40,6 +40,7 @@ alias apdate="sudo apt-get dist-upgrade"
 alias asearch="apt-cache search "
 
 #abbreviations
+alias sc="scratch"
 alias c="clear"
 alias h="history"
 alias m='mplay'
