@@ -445,13 +445,13 @@ map <F5> :CycleColorNext<CR>
 map <F6> :CycleColorPrev<CR>
 
 " Umlauts
-inoremap ;;a ä
-inoremap ;;A Ä
-inoremap ;;o ö
-inoremap ;;O Ö
-inoremap ;;u ü
-inoremap ;;U Ü
-inoremap ;;s ß
+inoremap ,,a ä
+inoremap ,,A Ä
+inoremap ,,o ö
+inoremap ,,O Ö
+inoremap ,,u ü
+inoremap ,,U Ü
+inoremap ,,s ß
 
 " Copy file to clipboard
 map <leader>cp :!cat % \| pbcopy<CR>
