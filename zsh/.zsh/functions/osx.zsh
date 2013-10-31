@@ -22,3 +22,8 @@ function openTerminal() {
 function um() {
   sudo diskutil umount $*
 }
+
+function getpw() {
+  security 2>&1 >/dev/null find-generic-password -ga $* | sgrep '/password: "(.+)"/'
+}
+

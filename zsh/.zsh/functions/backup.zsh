@@ -1,9 +1,7 @@
 backup_duplicity() {
 	local old_ulimit="$(ulimit -n)"
-	local pass
+  local pass="$(getpw Duplicity)"
 	ulimit -n 2048
-	echo -n "Enter GPG passphrase: "
-	read -s pass
 	echo Backing up...
 	if PASSPHRASE=${pass} duplicity ~/dev scp://smatter@smattr.de:2222//safe/Backup/daniel/duplicity/dev; then
 		#notify_libnotify "dev synced"
