@@ -37,7 +37,14 @@ function mtoggle() {
 # Play/pause mplayer processes (if any) or MPD
 function musicToggle() {
 	if pg mplayer &>/dev/null; then
-    mtoggle
+     # There is a mplayer process
+
+     if mpc | grep playing; then
+       # MPC is playing => prefer pausing it
+       mpc toggle
+     else
+      mtoggle
+    fi
   else
     mpc toggle
   fi
