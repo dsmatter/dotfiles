@@ -9,7 +9,7 @@ function ssshx() {
 function smlp() {
   fn="$1"
   shift
-  cat $fn | sssh /usr/local/bin/lp $*
+  cat $fn | sssh /usr/bin/lp $*
 }
 
 function mountSmServer() {
