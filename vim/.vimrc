@@ -26,7 +26,9 @@ Bundle 'vim-scripts/Align'
 Bundle 'morhetz/gruvbox'
 Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/refactor'
-Bundle 'Valloric/YouCompleteMe'
+Bundle 'vim-scripts/buffergrep'
+Bundle 'ervandew/supertab'
+Bundle 'lukerandall/haskellmode-vim'
 
 " === Global settings === "
 
@@ -305,6 +307,9 @@ let line = getline (".")
 let line = matchstr (line, "\\(http://\\|www\\)[^ ,;\t]*")
 exec "!open ".line
 endfunction
+
+" === Haskell === "
+let g:haddock_browser = "open"
 
 " === Handling of crontabs === "
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
