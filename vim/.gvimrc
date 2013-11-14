@@ -1,6 +1,6 @@
 " Colorscheme
 " colorscheme ir_black_smatter
-" colorscheme nucolors
+colorscheme nucolors
 "colorscheme smyck_org
 "colorscheme github
 "colorscheme twilight
@@ -8,7 +8,7 @@
 "colorscheme rails
 "colorscheme darkburn
 "colorscheme codeschool
-colorscheme gruvbox
+"colorscheme gruvbox
 "colorscheme Slime
 
 " Hide clutter
