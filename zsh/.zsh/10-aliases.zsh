@@ -59,6 +59,7 @@ alias tt="todoUrgent"
 alias pdf="open"
 alias vv="gvim"
 alias dv="dotView"
+alias tma="tmux attach -d -t"
 
 alias grepc="grep --color "
 alias pg="ps aux | grep -v grep | grep -i"
