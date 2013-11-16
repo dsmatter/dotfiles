@@ -54,6 +54,7 @@ alias xxx="f -e"
 alias t="notify lib"
 alias tt="todoUrgent"
 alias vv="gvim"
+alias tma="tmux attach -d -t"
 
 alias grepc="grep --color "
 alias pg="ps aux | grep -v grep | grep -i"
