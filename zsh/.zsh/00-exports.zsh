@@ -1,6 +1,7 @@
 #!/bin/zsh 
 
 export LANG="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 export COLORTERM=yes
 export TERM="xterm-256color"
 export DIRSTACKSIZE=10
