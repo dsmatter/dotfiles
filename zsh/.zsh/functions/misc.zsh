@@ -210,8 +210,13 @@ function vm() {
     pause  ) shift; local vm=$1; shift; VBoxManage controlvm $vm pause $* ;;
     resume ) shift; local vm=$1; shift; VBoxManage controlvm $vm resume $* ;;
     save   ) shift; local vm=$1; shift; VBoxManage controlvm $vm savestate $* ;;
+    disk   ) shift; VBoxManage internalcommands createrawvmdk -filename ${2-raw.vmdk} -rawdisk $1 ;;
     *      ) shift; VBoxManage $*
   esac
+}
+
+function trailingWhitespace() {
+  sed -i '' -E "s/[[:space:]]*$//" $*
 }
 
 # Less
