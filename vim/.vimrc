@@ -402,8 +402,8 @@ nmap <leader>' :CommandT<CR>
 " Toggle spell check
 map <leader>s :set spell!<CR>
 
-" Open "Ottl Outline" in new tab
-map <leader>t :tabedit ~/Dropbox/Apps/OTL\ Outliner/todo.otl<CR>
+" Strip trailing whitespace
+map <leader>t :%s/\s\+$//e<CR>
 
 " Open link in line
 map <Leader>www :call Browser()<CR>
