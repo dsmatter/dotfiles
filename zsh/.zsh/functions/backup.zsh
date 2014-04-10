@@ -22,6 +22,8 @@ backup_duplicity() {
 backup_dbs() {
 	ssh smt 'cd /srv/db && tar cz *.db *.sqlite3' | gpg -er high > $HOME/Dropbox/backups/dbs-$(date +"%Y%m%d%H%M").tar.gz.gpg
   ssh smt 'cd /var/lib && sudo -u couchdb tar cz couchdb' | gpg -er high > $HOME/Dropbox/backups/couchdb-$(date +"%Y%m%d%H%M").tar.gz.gpg
+  cd $HOME/Dropbox/backups
+  ./clean.rb | xargs rm
 }
 
 backup_podcasts() {

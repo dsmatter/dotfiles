@@ -13,7 +13,7 @@ function smlp() {
 }
 
 function mountSmServer() {
-	if ! mount | grep -i smserver; then
+	if ! mount | grep -i /media/smserver; then
 		sshfs -p 2222 smatter@smattr.de:/ /media/smserver
 	fi
 }
