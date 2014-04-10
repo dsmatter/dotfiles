@@ -1,0 +1,3 @@
+# Enable at daemon
+launchctl load -w /System/Library/LaunchDaemons/com.apple.atrun.plist
+
