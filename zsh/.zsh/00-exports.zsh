@@ -21,7 +21,7 @@ export SMSERVER="$HOME/smserver"
 export GOPATH="$HOME/dev/go/mygo"
 
 #export PATH="${PATH}:$HOME/bin:/opt/java/bin"
-path=(/usr/local/bin /usr/local/sbin $path $HOME/bin /opt/local/bin /usr/local/share/npm/bin $HOME/.cabal/bin $GOPATH/bin)
+path=(/usr/local/bin /usr/local/sbin $path $HOME/bin /opt/local/bin /usr/local/share/npm/bin $HOME/.cabal/bin $GOPATH/bin $HOME/Library/Haskell/bin)
 
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=5000
