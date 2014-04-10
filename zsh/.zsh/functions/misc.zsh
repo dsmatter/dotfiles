@@ -186,7 +186,7 @@ function ta() {
 
 function lineSelect() {
   local -a lines
-  local i=0
+  local i=1
   local no
 
   cat | while read line; do
