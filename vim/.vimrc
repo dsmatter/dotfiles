@@ -29,6 +29,8 @@ Bundle 'vim-scripts/refactor'
 Bundle 'vim-scripts/buffergrep'
 Bundle 'ervandew/supertab'
 Bundle 'lukerandall/haskellmode-vim'
+Bundle 'nelstrom/vim-markdown-folding'
+Bundle 'chriskempson/base16-vim'
 
 " === Global settings === "
 
@@ -156,7 +158,7 @@ set incsearch
 syntax on
 filetype on
 filetype plugin indent on
-autocmd BufRead,BufNewFile syntax on 
+autocmd BufRead,BufNewFile syntax on
 
 " Enable the mouse
 set mouse=a
@@ -191,7 +193,7 @@ autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,
 " Completion
 if has("autocmd")
 	autocmd FileType python set complete+=k/home/smatter/.vim/pydiction-0.5/pydiction isk+=.,(
-endif 
+endif
 
 " === Tags settings === "
 " Add additional tags here or comment out not-used ones
@@ -417,7 +419,7 @@ inoremap jj <ESC>
 nnoremap <leader>w <C-w>v<C-w>l
 
 " Start search with ack
-nnoremap <leader>a :Ack\ 
+nnoremap <leader>a :Ack\
 
 " Show yankring
 nnoremap <leader>y :YRShow<CR>
