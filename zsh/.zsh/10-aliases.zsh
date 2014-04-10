@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+alias jenni="echo '√(-1) 2^3 ∑ π'"
+
 # ls
 alias l="command ls -al -G -F"
 alias ll="command ls -l -G -F"
@@ -40,7 +42,9 @@ alias apdate="sudo apt-get dist-upgrade"
 alias asearch="apt-cache search "
 
 #abbreviations
-alias sc="scratch"
+alias dut="sudo diskutil"
+alias sc="scratch vim"
+alias scc="scratch mvim"
 alias c="clear"
 alias h="history"
 alias m='mplay'

@@ -200,7 +200,10 @@ function lineSelect() {
 }
 
 function scratch() {
-  mvim $HOME/Documents/scratch
+  local scratchfile="$HOME/Documents/scratch"
+  local prog="$1"
+  shift
+  $prog $scratchfile $*
 }
 
 function vm() {
