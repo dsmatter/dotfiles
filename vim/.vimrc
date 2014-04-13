@@ -32,6 +32,7 @@ Bundle 'ervandew/supertab'
 Bundle 'lukerandall/haskellmode-vim'
 Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'chriskempson/base16-vim'
+Bundle 'dsmatter/vim-snippets'
 
 " === Global settings === "
 
