@@ -1,7 +1,5 @@
 #!/bin/zsh
 
-alias jenni="echo '√(-1) 2^3 ∑ π'"
-
 # ls
 alias l="command ls -al -G -F"
 alias ll="command ls -l -G -F"
