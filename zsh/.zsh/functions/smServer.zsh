@@ -14,7 +14,11 @@ function smlp() {
 
 function mountSmServer() {
 	if ! mount | grep -i /media/smserver; then
-		sshfs -p 2222 smatter@smattr.de:/ /media/smserver
+    if ping -c1 smserver &>/dev/null; then
+      sshfs smserver:/ /media/smserver
+    else
+      sshfs -p 2222 smatter@smattr.de:/ /media/smserver
+    fi
 	fi
 }
 
