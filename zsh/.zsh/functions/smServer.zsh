@@ -1,9 +1,9 @@
 function sssh() {
-  ssh -p 2222 smatter@smattr.de $*
-}
-
-function ssshx() {
-  ssh -Y smatter@smServer $*
+  if ping -c1 smserver &>/dev/null; then
+    ssh smserver $*
+  else
+    ssh -p 2222 smatter@smattr.de $*
+  fi;
 }
 
 function smlp() {
