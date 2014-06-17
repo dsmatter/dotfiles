@@ -8,40 +8,60 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " Plugins
+
+" Essential
 Bundle 'gmarik/vundle'
-Bundle 'mileszs/ack.vim'
 Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdcommenter'
+
+" Sidebars
 Bundle 'scrooloose/nerdtree'
-Bundle 'kchmck/vim-coffee-script'
+Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/Gundo'
+
+" External Tools
+Bundle 'Shougo/vimproc.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'jgdavey/tslime.vim'
+Bundle 'vim-scripts/buffergrep'
+
+" Text Manipulation
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-scripts/UltiSnips'
+Bundle 'dsmatter/vim-snippets'
+Bundle 'ervandew/supertab'
+Bundle 'vim-scripts/Align'
+Bundle 'godlygeek/tabular'
+
+" Language Support
+Bundle 'scrooloose/syntastic'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'jcf/vim-latex'
 Bundle 'jergason/scala.vim'
-Bundle 'scrooloose/syntastic'
+Bundle 'gkz/vim-ls'
+Bundle 'vim-scripts/a.vim'
+Bundle 'nelstrom/vim-markdown-folding'
+Bundle 'eagletmt/neco-ghc'
+Bundle 'eagletmt/ghcmod-vim'
+Bundle 'Twinside/vim-hoogle'
+Bundle 'travitch/hasksyn'
+Bundle 'begriffs/vim-haskellConceal'
+"Bundle 'lukerandall/haskellmode-vim'
+
+" Fancy
+Bundle 'bling/vim-airline'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'vim-scripts/CycleColor'
 Bundle 'vim-scripts/CSApprox'
-Bundle 'gkz/vim-ls'
-Bundle 'vim-scripts/Align'
 Bundle 'morhetz/gruvbox'
-Bundle 'vim-scripts/a.vim'
-Bundle 'vim-scripts/refactor'
-"Bundle 'Valloric/YouCompleteMe'
-Bundle 'vim-scripts/buffergrep'
-Bundle 'ervandew/supertab'
-Bundle 'lukerandall/haskellmode-vim'
-Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'chriskempson/base16-vim'
 Bundle 'w0ng/vim-hybrid'
-Bundle 'dsmatter/vim-snippets'
 
 " === Global settings === "
 
-" It's 2013
+" It's 2014
 set nocompatible
 
 " Enable indentation
-"set cindent
 set autoindent
 
 " Tab settings
@@ -88,26 +108,21 @@ set laststatus=2
 " Show relative line numbers
 set relativenumber
 
-" Display invisible characters
-"
-" For utf-8 use the following characters
-"
-"   ▸ for tabs
-"   . for trailing spaces
-"   ¬ for line breaks
-"
-" otherwise, fall back to
-"
-"   > for tabs
-"   . for trailing spaces
-"   - for line breaks
-"
+" Disable error bell
+set noerrorbells
+
+" Don't reset the cursor when moving around
+set nostartofline
+
+" Dont' show intro message, other abbrevs
+set shortmess=atI
+
 if &encoding == "utf-8"
-  set listchars=tab:▸\ ,trail:.,eol:¬
+  set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_
 else
   set listchars=tab:>\ ,trail:.,eol:-
 endif
-set nolist
+set list
 
 " Color invisible characters
 "
@@ -172,31 +187,12 @@ set textwidth=79
 set formatoptions=qn1
 set colorcolumn=100
 
-" Highlight characters behind the 80 chars margin
-:au BufWinEnter (*.rb|*.py) let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-
-" === Apply .vimrc on write === "
-"if has("autocmd")
-	"autocmd BufWritePost .vimrc source $MYVIMRC
-	"autocmd BufWritePost .gvimrc source $MYGVIMRC
-"endif
-
 " === SuperTab === "
 "let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 " === MinBufExplorer settings === "
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplUseSingleClick = 1
-
-" === Python settings === "
-" Identation
-autocmd BufRead,BufNewFile *.py set ai
-autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-
-" Completion
-if has("autocmd")
-	autocmd FileType python set complete+=k/home/smatter/.vim/pydiction-0.5/pydiction isk+=.,(
-endif
 
 " === Tags settings === "
 " Add additional tags here or comment out not-used ones
@@ -213,117 +209,34 @@ map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 "let g:syntastic_cpp_compiler = 'clang++'
 "let g:syntastic_cpp_compiler_options = ' -std=c++11 '
 
-" === SLIME === "
-let g:slime_target = "tmux"
-
-" === Taglist === "
-let Tlist_Display_Prototype = 0
-
-" === OmniCppComplete settings === "
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-
-" Automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview
-
-" === LaTeX settings === "
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor = "latex"
-let g:Tex_DefaultTargetFormat = "pdf"
-let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode --synctex=1 $*'
-let g:Tex_ViewRule_pdf = 'skim'
-
-" === TVO settings === "
-let g:otl_bold_headers = 1
-
-function! SyncTexForward()
-		 let execstr = 'silent! !okular --unique %<.pdf\#src:'.line('.').expand("%").' &'
-		 exec execstr
-endfunction
-
 " === UltiSnips settings === "
 
-let g:UltiSnipsExpandTrigger="<c-j>"
-"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsExpandTrigger="<tab>"
 "let g:UltiSnipsJumpForwardTrigger="<tab>"
 "let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-
 " === Remove trailing spaces === "
 fun! <SID>StripTrailingWhitespaces()
-	let l = line(".")
-	let c = col(".")
-	%s/\s\+$//e
-	call cursor(l, c)
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
 endfun
-
-" === Rainbow parenthesis === "
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-
-
-" === Xiki === "
-"let $XIKI_DIR = "~/.rvm/gems/ruby-1.9.3-p194/gems/xiki-0.6.3"
-"source ~/.rvm/gems/ruby-1.9.3-p194/gems/xiki-0.6.3/etc/vim/xiki.vim
-
-" === Dmenu fuzzy search === "
-function! Chomp(str)
-	return substitute(a:str, '\n$', '', '')
-endfunction
-
-function! DmenuOpen(cmd)
-	let fname = Chomp(system("git ls-files | dmenu -i -l 20 -p " . a:cmd))
-	if empty(fname)
-		return
-	endif
-	execute a:cmd . " " . fname
-endfunction
-
-" === Powerline === "
-let g:Powerline_symbols = 'fancy'
 
 " === Link support === "
 function! Browser ()
-let line = getline (".")
-"let line = matchstr (line, "\%(http://\|www\.\)[^ ,;\t]*")
-let line = matchstr (line, "\\(http://\\|www\\)[^ ,;\t]*")
-exec "!open ".line
+  let line = getline (".")
+  "let line = matchstr (line, "\%(http://\|www\.\)[^ ,;\t]*")
+  let line = matchstr (line, "\\(http://\\|www\\)[^ ,;\t]*")
+  exec "!open ".line
 endfunction
 
-" === Haskell === "
-let g:haddock_browser = "open"
-
-" === Handling of crontabs === "
-au BufEnter /private/tmp/crontab.* setl backupcopy=yes
+" Airline theme
+let g:airline_theme = "wombat"
 
 " === Yankring config === "
 let g:yankring_history_dir="~/.vim/cache"
-
-"=== YCM config === "
-let g:ycm_extra_conf_globlist = ["~/.ycm_extra_conf.py"]
 
 " === Key Mappings === "
 
@@ -341,45 +254,24 @@ map <leader>k <C-w>k
 map <leader>j <C-w>j
 map <leader>h <C-w>h
 map <leader>l <C-w>l
-
-map <A-k> <C-w>k
-map <A-j> <C-w>j
-map <A-h> <C-w>h
-map <A-l> <C-w>l
-
-" Mappings for Macvim w/ Command-Key
 map <D-k> <C-w>k
 map <D-j> <C-w>j
 map <D-h> <C-w>h
 map <D-l> <C-w>l
 
-map <D-up> <C-w>k
-map <D-down> <C-w>j
-map <D-left> :bp<CR>
-map <D-right> :bn<CR>
-
 " Toggle sidebars
 nmap <leader>n :NERDTreeToggle<CR>
-map <F4> :NERDTreeToggle<CR>
-map <F3> :TagbarToggle<CR>
-map <F5> :TagbarToggle<CR>:NERDTreeToggle<CR>
+nmap <leader>b :TagbarToggle<CR>
+nmap <leader>g :TagbarToggle<CR>:NERDTreeToggle<CR>
 
 " Destroy current buffer
 map <C-d> :bd<CR>
 
 " Toggle search highlighting
-map <F8> :set hlsearch! hlsearch?<CR>
 map <leader><space> :set hlsearch! hlsearch?<CR>
 
 " Write files using sudo
 cmap w!! w !sudo tee % >/dev/null
-
-" Use ; as : (i.e. w/o holding SHIFT)
-"nnoremap ; :
-
-" Jump to matching brackets with TAB
-nnoremap <tab> %
-vnoremap <tab> %
 
 " j and k jump screen lines
 nnoremap j gj
@@ -390,51 +282,37 @@ nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
-"inoremap <up> <nop>
-"inoremap <down> <nop>
-"inoremap <left> <nop>
-"inoremap <right> <nop>
-
-" === Custom <leader> mappings === "
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
 
 " Build TeX and open viewer
 nmap <Leader>ff :call SyncTexForward()<CR>
-
-" Command-T open dialog
-nmap <leader>' :CommandT<CR>
 
 " Toggle spell check
 map <leader>s :set spell!<CR>
 
 " Strip trailing whitespace
-map <leader>t :%s/\s\+$//e<CR>
+map <leader>tw :%s/\s\+$//e<CR>
 
 " Open link in line
 map <Leader>www :call Browser()<CR>
-
-" Clear trailing spaces
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-
-" Exit insert mode with jj
-inoremap jj <ESC>
 
 " Create new vertical split and switch to it
 nnoremap <leader>w <C-w>v<C-w>l
 
 " Start search with ack
-nnoremap <leader>a :Ack\
+nnoremap <leader>a :Ack 
 
 " Show yankring
 nnoremap <leader>y :YRShow<CR>
-
-" Show rainbow parenthesis
-nnoremap <leader>r :RainbowParenthesesToggle<CR>
 
 "Show scratch space
 nnoremap <leader>S :Scratch<CR>
 
 " Toggle listchars
-noremap <leader>u :set list!<CR>
+noremap <leader>lc :set list!<CR>
 
 " Easier window management
 noremap <leader>w <C-w>
@@ -443,8 +321,10 @@ noremap <leader>w <C-w>
 map <D-p> <C-p>
 
 " Switch to last buffer
-map <C-e> :e#<CR>
 nmap <leader>e :e#<CR>
+
+" Copy file to clipboard
+map <leader>cp :!cat % \| pbcopy<CR>
 
 " Move around in buffers
 map <C-n> :bn<CR>
@@ -461,7 +341,4 @@ inoremap ,,O Ö
 inoremap ,,u ü
 inoremap ,,U Ü
 inoremap ,,s ß
-
-" Copy file to clipboard
-map <leader>cp :!cat % \| pbcopy<CR>
 
