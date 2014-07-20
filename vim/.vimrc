@@ -17,6 +17,7 @@ call vundle#rc()
 " Essential
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-repeat'
 
 " Sidebars
 Bundle 'scrooloose/nerdtree'
@@ -29,14 +30,19 @@ Bundle 'mileszs/ack.vim'
 Bundle 'jgdavey/tslime.vim'
 Bundle 'vim-scripts/buffergrep'
 
-" Text Manipulation
+" Coding Helpers
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'kien/rainbow_parentheses.vim'
+
+" Text Manipulation
 Bundle 'vim-scripts/UltiSnips'
 Bundle 'dsmatter/vim-snippets'
 Bundle 'ervandew/supertab'
 Bundle 'Shougo/neocomplete'
 Bundle 'vim-scripts/Align'
 Bundle 'godlygeek/tabular'
+Bundle 'Lokaltog/vim-easymotion'
 
 " Language Support
 Bundle 'scrooloose/syntastic'
@@ -51,6 +57,7 @@ Bundle 'eagletmt/ghcmod-vim'
 Bundle 'Twinside/vim-hoogle'
 Bundle 'travitch/hasksyn'
 Bundle 'begriffs/vim-haskellConceal'
+Bundle 'raichoo/purescript-vim'
 "Bundle 'lukerandall/haskellmode-vim'
 
 " Fancy
@@ -173,6 +180,9 @@ set wrap
 set textwidth=79
 set formatoptions=qn1
 set colorcolumn=100
+
+" Make crontab -e work
+au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 
 " }}}
 " Indentation {{{
@@ -331,6 +341,32 @@ let g:airline_theme = "wombat"
 let g:yankring_history_dir="~/.vim/cache"
 
 " }}}
+" {{{ Rainbow Parathesis
+
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" }}}
 
 " }}}
 " Misc Functions {{{ 
@@ -401,6 +437,9 @@ nnoremap <leader>sp :set spell!<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>tt :TagbarToggle<CR>
 nnoremap <leader>g :TagbarToggle<CR>:NERDTreeToggle<CR>
+
+" Toggle rainbow parathesis
+noremap <leader>rp :RainbowParenthesesToggle<CR>
 " }}}
 " Misc Functions {{{
 " Copy file to clipboard
