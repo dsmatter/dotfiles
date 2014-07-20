@@ -62,6 +62,7 @@ alias pdf="open"
 alias vv="gvim"
 alias dv="dotView"
 alias tma="tmux attach -d -t"
+alias jj="marks_jump"
 
 alias grepc="grep --color "
 alias pg="ps aux | grep -v grep | grep -i"
