@@ -35,6 +35,20 @@ function cd() {
   builtin cd $dest
 }
 
+# Change to subdirectory
+function scd {
+  local matches="$(find . -type d -iname "$1")"
+  local match_count="$(echo $matches | wc -l)"
+  if [[ -z $matches ]]; then
+    echo "No match found"
+    return 1
+  elif [[ $match_count -eq 1 ]]; then
+    cd "$(echo $matches | head -n1)"
+  else
+    cd "$(echo $matches | lineSelect)"
+  fi
+}
+
 # Hook function
 function chpwd() {
   [[ -t 1 ]] || return
@@ -190,8 +204,9 @@ function lineSelect() {
   local no
 
   cat | while read line; do
+    [[ -z $line ]] && continue
     lines=($lines $line)
-    echo "$i $line"
+    echo "[$i] $line"
     (( i += 1 ))
   done >&2
   echo -n "Line: " >&2
