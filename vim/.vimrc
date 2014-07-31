@@ -237,6 +237,8 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:SuperTabDefaultCompletionType = "<C-X><C-P>"
 set completeopt+=longest
 
+let g:neocomplete#disable_auto_complete = 1
+
 " }}}
 " Alignment {{{
 
