@@ -1,0 +1,8 @@
+#compdef cheat
+
+_cheat() {
+  for f in $(ls ~/.cheat); do
+    compadd $f
+  done
+}
+_cheat "$@"
