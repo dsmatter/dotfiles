@@ -1,0 +1,18 @@
+[user]
+	name = Daniel Strittmatter
+	email = daniel@smattr.de
+[alias]
+  co = checkout
+  cob = checkout -b
+  wip = !git add -u && git commit -m "WIP" 
+  undo = reset HEAD~1 --mixed
+  ci = commit
+  k = gui
+  cp = cherry-pick
+  s = status -uno
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+  ec = config -global -e
+[color]
+  ui = auto
+[push]
+	default = current
