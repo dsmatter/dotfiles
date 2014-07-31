@@ -1,0 +1,3 @@
+# Uninstall package from sandbox
+cabal sandbox hc-pkg -- unregister package
+
