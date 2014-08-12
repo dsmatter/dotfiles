@@ -1,0 +1,2 @@
+# Ignore file modes
+git config core.fileMode false
