@@ -17,3 +17,4 @@ function g() {
 	fi
 }
 
+compdef g=git
