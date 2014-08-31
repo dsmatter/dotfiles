@@ -1,3 +1,7 @@
+" vim: fdm=marker
+
+" Essentials {{{
+
 " Initialize pathogen
 filetype off
 call pathogen#infect()
@@ -7,60 +11,84 @@ filetype plugin indent on
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" Plugins
+" }}}
+" Plugins {{{
+
+" Essential
 Bundle 'gmarik/vundle'
-Bundle 'mileszs/ack.vim'
 Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-repeat'
+
+" Sidebars
 Bundle 'scrooloose/nerdtree'
-Bundle 'kchmck/vim-coffee-script'
+Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/Gundo'
+
+" External Tools
+Bundle 'Shougo/vimproc.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'jgdavey/tslime.vim'
+Bundle 'vim-scripts/buffergrep'
+
+" Coding Helpers
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'kien/rainbow_parentheses.vim'
+
+" Text Manipulation
 Bundle 'vim-scripts/UltiSnips'
+Bundle 'dsmatter/vim-snippets'
+Bundle 'ervandew/supertab'
+Bundle 'Shougo/neocomplete'
+Bundle 'vim-scripts/Align'
+Bundle 'godlygeek/tabular'
+Bundle 'Lokaltog/vim-easymotion'
+
+" Language Support
+Bundle 'scrooloose/syntastic'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'jcf/vim-latex'
 Bundle 'jergason/scala.vim'
-Bundle 'scrooloose/syntastic'
+Bundle 'gkz/vim-ls'
+Bundle 'vim-scripts/a.vim'
+Bundle 'nelstrom/vim-markdown-folding'
+Bundle 'eagletmt/neco-ghc'
+Bundle 'eagletmt/ghcmod-vim'
+Bundle 'Twinside/vim-hoogle'
+Bundle 'travitch/hasksyn'
+Bundle 'begriffs/vim-haskellConceal'
+Bundle 'raichoo/haskell-vim'
+Bundle 'raichoo/purescript-vim'
+Bundle 'nbouscal/vim-stylish-haskell'
+Bundle 'eagletmt/neco-ghc'
+Bundle 'Twinside/vim-hoogle'
+"Bundle 'lukerandall/haskellmode-vim'
+
+" Fancy
+Bundle 'bling/vim-airline'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'vim-scripts/CycleColor'
 Bundle 'vim-scripts/CSApprox'
-Bundle 'gkz/vim-ls'
-Bundle 'vim-scripts/Align'
 Bundle 'morhetz/gruvbox'
-Bundle 'vim-scripts/a.vim'
-Bundle 'vim-scripts/refactor'
-Bundle 'vim-scripts/buffergrep'
-Bundle 'ervandew/supertab'
-Bundle 'lukerandall/haskellmode-vim'
-Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'chriskempson/base16-vim'
-Bundle 'dsmatter/vim-snippets'
+Bundle 'w0ng/vim-hybrid'
 
-" === Global settings === "
+" }}}
+" {{{ General Settings
 
-" It's 2013
+" It's 2014
 set nocompatible
 
-" Enable indentation
-"set cindent
-set autoindent
-
-" Tab settings
-set shiftwidth=2
-set tabstop=2
-set expandtab
-set softtabstop=2
-
-" Set color scheme (theme)
-"colorscheme smyck
-"colorscheme ir_black_smatter
-"colorscheme badwolf
-"colorscheme vitamin
-"colorscheme monokai
-colorscheme bvemu
-"colorscheme darkburn
+" We're on a virtual terminal, right?
+set ttyfast
+"
+" Don't redraw while executing macros
+set lazyredraw
 
 " Use utf8
 set encoding=utf8
 
-" Keep some context around cursor
+" Keep some context around the cursor
 set scrolloff=3
 
 " Status bar
@@ -69,13 +97,15 @@ set showcmd
 
 " Improved Completion
 set wildmenu
-set wildmode=list:longest
+set wildmode=list:longest,full
+set wildignore=*.o,*.pyc,.git\*,.hg\*,.svn\*
+
+" Backspace behaviour
+set backspace=eol,start,indent
+set whichwrap+=<,>,[,]
 
 " Highlight cursor line
 set cursorline
-
-" We're on a virtual terminal, right?
-set ttyfast
 
 " Show line and column number
 set ruler
@@ -86,37 +116,22 @@ set laststatus=2
 " Show relative line numbers
 set relativenumber
 
-" Display invisible characters
-"
-" For utf-8 use the following characters
-"
-"   ▸ for tabs
-"   . for trailing spaces
-"   ¬ for line breaks
-"
-" otherwise, fall back to
-"
-"   > for tabs
-"   . for trailing spaces
-"   - for line breaks
-"
+" Disable error bell
+set noerrorbells
+set vb t_vb=
+
+" Don't reset the cursor when moving around
+set nostartofline
+
+" Dont' show intro message, other abbrevs
+set shortmess=atI
+
 if &encoding == "utf-8"
-  set listchars=tab:▸\ ,trail:.,eol:¬
+  set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_
 else
   set listchars=tab:>\ ,trail:.,eol:-
 endif
-set nolist
-
-" Color invisible characters
-"
-" NonText    affects eol, extends and precedes
-" SpecialKey affects nbsp, tab and trail
-highlight NonText ctermfg=DarkGrey
-highlight SpecialKey ctermfg=DarkGrey
-
-" Color line numbers
-highlight LineNr ctermfg=DarkGrey
-
+set list
 
 " Allow hidden buffers
 set hidden
@@ -128,11 +143,15 @@ set showmatch
 set ignorecase
 set smartcase
 
+" Enable instant search highlighting
+set nohlsearch
+set incsearch
+
 " Use short messages to avoid 'press enter' dialogs
 set shortmess=atToO
 
-" Change working directory to the current file's
-set autochdir
+" Don't change working directory to the current file's
+set noautochdir
 
 " Large history and undo buffer
 set undofile
@@ -140,22 +159,18 @@ set undodir=~/.vim/undo
 set history=1000
 set undolevels=1000
 
-" Change window title
-set title
-
 " Don't use backup files like in the 70's
 set nobackup
 set noswapfile
+
+" Change window title
+set title
 
 " Turn off VIM's crazy RegEx behaviour in search
 nnoremap / /\v
 vnoremap / /\v
 
-" Enable instant search highlighting
-set nohlsearch
-set incsearch
-
-" Enable syntax highlighting
+" Always enable syntax highlighting
 syntax on
 filetype on
 filetype plugin indent on
@@ -170,99 +185,181 @@ set textwidth=79
 set formatoptions=qn1
 set colorcolumn=100
 
-" Highlight characters behind the 80 chars margin
-:au BufWinEnter (*.rb|*.py) let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+" Make crontab -e work
+au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 
-" === Apply .vimrc on write === "
-"if has("autocmd")
-	"autocmd BufWritePost .vimrc source $MYVIMRC
-	"autocmd BufWritePost .gvimrc source $MYGVIMRC
-"endif
+" }}}
+" Indentation {{{
 
-" === SuperTab === "
-"let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+set autoindent
+set smartindent
+set shiftwidth=2
+set tabstop=2
+set expandtab
+set softtabstop=2
 
-" === MinBufExplorer settings === "
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplUseSingleClick = 1
+" }}}
+" Color scheme {{{
 
-" === Python settings === "
-" Identation
-autocmd BufRead,BufNewFile *.py set ai
-autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+"colorscheme smyck
+"colorscheme ir_black_smatter
+"colorscheme badwolf
+"colorscheme vitamin
+"colorscheme monokai
+colorscheme bvemu
+"colorscheme darkburn
 
-" Completion
-if has("autocmd")
-	autocmd FileType python set complete+=k/home/smatter/.vim/pydiction-0.5/pydiction isk+=.,(
+" Color invisible characters
+" NonText    affects eol, extends and precedes
+" SpecialKey affects nbsp, tab and trail
+highlight NonText ctermfg=DarkGrey
+highlight SpecialKey ctermfg=DarkGrey
+
+" Color line numbers
+highlight LineNr ctermfg=DarkGrey
+
+if &term =~ '256color'
+  " disable Background Color Erase (BCE) so that color schemes
+  " render properly when inside 256-color tmux and GNU screen.
+  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
 endif
 
-" === Tags settings === "
+" }}}
+" Plugin Settings {{{ 
+
+" Completion {{{
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" let g:SuperTabDefaultCompletionType = "<C-X><C-P>"
+set completeopt+=longest
+
+let g:neocomplete#disable_auto_complete = 1
+
+" Show types in completion suggestions
+let g:necoghc_enable_detailed_browse = 1
+
+" }}}
+" Alignment {{{
+
+let g:loaded_AlignMapsPlugin=1
+let g:haskell_tabular = 1
+
+" }}}
+" Tags {{{
+
 " Add additional tags here or comment out not-used ones
 set tags+=~/.vim/tags/cpp
 set tags+=~/.vim/tags/gl
 set tags+=~/.vim/tags/sdl
 set tags+=~/.vim/tags/gtk-2.0
 set tags+=~/.vim/tags/gtk-3.0
+set tags=tags;/,codex.tags;/
+set csto=1
+set cst
+set csverb
 
-" Build tags of your own project with Ctrl-F12
-map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+let g:tagbar_type_haskell = {
+    \ 'ctagsbin'  : 'hasktags',
+    \ 'ctagsargs' : '-x -c -o-',
+    \ 'kinds'     : [
+        \  'm:modules:0:1',
+        \  'd:data: 0:1',
+        \  'd_gadt: data gadt:0:1',
+        \  't:type names:0:1',
+        \  'nt:new types:0:1',
+        \  'c:classes:0:1',
+        \  'cons:constructors:1:1',
+        \  'c_gadt:constructor gadt:1:1',
+        \  'c_a:constructor accessors:1:1',
+        \  'ft:function types:1:1',
+        \  'fi:function implementations:0:1',
+        \  'o:others:0:1'
+    \ ],
+    \ 'sro'        : '.',
+    \ 'kind2scope' : {
+        \ 'm' : 'module',
+        \ 'c' : 'class',
+        \ 'd' : 'data',
+        \ 't' : 'type'
+    \ },
+    \ 'scope2kind' : {
+        \ 'module' : 'm',
+        \ 'class'  : 'c',
+        \ 'data'   : 'd',
+        \ 'type'   : 't'
+    \ }
+\ }
 
-" === Syntastic === "
-"let g:syntastic_cpp_compiler = 'clang++'
-"let g:syntastic_cpp_compiler_options = ' -std=c++11 '
-
-" === SLIME === "
-let g:slime_target = "tmux"
-
-" === Taglist === "
-let Tlist_Display_Prototype = 0
-
-" === OmniCppComplete settings === "
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-
-" Automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview
-
-" === LaTeX settings === "
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor = "latex"
-let g:Tex_DefaultTargetFormat = "pdf"
-let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode --synctex=1 $*'
-let g:Tex_ViewRule_pdf = 'skim'
-
-" === TVO settings === "
-let g:otl_bold_headers = 1
-
-function! SyncTexForward()
-		 let execstr = 'silent! !okular --unique %<.pdf\#src:'.line('.').expand("%").' &'
-		 exec execstr
+" Automatically make cscope connections
+function! LoadHscope()
+  let db = findfile("hscope.out", ".;")
+  if (!empty(db))
+    let path = strpart(db, 0, match(db, "/hscope.out$"))
+    set nocscopeverbose " suppress 'duplicate connection' error
+    exe "cs add " . db . " " . path
+    set cscopeverbose
+  endif
 endfunction
+au BufEnter /*.hs call LoadHscope()
 
-" === UltiSnips settings === "
+" }}}
+" Haskell {{{
 
-let g:UltiSnipsExpandTrigger="<c-j>"
-"let g:UltiSnipsExpandTrigger="<tab>"
+" Linting
+autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+autocmd BufNew *.hs setlocal csprg=/Users/smatter/Library/Haskell/bin/hscope
+
+augroup haskell
+autocmd!
+autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>:SyntasticReset<cr>
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+augroup END
+
+" === Point-{Free/Ful} ===
+function! Pointfree()
+  call setline('.', split(system('pointfree '.shellescape(join(getline(a:firstline, a:lastline), "\n"))), "\n"))
+endfunction
+vnoremap <silent> <leader>H. :call Pointfree()<CR>
+
+function! Pointful()
+  call setline('.', split(system('pointful '.shellescape(join(getline(a:firstline, a:lastline), "\n"))), "\n"))
+endfunction
+vnoremap <silent> <leader>H> :call Pointful()<CR>
+
+" Disable conceals by default
+let g:no_haskell_conceal=1
+let g:haskell_conceal_wide = 1
+let g:haskell_conceal_enumerations = 1
+
+" }}}
+" Snippets {{{
+
+"let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsExpandTrigger="<tab>"
 "let g:UltiSnipsJumpForwardTrigger="<tab>"
 "let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+" }}}
+" Airline {{{
 
-" === Remove trailing spaces === "
-fun! <SID>StripTrailingWhitespaces()
-	let l = line(".")
-	let c = col(".")
-	%s/\s\+$//e
-	call cursor(l, c)
-endfun
+let g:airline_theme = "wombat"
 
-" === Rainbow parenthesis === "
+" }}}
+" Yankring {{{
+
+let g:yankring_history_dir="~/.vim/cache"
+
+" }}}
+" {{{ Rainbow Parathesis
+
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -282,176 +379,160 @@ let g:rbpt_colorpairs = [
     \ ['red',         'firebrick3'],
     \ ]
 
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
-" === Xiki === "
-"let $XIKI_DIR = "~/.rvm/gems/ruby-1.9.3-p194/gems/xiki-0.6.3"
-"source ~/.rvm/gems/ruby-1.9.3-p194/gems/xiki-0.6.3/etc/vim/xiki.vim
+" }}}
 
-" === Dmenu fuzzy search === "
-function! Chomp(str)
-	return substitute(a:str, '\n$', '', '')
-endfunction
+" {{{ Ctrl-P
 
-function! DmenuOpen(cmd)
-	let fname = Chomp(system("git ls-files | dmenu -i -l 20 -p " . a:cmd))
-	if empty(fname)
-		return
-	endif
-	execute a:cmd . " " . fname
-endfunction
+let g:ctrlp_max_files=0
 
-" === Powerline === "
-let g:Powerline_symbols = 'fancy'
+" }}}
 
-" === Link support === "
+" }}}
+" Misc Functions {{{ 
+
+" Remove trailing spaces
+fun! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
+
+" Link support
 function! Browser ()
-let line = getline (".")
-"let line = matchstr (line, "\%(http://\|www\.\)[^ ,;\t]*")
-let line = matchstr (line, "\\(http://\\|www\\)[^ ,;\t]*")
-exec "!open ".line
+  let line = getline (".")
+  "let line = matchstr (line, "\%(http://\|www\.\)[^ ,;\t]*")
+  let line = matchstr (line, "\\(http://\\|www\\)[^ ,;\t]*")
+  exec "!open ".line
 endfunction
 
-" === Haskell === "
-let g:haddock_browser = "open"
-
-" === Handling of crontabs === "
-au BufEnter /private/tmp/crontab.* setl backupcopy=yes
-
-" === Yankring config === "
-let g:yankring_history_dir="~/.vim/cache"
-
-"=== YCM config === "
-let g:ycm_extra_conf_globlist = ["~/.ycm_extra_conf.py"]
-
-" === Key Mappings === "
+" }}}
+" Mappings {{{
 
 " Enable Command key
 let macvim_skip_cmd_opt_movement = 1
 
 " Set <leader>
 let mapleader=","
+let g:mapleader=","
 
-" Toggle past mode on F2
-set pastetoggle=<F2>
+" Window/Buffer Management {{{
+nnoremap <leader>w <C-w>
+nnoremap <leader>k <C-w>k
+nnoremap <leader>j <C-w>j
+nnoremap <leader>h <C-w>h
+nnoremap <leader>l <C-w>l
+nnoremap <D-k> <C-w>k
+nnoremap <D-j> <C-w>j
+nnoremap <D-h> <C-w>h
+nnoremap <D-l> <C-w>l
 
-" Window movement mappings
-map <leader>k <C-w>k
-map <leader>j <C-w>j
-map <leader>h <C-w>h
-map <leader>l <C-w>l
-
-map <A-k> <C-w>k
-map <A-j> <C-w>j
-map <A-h> <C-w>h
-map <A-l> <C-w>l
-
-" Mappings for Macvim w/ Command-Key
-map <D-k> <C-w>k
-map <D-j> <C-w>j
-map <D-h> <C-w>h
-map <D-l> <C-w>l
-
-map <D-up> <C-w>k
-map <D-down> <C-w>j
-map <D-left> :bp<CR>
-map <D-right> :bn<CR>
-
-" Toggle sidebars
-nmap <leader>n :NERDTreeToggle<CR>
-map <F4> :NERDTreeToggle<CR>
-map <F3> :TagbarToggle<CR>
-map <F5> :TagbarToggle<CR>:NERDTreeToggle<CR>
-
-" Destroy current buffer
-map <C-d> :bd<CR>
-
-" Toggle search highlighting
-map <F8> :set hlsearch! hlsearch?<CR>
-map <leader><space> :set hlsearch! hlsearch?<CR>
-
-" Write files using sudo
-cmap w!! w !sudo tee % >/dev/null
-
-" Use ; as : (i.e. w/o holding SHIFT)
-"nnoremap ; :
-
-" Jump to matching brackets with TAB
-nnoremap <tab> %
-vnoremap <tab> %
+" Create new vertical split and switch to it
+nnoremap <leader>v <C-w>v<C-w>l
 
 " j and k jump screen lines
 nnoremap j gj
 nnoremap k gk
 
-" Learn hjkl, idiot!
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-"inoremap <up> <nop>
-"inoremap <down> <nop>
-"inoremap <left> <nop>
-"inoremap <right> <nop>
+" Switch to previously edited buffer
+nmap <leader>e :e#<CR>
 
-" === Custom <leader> mappings === "
+" Destroy current buffer
+nnoremap <C-d> :bd<CR>
 
-" Build TeX and open viewer
-nmap <Leader>ff :call SyncTexForward()<CR>
+" Open window splits in various places
+nmap <leader>sh :leftabove vnew<CR>
+nmap <leader>sl :rightbelow vnew<CR>
+nmap <leader>sk :leftabove new<CR>
+nmap <leader>sj :rightbelow new<CR>
 
-" Command-T open dialog
-nmap <leader>' :CommandT<CR>
+" }}}
+" Toggles {{{
+" Toggle search highlighting
+nnoremap <leader>s :set hlsearch! hlsearch?<CR>
+
+" Toggle listchars
+nnoremap <leader>L :set list!<CR>
+
+" Toggle past mode
+set pastetoggle=<leader>p
 
 " Toggle spell check
-map <leader>s :set spell!<CR>
+nnoremap <leader>sp :set spell!<CR>
 
-" Open "Ottl Outline" in new tab
-map <leader>t :tabedit ~/Dropbox/Apps/OTL\ Outliner/todo.otl<CR>
+" Toggle sidebars
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>tt :TagbarToggle<CR>
+nnoremap <leader>g :TagbarToggle<CR>:NERDTreeToggle<CR>
+
+" Toggle rainbow parathesis
+noremap <leader>rp :RainbowParenthesesToggle<CR>
+" }}}
+" Misc Functions {{{
+" Copy file to clipboard
+map <leader>cp :!cat % \| pbcopy<CR>
+
+" Write files using sudo
+cmap w!! w !sudo tee % >/dev/null
+
+" Build TeX and open viewer
+nnoremap <Leader>ff :call SyncTexForward()<CR>
+
+" Strip trailing whitespace
+nnoremap <leader>tw :%s/\s\+$//e<CR>
 
 " Open link in line
-map <Leader>www :call Browser()<CR>
-
-" Clear trailing spaces
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-
-" Exit insert mode with jj
-inoremap jj <ESC>
-
-" Create new vertical split and switch to it
-nnoremap <leader>w <C-w>v<C-w>l
-
-" Start search with ack
-nnoremap <leader>a :Ack\
+nnoremap <Leader>www :call Browser()<CR>
 
 " Show yankring
 nnoremap <leader>y :YRShow<CR>
 
-" Show rainbow parenthesis
-nnoremap <leader>r :RainbowParenthesesToggle<CR>
-
 "Show scratch space
 nnoremap <leader>S :Scratch<CR>
 
-" Toggle listchars
-noremap <leader>u :set list!<CR>
+" Open file prompt with current path
+nmap <leader>o :e <C-R>=expand("%:p:h") . '/'<CR>
 
-" Easier window management
-noremap <leader>w <C-w>
+" Ctrp-p
+nnoremap <silent> <Leader><space> :CtrlP<CR>
 
-" Map Command-p to Ctrl-p
-map <D-p> <C-p>
+" }}}
+" Haskell {{{
+" GHC-Mod Shortcuts
+nnoremap <leader>Ht :GhcModType<CR>
+nnoremap <leader>HT :GhcModTypeInsert<CR>
+nnoremap <leader>Hl :GhcModCheckAndLintAsync<CR>
+nnoremap <leader>Hc :SyntasticCheck ghc_mod<CR>
 
-" Switch to last buffer
-map <C-e> :e#<CR>
-nmap <leader>e :e#<CR>
+" Hoogle
+nnoremap <leader>Hh :Hoogle<CR>
+nnoremap <leader>HH :Hoogle 
+nnoremap <leader>Hi :HoogleInfo<CR>
+nnoremap <leader>HI :HoogleInfo
+nnoremap <leader>Hz :HoogleClose<CR>
+" }}}
+" Alignment {{{
 
-" Move around in buffers
-map <C-n> :bn<CR>
-map <C-m> :bp<CR>
+" Align on equal signs
+map <Leader>a= :Align =<CR>
+" Align on commas
+map <Leader>a, :Align ,<CR>
+" Align on pipes
+map <Leader>a<bar> :Align <bar><CR>
+" Prompt for align character
+map <leader>ap :Align
 
-map <F5> :CycleColorNext<CR>
-map <F6> :CycleColorPrev<CR>
-
-" Umlauts
+" }}}
+" Tag generation {{{
+map <leader>tc<C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <leader>tg :!codex update<CR>:call system("git hscope")<CR><CR>:call LoadHscope()<CR>
+nnoremap <silent> <C-\> :cs find c <C-R>=expand("<cword>")<CR><CR>
+" }}}
+" Umlauts {{{
 inoremap ,,a ä
 inoremap ,,A Ä
 inoremap ,,o ö
@@ -459,5 +540,26 @@ inoremap ,,O Ö
 inoremap ,,u ü
 inoremap ,,U Ü
 inoremap ,,s ß
+" }}}
+" Misc {{{
+" Learn hjkl, idiot!
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
 
+" Map Command-p to Ctrl-p
+map <D-p> <C-p>
 
+" Colorscheme testing
+map <F5> :CycleColorNext<CR>
+map <F6> :CycleColorPrev<CR>
+
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :call VisualSelection('f', '')<CR>
+vnoremap <silent> # :call VisualSelection('b', '')<CR>
+
+" }}}
+
+" }}}
