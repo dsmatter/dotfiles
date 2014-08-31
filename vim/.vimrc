@@ -57,7 +57,11 @@ Bundle 'eagletmt/ghcmod-vim'
 Bundle 'Twinside/vim-hoogle'
 Bundle 'travitch/hasksyn'
 Bundle 'begriffs/vim-haskellConceal'
+Bundle 'raichoo/haskell-vim'
 Bundle 'raichoo/purescript-vim'
+Bundle 'nbouscal/vim-stylish-haskell'
+Bundle 'eagletmt/neco-ghc'
+Bundle 'Twinside/vim-hoogle'
 "Bundle 'lukerandall/haskellmode-vim'
 
 " Fancy
@@ -234,10 +238,13 @@ let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 
-let g:SuperTabDefaultCompletionType = "<C-X><C-P>"
+" let g:SuperTabDefaultCompletionType = "<C-X><C-P>"
 set completeopt+=longest
 
 let g:neocomplete#disable_auto_complete = 1
+
+" Show types in completion suggestions
+let g:necoghc_enable_detailed_browse = 1
 
 " }}}
 " Alignment {{{
@@ -310,6 +317,12 @@ au BufEnter /*.hs call LoadHscope()
 autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 autocmd BufNew *.hs setlocal csprg=/Users/smatter/Library/Haskell/bin/hscope
 
+augroup haskell
+autocmd!
+autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>:SyntasticReset<cr>
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+augroup END
+
 " === Point-{Free/Ful} ===
 function! Pointfree()
   call setline('.', split(system('pointfree '.shellescape(join(getline(a:firstline, a:lastline), "\n"))), "\n"))
@@ -323,6 +336,8 @@ vnoremap <silent> <leader>H> :call Pointful()<CR>
 
 " Disable conceals by default
 let g:no_haskell_conceal=1
+let g:haskell_conceal_wide = 1
+let g:haskell_conceal_enumerations = 1
 
 " }}}
 " Snippets {{{
@@ -370,6 +385,12 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " }}}
 
+" {{{ Ctrl-P
+
+let g:ctrlp_max_files=0
+
+" }}}
+
 " }}}
 " Misc Functions {{{ 
 
@@ -397,6 +418,7 @@ let macvim_skip_cmd_opt_movement = 1
 
 " Set <leader>
 let mapleader=","
+let g:mapleader=","
 
 " Window/Buffer Management {{{
 nnoremap <leader>w <C-w>
@@ -421,6 +443,13 @@ nmap <leader>e :e#<CR>
 
 " Destroy current buffer
 nnoremap <C-d> :bd<CR>
+
+" Open window splits in various places
+nmap <leader>sh :leftabove vnew<CR>
+nmap <leader>sl :rightbelow vnew<CR>
+nmap <leader>sk :leftabove new<CR>
+nmap <leader>sj :rightbelow new<CR>
+
 " }}}
 " Toggles {{{
 " Toggle search highlighting
@@ -464,6 +493,13 @@ nnoremap <leader>y :YRShow<CR>
 
 "Show scratch space
 nnoremap <leader>S :Scratch<CR>
+
+" Open file prompt with current path
+nmap <leader>o :e <C-R>=expand("%:p:h") . '/'<CR>
+
+" Ctrp-p
+nnoremap <silent> <Leader><space> :CtrlP<CR>
+
 " }}}
 " Haskell {{{
 " GHC-Mod Shortcuts
@@ -480,10 +516,16 @@ nnoremap <leader>HI :HoogleInfo
 nnoremap <leader>Hz :HoogleClose<CR>
 " }}}
 " Alignment {{{
-nnoremap <leader>a= :Tabularize /=<CR>
-nnoremap <leader>a, :Tabularize /,<CR>
-nnoremap <leader>a<bar> :Tabularize /<bar><CR>
-nnoremap <leader>ap :Tabularize 
+
+" Align on equal signs
+map <Leader>a= :Align =<CR>
+" Align on commas
+map <Leader>a, :Align ,<CR>
+" Align on pipes
+map <Leader>a<bar> :Align <bar><CR>
+" Prompt for align character
+map <leader>ap :Align
+
 " }}}
 " Tag generation {{{
 map <leader>tc<C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
@@ -512,6 +554,12 @@ map <D-p> <C-p>
 " Colorscheme testing
 map <F5> :CycleColorNext<CR>
 map <F6> :CycleColorPrev<CR>
+
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :call VisualSelection('f', '')<CR>
+vnoremap <silent> # :call VisualSelection('b', '')<CR>
+
 " }}}
 
 " }}}
