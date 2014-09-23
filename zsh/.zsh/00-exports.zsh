@@ -19,7 +19,8 @@ export DOC_HOME="$HOME/Documents"
 export MEDIA_HOME="$HOME/dl/media"
 export SMSERVER="$HOME/smserver"
 export GOPATH="$HOME/dev/go/mygo"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home"
+export ENWIDA_HOME="/Users/smatter/dev/projects/enwida/enwida_home"
 
 #export PATH="${PATH}:$HOME/bin:/opt/java/bin"
 path=($HOME/bin /usr/local/bin /usr/local/sbin $path /opt/local/bin /usr/local/share/npm/bin $HOME/.cabal/bin $GOPATH/bin $HOME/Library/Haskell/bin)
