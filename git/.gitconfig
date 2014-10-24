@@ -12,6 +12,7 @@
   s = status -uno
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
   ec = config -global -e
+  dl = clone --depth 1
 [color]
   ui = auto
 [push]
