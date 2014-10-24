@@ -34,17 +34,34 @@ function mtoggle() {
   fi
 }
 
+# Spotify integration
+
+function spotify() {
+  if [[ -z $1 ]]; then
+    echo "Usage: spotify [command]"
+    echo
+    echo "Example commands:"
+    echo "playpause"
+    echo "next track"
+    echo "previous track"
+    return 0
+  fi
+
+  echo "tell Application \"Spotify\" to $1" | osascript
+}
+
 # Play/pause mplayer processes (if any) or MPD
 function musicToggle() {
-	if pg mplayer &>/dev/null; then
-     # There is a mplayer process
+ if mpc | grep playing; then
+   # MPC is playing => prefer pausing it
+   mpc toggle
+   return
+ fi
 
-     if mpc | grep playing; then
-       # MPC is playing => prefer pausing it
-       mpc toggle
-     else
-      mtoggle
-    fi
+	if pg mplayer &>/dev/null; then
+     mtoggle
+  elif pg spotify &>/dev/null; then
+    spotify playpause
   else
     mpc toggle
   fi
