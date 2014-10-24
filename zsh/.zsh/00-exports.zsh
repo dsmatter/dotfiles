@@ -13,17 +13,21 @@ export EDITOR=vim
 export PAGER=vimpager
 export BROWSER=chromium
 
-export DEVEL_HOME="$HOME/dev"
+export DEVELOP_HOME="$HOME/develop"
 export BIN_HOME="$HOME/bin"
 export DOC_HOME="$HOME/Documents"
 export MEDIA_HOME="$HOME/dl/media"
 export SMSERVER="$HOME/smserver"
-export GOPATH="$HOME/dev/go/mygo"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home"
-export ENWIDA_HOME="/Users/smatter/dev/projects/enwida/enwida_home"
+export GOPATH="$DEVELOP_HOME/go/mygo"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home"
+export ENWIDA_HOME="$DEVELOP_HOME/projects/enwida/enwida_home"
+export GHC_DOT_APP="/Applications/ghc-7.8.3.app"
 
-#export PATH="${PATH}:$HOME/bin:/opt/java/bin"
 path=($HOME/bin /usr/local/bin /usr/local/sbin $path /opt/local/bin /usr/local/share/npm/bin $HOME/.cabal/bin $GOPATH/bin $HOME/Library/Haskell/bin)
+
+if [ -d "$GHC_DOT_APP" ]; then
+  path=(${HOME}/.cabal/bin ${GHC_DOT_APP}/Contents/bin $path)
+fi
 
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=5000
@@ -38,7 +42,7 @@ export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent:4559:1"
 
 export ANDROID_HOME="/usr/local/Cellar/android-sdk/r21.1"
 
-export GISTY_DIR="$HOME/dev/gists"
+export GISTY_DIR="$DEVELOP_HOME/gists"
 
 export SBT_OPTS=-XX:MaxPermSize=256m
 
