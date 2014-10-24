@@ -1,8 +1,8 @@
 function sssh() {
   if ping -c1 smserver &>/dev/null; then
-    ssh smserver $*
+    mosh smserver $*
   else
-    ssh -p 2222 smatter@smattr.de $*
+    mosh -p 2222 smatter@smattr.de $*
   fi;
 }
 
@@ -13,18 +13,18 @@ function smlp() {
 }
 
 function mountSmServer() {
-	if ! mount | grep -i /media/smserver; then
+	if ! mount | grep -i /Volumes/smserver; then
     if ping -c1 smserver &>/dev/null; then
-      sshfs smserver:/ /media/smserver
+      sshfs smserver:/ /Volumes/smserver
     else
-      sshfs -p 2222 smatter@smattr.de:/ /media/smserver
+      sshfs -p 2222 smatter@smattr.de:/ /Volumes/smserver
     fi
 	fi
 }
 
 function umountSmServer() {
 	local -a mpoints
-	mpoints=(/media/smserver)
+	mpoints=(/Volumes/smserver)
 
 	for mpoint in $mpoints; do
 		if mount | grep -i $mpoint; then
