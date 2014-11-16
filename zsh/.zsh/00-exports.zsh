@@ -23,7 +23,7 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Hom
 export ENWIDA_HOME="$DEVELOP_HOME/projects/enwida/enwida_home"
 export GHC_DOT_APP="/Applications/ghc-7.8.3.app"
 
-path=($HOME/bin /usr/local/bin /usr/local/sbin $path /opt/local/bin /usr/local/share/npm/bin $HOME/.cabal/bin $GOPATH/bin $HOME/Library/Haskell/bin)
+path=($HOME/bin /usr/local/bin /usr/local/sbin $path /opt/local/bin /usr/local/share/npm/bin $HOME/.cabal/bin $GOPATH/bin $HOME/Library/Haskell/bin /usr/texbin)
 
 if [ -d "$GHC_DOT_APP" ]; then
   path=(${HOME}/.cabal/bin ${GHC_DOT_APP}/Contents/bin $path)
