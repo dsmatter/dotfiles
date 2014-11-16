@@ -25,6 +25,7 @@ setopt inc_append_history
 
 # Autoload functions
 autoload -Uz compinit
+autoload -U edit-command-line
 autoload colors zsh/terminfo
 
 # Initialize completion engine
