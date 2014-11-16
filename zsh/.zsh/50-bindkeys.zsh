@@ -43,6 +43,10 @@ bindkey '^[^M' self-insert-unmeta
 # Ctrl + X
 bindkey -M viins '^X' push-line-or-edit
 
+# Ctrl + E
+zle -N edit-command-line
+bindkey '^E' edit-command-line
+
 # Completion debugging
 bindkey '' _complete_help
 
