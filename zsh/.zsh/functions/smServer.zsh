@@ -14,6 +14,10 @@ function smlp() {
 
 function mountSmServer() {
 	if ! mount | grep -i /Volumes/smserver; then
+    if ! [[ -e /Volumes/smserver ]]; then
+      sudo mkdir -p /Volumes/smserver
+      sudo chown smatter /Volumes/smserver
+    fi
     if ping -c1 smserver &>/dev/null; then
       sshfs smserver:/ /Volumes/smserver
     else
