@@ -42,7 +42,7 @@ for f in $ZSH_HOME/*.zsh; do
 done
 
 # Always a good read ;)
-if hash fortune; then
+if hash fortune &>/dev/null; then
 	echo
 	echo -------------------------------------------------------------------------------- 
 	echo
