@@ -25,53 +25,53 @@ Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/Gundo'
 
 " External Tools
-Bundle 'Shougo/vimproc.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'jgdavey/tslime.vim'
-Bundle 'vim-scripts/buffergrep'
-
-" Coding Helpers
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'kien/rainbow_parentheses.vim'
-
-" Text Manipulation
-Bundle 'vim-scripts/UltiSnips'
-Bundle 'dsmatter/vim-snippets'
-Bundle 'ervandew/supertab'
-Bundle 'Shougo/neocomplete'
-Bundle 'vim-scripts/Align'
-Bundle 'godlygeek/tabular'
-Bundle 'Lokaltog/vim-easymotion'
-
-" Language Support
-Bundle 'scrooloose/syntastic'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'jcf/vim-latex'
-Bundle 'jergason/scala.vim'
-Bundle 'gkz/vim-ls'
-Bundle 'vim-scripts/a.vim'
-Bundle 'nelstrom/vim-markdown-folding'
-Bundle 'eagletmt/neco-ghc'
-Bundle 'eagletmt/ghcmod-vim'
-Bundle 'Twinside/vim-hoogle'
-Bundle 'travitch/hasksyn'
-Bundle 'begriffs/vim-haskellConceal'
-Bundle 'raichoo/haskell-vim'
-Bundle 'raichoo/purescript-vim'
-Bundle 'nbouscal/vim-stylish-haskell'
-Bundle 'eagletmt/neco-ghc'
-Bundle 'Twinside/vim-hoogle'
+"Bundle 'Shougo/vimproc.vim'
+"Bundle 'mileszs/ack.vim'
+"Bundle 'jgdavey/tslime.vim'
+"Bundle 'vim-scripts/buffergrep'
+"
+"" Coding Helpers
+"Bundle 'scrooloose/nerdcommenter'
+"Bundle 'nathanaelkane/vim-indent-guides'
+"Bundle 'kien/rainbow_parentheses.vim'
+"
+"" Text Manipulation
+"Bundle 'vim-scripts/UltiSnips'
+"Bundle 'dsmatter/vim-snippets'
+"Bundle 'ervandew/supertab'
+"Bundle 'Shougo/neocomplete'
+"Bundle 'vim-scripts/Align'
+"Bundle 'godlygeek/tabular'
+"Bundle 'Lokaltog/vim-easymotion'
+"
+"" Language Support
+"Bundle 'scrooloose/syntastic'
+"Bundle 'kchmck/vim-coffee-script'
+"Bundle 'jcf/vim-latex'
+"Bundle 'jergason/scala.vim'
+"Bundle 'gkz/vim-ls'
+"Bundle 'vim-scripts/a.vim'
+"Bundle 'nelstrom/vim-markdown-folding'
+"Bundle 'eagletmt/neco-ghc'
+"Bundle 'eagletmt/ghcmod-vim'
+"Bundle 'Twinside/vim-hoogle'
+"Bundle 'travitch/hasksyn'
+"Bundle 'begriffs/vim-haskellConceal'
+"Bundle 'raichoo/haskell-vim'
+"Bundle 'raichoo/purescript-vim'
+"Bundle 'nbouscal/vim-stylish-haskell'
+"Bundle 'eagletmt/neco-ghc'
+"Bundle 'Twinside/vim-hoogle'
 "Bundle 'lukerandall/haskellmode-vim'
-
-" Fancy
-Bundle 'bling/vim-airline'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'vim-scripts/CycleColor'
-Bundle 'vim-scripts/CSApprox'
-Bundle 'morhetz/gruvbox'
-Bundle 'chriskempson/base16-vim'
-Bundle 'w0ng/vim-hybrid'
+"
+"" Fancy
+"Bundle 'bling/vim-airline'
+"Bundle 'flazz/vim-colorschemes'
+"Bundle 'vim-scripts/CycleColor'
+"Bundle 'vim-scripts/CSApprox'
+"Bundle 'morhetz/gruvbox'
+"Bundle 'chriskempson/base16-vim'
+"Bundle 'w0ng/vim-hybrid'
 
 " }}}
 " {{{ General Settings
