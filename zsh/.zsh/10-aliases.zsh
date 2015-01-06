@@ -1,9 +1,9 @@
 #!/bin/zsh
 
 # ls
-alias l="command ls -al -G -F"
-alias ll="command ls -l -G -F"
-alias lss="command ls -al -G -F | grep -i --color"
+alias l="command ls -al --color -F"
+alias ll="command ls -l --color -F"
+alias lss="command ls -al --color -F | grep -i --color"
 alias lh='ll -h'
 alias lt='ll -t'
 
