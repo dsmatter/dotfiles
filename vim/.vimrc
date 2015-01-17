@@ -43,6 +43,7 @@ Bundle 'Shougo/neocomplete'
 Bundle 'vim-scripts/Align'
 Bundle 'godlygeek/tabular'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'junegunn/vim-easy-align'
 
 " Language Support
 Bundle 'scrooloose/syntastic'
@@ -525,6 +526,11 @@ map <Leader>a, :Align ,<CR>
 map <Leader>a<bar> :Align <bar><CR>
 " Prompt for align character
 map <leader>ap :Align
+
+" Easy-Align
+vmap <Enter> <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
 
 " }}}
 " Tag generation {{{
