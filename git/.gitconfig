@@ -13,6 +13,7 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
   ec = config -global -e
   dl = clone --depth 1
+  untracked = ls-files --others --exclude-standard
 [color]
   ui = auto
 [push]
