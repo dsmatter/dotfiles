@@ -35,6 +35,9 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'kien/rainbow_parentheses.vim'
 
+" Window/Buffer Management
+Bundle 'vim-scripts/bufkill.vim'
+
 " Text Manipulation
 Bundle 'vim-scripts/UltiSnips'
 Bundle 'drmingdrmer/xptemplate'
