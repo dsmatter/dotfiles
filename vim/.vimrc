@@ -37,6 +37,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 
 " Text Manipulation
 Bundle 'vim-scripts/UltiSnips'
+Bundle 'drmingdrmer/xptemplate'
 Bundle 'dsmatter/vim-snippets'
 Bundle 'ervandew/supertab'
 Bundle 'Shougo/neocomplete'
@@ -347,6 +348,12 @@ let g:haskell_conceal_enumerations = 1
 let g:UltiSnipsExpandTrigger="<tab>"
 "let g:UltiSnipsJumpForwardTrigger="<tab>"
 "let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="horizontal"
+
+" Bring custom xpt snippets into path
+set runtimepath+=~/.vim/xpt-personal
+
+let g:xptemplate_key = '<c-h>'
 
 " }}}
 " Airline {{{
@@ -481,7 +488,7 @@ map <leader>cp :!cat % \| pbcopy<CR>
 cmap w!! w !sudo tee % >/dev/null
 
 " Build TeX and open viewer
-nnoremap <Leader>ff :call SyncTexForward()<CR>
+" nnoremap <Leader>ff :call SyncTexForward()<CR>
 
 " Strip trailing whitespace
 nnoremap <leader>tw :%s/\s\+$//e<CR>
@@ -546,6 +553,21 @@ inoremap ,,O Ö
 inoremap ,,u ü
 inoremap ,,U Ü
 inoremap ,,s ß
+" }}}
+" Snippets {{{
+
+" Function for editing XPTemplate snippets
+function! EditXPTemplateSnippets()
+  let path = "~/.vim/xpt-personal/ftplugin/" . &ft . "/" . &ft . ".xpt.vim"
+  exe ":split " . path
+endfunction
+
+" Edit XPTemplates
+nmap <leader><leader>st :call EditXPTemplateSnippets()<CR>
+
+" Edit UltiSnips
+nmap <leader><leader>ss :UltiSnipsEdit<CR>
+
 " }}}
 " Misc {{{
 " Learn hjkl, idiot!
