@@ -560,6 +560,19 @@ map <F6> :CycleColorPrev<CR>
 vnoremap <silent> * :call VisualSelection('f', '')<CR>
 vnoremap <silent> # :call VisualSelection('b', '')<CR>
 
+" Change the (local) working directory to the current buffer's file's
+nmap <leader>cd :lcd %:h<CR>
+
+" Change the (global) working directory to the current buffer's file's
+nmap <leader>ccd :cd %:h<CR>
+
+" Reload vim config
+if has("gui_running")
+  nmap <leader><leader>r :so $MYVIMRC<CR>:so $MYGVIMRC<CR>
+else
+  nmap <leader><leader>r :so $MYVIMRC<CR>
+endif
+
 " }}}
 
 " }}}
