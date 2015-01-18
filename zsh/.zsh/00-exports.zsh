@@ -45,4 +45,5 @@ export ANDROID_HOME="/usr/local/Cellar/android-sdk/r21.1"
 export GISTY_DIR="$DEVELOP_HOME/gists"
 
 export SBT_OPTS=-XX:MaxPermSize=256m
+export FZF_DEFAULT_COMMAND="find . -type f"
 
