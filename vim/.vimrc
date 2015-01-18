@@ -64,6 +64,7 @@ Bundle 'raichoo/purescript-vim'
 Bundle 'nbouscal/vim-stylish-haskell'
 Bundle 'eagletmt/neco-ghc'
 Bundle 'Twinside/vim-hoogle'
+Bundle 'derekwyatt/vim-scala'
 "Bundle 'lukerandall/haskellmode-vim'
 
 " Fancy
