@@ -63,6 +63,7 @@ alias vv="gvim --remote-silent"
 alias dv="dotView"
 alias tma="tmux attach -d -t"
 alias jj="marks_jump"
+alias curljson="curl -H 'Content-Type: application/json'"
 
 alias grepc="grep --color "
 alias pg="ps aux | grep -v grep | grep -i"
