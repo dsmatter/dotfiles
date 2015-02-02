@@ -27,8 +27,10 @@ Bundle 'vim-scripts/Gundo'
 " External Tools
 Bundle 'Shougo/vimproc.vim'
 Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'jgdavey/tslime.vim'
 Bundle 'vim-scripts/buffergrep'
+Bundle 'rizzatti/dash.vim'
 
 " Coding Helpers
 Bundle 'scrooloose/nerdcommenter'
@@ -57,7 +59,6 @@ Bundle 'jergason/scala.vim'
 Bundle 'gkz/vim-ls'
 Bundle 'vim-scripts/a.vim'
 Bundle 'nelstrom/vim-markdown-folding'
-Bundle 'eagletmt/neco-ghc'
 Bundle 'eagletmt/ghcmod-vim'
 Bundle 'Twinside/vim-hoogle'
 Bundle 'travitch/hasksyn'
@@ -66,7 +67,6 @@ Bundle 'raichoo/haskell-vim'
 Bundle 'raichoo/purescript-vim'
 Bundle 'nbouscal/vim-stylish-haskell'
 Bundle 'eagletmt/neco-ghc'
-Bundle 'Twinside/vim-hoogle'
 Bundle 'derekwyatt/vim-scala'
 "Bundle 'lukerandall/haskellmode-vim'
 
@@ -462,6 +462,13 @@ nmap <leader>sl :rightbelow vnew<CR>
 nmap <leader>sk :leftabove new<CR>
 nmap <leader>sj :rightbelow new<CR>
 
+" Fuzzy file opener
+nmap <leader><space> :CtrlP<CR>
+nmap <leader>ff :CtrlPBuffer<cr>
+nmap <leader>fF :execute ":CtrlP " . expand('%:p:h')<cr>
+nmap <leader>fr :CtrlP .<cr>
+nmap <leader>fm :CtrlPMixed<cr>
+
 " }}}
 " Toggles {{{
 " Toggle search highlighting
@@ -508,9 +515,6 @@ nnoremap <leader>S :Scratch<CR>
 
 " Open file prompt with current path
 nmap <leader>o :e <C-R>=expand("%:p:h") . '/'<CR>
-
-" Ctrp-p
-nnoremap <silent> <Leader><space> :CtrlP<CR>
 
 " }}}
 " Haskell {{{
