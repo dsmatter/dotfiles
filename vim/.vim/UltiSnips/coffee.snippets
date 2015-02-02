@@ -1,0 +1,24 @@
+snippet module "Require.js module" b
+define [
+
+],
+(
+
+) ->
+endsnippet
+
+snippet flight "Flight.js module" b
+define [
+
+],
+(
+
+) ->
+
+  flight.component ->
+		
+    @defaultAttrs
+      a: b
+    
+    @after "initialize", ->
+endsnippet

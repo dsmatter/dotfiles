@@ -1,0 +1,53 @@
+snippet imz "Imports for scalaz" b
+import scalaz._
+import Scalaz._
+
+endsnippet
+
+snippet controller "New controller" b
+package controllers
+
+import play.api._
+import play.api.db.slick._
+import play.api.db.slick.Config.driver.simple._
+import play.api.data._
+import play.api.data.Forms._
+import play.api.mvc._
+import play.api.Play.current
+import play.api.mvc.BodyParsers._
+import play.api.libs.json.Json
+import play.api.libs.json.Json._
+
+object $1Controller extends Controller {
+	$2
+}
+
+endsnippet
+
+snippet dbaction "Add a new DBAction" b
+def $1 = DBAction { implicit response =>
+	${2:Ok("ok")}
+}
+endsnippet
+
+snippet cc "New case class" b
+case class $1($2) {
+
+}
+endsnippet
+
+snippet service "Create a new service" b
+package service
+ 
+import models._
+import service.uuid._
+
+import play.api.db.slick.Config.driver.simple._
+
+object ${1:Some}Service {
+
+	$2
+
+}
+endsnippet
+
