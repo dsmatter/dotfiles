@@ -31,6 +31,7 @@ Bundle 'rking/ag.vim'
 Bundle 'jgdavey/tslime.vim'
 Bundle 'vim-scripts/buffergrep'
 Bundle 'rizzatti/dash.vim'
+Bundle 'neilagabriel/vim-geeknote'
 
 " Coding Helpers
 Bundle 'scrooloose/nerdcommenter'
