@@ -14,6 +14,9 @@
   ec = config -global -e
   dl = clone --depth 1
   untracked = ls-files --others --exclude-standard
+  mff = merge --no-ff
+  sub = submodule
+  subdate = submodule update
 [color]
   ui = auto
 [push]
