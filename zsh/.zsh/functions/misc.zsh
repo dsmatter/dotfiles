@@ -233,6 +233,11 @@ function vm() {
   esac
 }
 
+function open-in-emacs() {
+  local EMACS="/opt/homebrew-cask/Caskroom/emacs/24.4/Emacs.app/Contents/MacOS/bin/emacsclient"
+  $EMACS $* &>/dev/null &|
+}
+
 function trailingWhitespace() {
   sed -i '' -E "s/[[:space:]]*$//" $*
 }

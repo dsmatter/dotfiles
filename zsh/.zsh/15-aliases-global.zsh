@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 alias -g A='; alert'
+alias -g B='$(git symbolic-ref --short HEAD)'
 alias -g C=' "$(pbpaste)" '
 alias -g CC='| pbcopy'
 alias -g DN='/dev/null'
@@ -13,6 +14,7 @@ alias -g L='| less'
 alias -g P="| $PAGER"
 alias -g PE="| peco"
 alias -g Q=' &>/dev/null &|'
+alias -g S="| percol"
 alias -g Sk="*~(*.bz2|*.gz|*.tgz|*.zip|*.z)"
 alias -g V='| vim -'
 alias -g X='| xargs'

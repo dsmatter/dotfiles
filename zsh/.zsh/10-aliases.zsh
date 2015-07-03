@@ -22,6 +22,7 @@ alias cp='cp -v'
 alias mv='mv -v'
 alias rm='rm -v'
 alias rmvi='rm **/.*.swp'
+alias mmv='noglob zmv -W'
 
 #fasd (a, s, sd, sf, d, f bound by fasd init script)
 alias ss='fasd -s' #s is for sudo
@@ -33,6 +34,7 @@ alias gs='git status --short -b'
 alias gp='git push'
 alias gdd='git diff'
 alias gc='git commit'
+alias ac='a commit'
 
 #apt-get
 alias apt="sudo apt-get"
@@ -50,7 +52,7 @@ alias mx='mplayerx'
 alias n='notify'
 alias s='sudo'
 alias doch='sudo $(fc -ln -1)'
-alias v="vim"
+alias v="nvim"
 alias :q='exit'
 alias svi="sudo vim"
 alias ___="source ~/.zshrc && rehash"
@@ -60,10 +62,13 @@ alias t="notify lib"
 alias tt="todoUrgent"
 alias pdf="open"
 alias vv="gvim --remote-silent"
+alias e="open-in-emacs"
+alias ee="/opt/homebrew-cask/Caskroom/emacs/24.4/Emacs.app/Contents/MacOS/Emacs"
 alias dv="dotView"
 alias tma="tmux attach -d -t"
 alias jj="marks_jump"
 alias curljson="curl -H 'Content-Type: application/json'"
+alias fuck='$(thefuck $(fc -ln -1))'
 
 alias grepc="grep --color "
 alias pg="ps aux | grep -v grep | grep -i"

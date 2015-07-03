@@ -3,7 +3,7 @@ backup_duplicity() {
   local pass="$(getpw Duplicity)"
 	ulimit -n 2048
 	echo Backing up...
-	if PASSPHRASE=${pass} duplicity --allow-source-mismatch ~/dev scp://smatter@smattr.de:2222//safe/Backup/daniel/duplicity/dev; then
+	if PASSPHRASE=${pass} duplicity --allow-source-mismatch ~/develop scp://smatter@smattr.de:2222//safe/Backup/daniel/duplicity/dev; then
 		#notify_libnotify "dev synced"
 	else
 		notify_libnotify "sync failed!"
