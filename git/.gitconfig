@@ -14,12 +14,17 @@
   ec = config -global -e
   dl = clone --depth 1
   untracked = ls-files --others --exclude-standard
+  mff = merge --no-ff
+  sub = submodule
+  subdate = submodule update
 [color]
   ui = auto
 [push]
 	default = current
 [core]
 	excludesfile = /Users/smatter/.gitignore_global
+	precomposeunicode = true
+	editor = vim -c \"startinsert!\"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
