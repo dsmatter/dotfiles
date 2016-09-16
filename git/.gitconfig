@@ -10,24 +10,27 @@
   k = gui
   cp = cherry-pick
   s = status -uno
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit --all
   ec = config -global -e
   dl = clone --depth 1
   untracked = ls-files --others --exclude-standard
   mff = merge --no-ff
   sub = submodule
   subdate = submodule update
+  puu = push -u origin HEAD
+  sdiff = diff --cached
+  mergeAll = !git branch --contains HEAD --no-merge | xargs git merge
 [color]
   ui = auto
 [push]
-	default = current
+  default = simple
 [core]
 	excludesfile = /Users/smatter/.gitignore_global
 	precomposeunicode = true
-	editor = vim -c \"startinsert!\"
+	editor = nvim -c \"startinsert!\"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.2/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
