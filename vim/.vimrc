@@ -73,6 +73,7 @@ Bundle 'derekwyatt/vim-scala'
 
 " Fancy
 Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'vim-scripts/CycleColor'
 Bundle 'vim-scripts/CSApprox'
