@@ -10,7 +10,7 @@ watch=(notme)
 fpath=("$HOME/.zsh/completions" $fpath)
 
 export EDITOR=vim
-export PAGER=vimpager
+export PAGER=less
 export BROWSER=chromium
 
 export DEVELOP_HOME="$HOME/develop"
@@ -19,10 +19,10 @@ export DOC_HOME="$HOME/Documents"
 export MEDIA_HOME="$HOME/dl/media"
 export SMSERVER="$HOME/smserver"
 export GOPATH="$DEVELOP_HOME/go/mygo"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home"
 export ENWIDA_HOME="$DEVELOP_HOME/projects/enwida/enwida_home"
 
-path=($HOME/bin ${HOME}/.cabal/bin $GOPATH/bin /usr/local/bin /usr/local/sbin /opt/local/bin /usr/local/share/npm/bin /usr/texbin $path)
+path=(${HOME}/bin ${HOME}/.local/bin ${HOME}/.cabal/bin $GOPATH/bin /usr/local/bin /usr/local/sbin /opt/local/bin /usr/local/share/npm/bin /usr/texbin $path)
 
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=5000
