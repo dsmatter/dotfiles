@@ -229,17 +229,51 @@ function vm() {
     resume ) shift; local vm=$1; shift; VBoxManage controlvm $vm resume $* ;;
     save   ) shift; local vm=$1; shift; VBoxManage controlvm $vm savestate $* ;;
     disk   ) shift; VBoxManage internalcommands createrawvmdk -filename ${2-raw.vmdk} -rawdisk $1 ;;
-    *      ) shift; VBoxManage $*
+    *      ) VBoxManage $*
   esac
 }
 
 function open-in-emacs() {
-  local EMACS="/opt/homebrew-cask/Caskroom/emacs/24.4/Emacs.app/Contents/MacOS/bin/emacsclient"
+  local EMACS="/usr/local/Cellar/emacs-mac/emacs-25.1-rc1-mac-5.90/bin/emacsclient"
   $EMACS $* &>/dev/null &|
+}
+
+function sml() {
+  gsed -i '/10.0.0.1/d' $HOME/.ssh/known_hosts
+  ssh ml
+}
+
+function sml2() {
+  gsed -i '/172.20.50.1/d' $HOME/.ssh/known_hosts
+  ssh root@172.20.50.1
+}
+
+function ssh-copy-key {
+  local pk="$(cat $HOME/.ssh/id_rsa.pub)"
+
+  ssh $1 << EOF
+  if [[ ! -e .ssh ]]; then
+    mkdir -p .ssh
+    chmod 700 .ssh
+  fi
+  echo $pk >> .ssh/authorized_keys
+EOF
 }
 
 function trailingWhitespace() {
   sed -i '' -E "s/[[:space:]]*$//" $*
+}
+
+function removeDuplicateBlankLines() {
+  perl -pe 'BEGIN{$/=undef} s/MARKER\n\n/MARKER\n/g' $1
+}
+
+function repod {
+  rm -rf Pods && poddev $@ --no-repo-update
+}
+
+function aca {
+  a commit $@ -- -a
 }
 
 # Less

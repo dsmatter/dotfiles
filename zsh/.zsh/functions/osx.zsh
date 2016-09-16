@@ -27,3 +27,8 @@ function getpw() {
   security 2>&1 >/dev/null find-generic-password -ga $* | sgrep '/password: "(.+)"/'
 }
 
+# Changes the working directory to the current location of the top-most Finder window
+function cdf() {
+  cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')"
+}
+

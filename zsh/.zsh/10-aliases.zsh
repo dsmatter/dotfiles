@@ -35,6 +35,9 @@ alias gp='git push'
 alias gdd='git diff'
 alias gc='git commit'
 alias ac='a commit'
+alias poddev='/Users/smatter/develop/git/Rainforest/CocoaPods/bin/pod'
+alias ppod='bundle exec pod'
+alias groupTime='/Users/smatter/Documents/Arbeit/keksfabrik/scripts/Logging/groupTime'
 
 #apt-get
 alias apt="sudo apt-get"
@@ -48,6 +51,7 @@ alias scc="scratch mvim"
 alias c="clear"
 alias h="history"
 alias m='mplay'
+alias mm='command m'
 alias mx='mplayerx'
 alias n='notify'
 alias s='sudo'
@@ -63,12 +67,17 @@ alias tt="todoUrgent"
 alias pdf="open"
 alias vv="gvim --remote-silent"
 alias e="open-in-emacs"
+alias chrome="open -a 'Google Chrome'"
 alias ee="/opt/homebrew-cask/Caskroom/emacs/24.4/Emacs.app/Contents/MacOS/Emacs"
 alias dv="dotView"
 alias tma="tmux attach -d -t"
 alias jj="marks_jump"
 alias curljson="curl -H 'Content-Type: application/json'"
 alias fuck='$(thefuck $(fc -ln -1))'
+alias sbt="sbt -mem 4096"
+alias mvn-deploy-nexus="mvn deploy -DaltDeploymentRepository='lockitnetwork-release::default::http://nexus.code.easyscott.com/content/repositories/releases'"
+alias mvn-updateDeps="mvn versions:use-latest-versions -DgenerateBackupPoms=false"
+alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
 
 alias grepc="grep --color "
 alias pg="ps aux | grep -v grep | grep -i"
@@ -88,8 +97,13 @@ alias mol='slock && sleep 1 && xset dpms force off'
 alias iown="sudo chown $(id -nu):$(id -ng) -R ."
 alias zconf="vim \"+set cmdheight=2\" $HOME/.zshrc $HOME/.zsh/**/*.zsh"
 alias serveHTTP="python -m SimpleHTTPServer"
+alias sleeplog='pmset -g log|grep -e " Sleep  " -e " Wake  "'
 
 alias sm="remountSmServer"
+
+# LockitNetwork Stuff
+alias locknetPodLibCreate='pod lib create --template-url=ssh://git@stash.code.easyscott.com:7999/app/pod-template.git'
+alias locknetPodPush='git push --tags; pod repo push lockitnetwork --allow-warnings'
 
 ### Things from feh ###
 # Job-Control
