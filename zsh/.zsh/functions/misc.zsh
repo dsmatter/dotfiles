@@ -276,6 +276,11 @@ function aca {
   a commit $@ -- -a
 }
 
+function tmpdir {
+  UUID=$(uuid)
+  cdmkdir /tmp/$UUID
+}
+
 # Less
 LESSOPEN="|/usr/bin/lesspipe.sh %s"
 export LESSOPEN
