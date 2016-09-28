@@ -1,0 +1,163 @@
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+config secondsBetweenRepeat 0.1
+config checkDefaultsOnLoad true
+config focusCheckWidthMax 3000
+
+alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY        
+alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY          
+alias leftthird move screenOriginX;screenOriginY screenSizeX/3;screenSizeY         
+alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias middlethird move screenOriginX+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY
+alias tophalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
+alias bottomhalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
+alias topleft corner top-left resize:screenSizeX/2;screenSizeY/2               
+alias topright corner top-right resize:screenSizeX/2;screenSizeY/2           
+alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2         
+alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
+
+alias 0-full move screenOriginX;screenOriginY screenSizeX;screenSizeY 0
+alias 1-full move screenOriginX;screenOriginY screenSizeX;screenSizeY 1
+
+# Monitor Aliases
+alias mon-laptop      1920x1080
+alias mon-dell        2560x1440
+alias mon-benq        1920x1080
+
+# Position Aliases
+alias fullscreen  move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias rightthird  move screenOriginX+2*screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY
+alias editor      move screenOriginX+17*screenSizeX/48;screenOriginY+0*screenSizeY/24 31*screenSizeX/48;12*screenSizeY/12
+alias terminal    move screenOriginX+6*screenSizeX/24;screenOriginY+5*screenSizeY/24 10*screenSizeX/24;15*screenSizeY/24
+alias terminal_r  move screenOriginX+12*screenSizeX/24;screenOriginY+5*screenSizeY/24 9*screenSizeX/24;15*screenSizeY/24
+alias mail        move screenOriginX+3*screenSizeX/24;screenOriginY+3*screenSizeY/24 15*screenSizeX/24;18*screenSizeY/24
+alias calendar    move screenOriginX+5*screenSizeX/24;screenOriginY+5*screenSizeY/24 11*screenSizeX/24;15*screenSizeY/24
+alias todo        move screenOriginX+7*screenSizeX/24;screenOriginY+9*screenSizeY/24 10*screenSizeX/24;13*screenSizeY/24
+alias news        move screenOriginX;screenOriginY 5*screenSizeX/24;screenSizeY
+alias twitter     move screenOriginX+5*screenSizeX/24;screenOriginY 5*screenSizeX/24;screenSizeY
+alias messages    move screenOriginX+20*screenSizeX/24;screenOriginY 4*screenSizeX/24;screenSizeY
+alias skype       move screenOriginX+10*screenSizeX/24;screenOriginY 10*screenSizeX/24;screenSizeY
+
+
+# Resize Bindings
+#bind right:alt       resize +5% +0
+#bind left:alt        resize -5% +0
+#bind up:alt          resize +0   -5%
+#bind down:alt        resize +0   +5%
+bind right:ctrl;alt  resize -5% +0 bottom-right
+bind left:ctrl;alt   resize +5% +0 bottom-right
+bind up:ctrl;alt     resize +0   +5% bottom-right
+bind down:ctrl;alt   resize +0   -5% bottom-right
+bind left:cmd;alt    ${lefthalf}
+bind right:cmd;alt   ${righthalf}
+
+# Push Bindings
+#bind right:ctrl;cmd  push right
+#bind left:ctrl;cmd   push left
+#bind up:ctrl;cmd     push up
+#bind down:ctrl;cmd   push down
+
+# Nudge Bindings
+#bind right:shift;alt nudge +5% +0
+#bind left:shift;alt  nudge -5% +0
+#bind up:shift;alt    nudge +0   -5%
+#bind down:shift;alt  nudge +0   +5%
+
+# Location Bindings
+bind pad5:ctrl ${editor}     ${mon-dell}
+bind pad6:ctrl ${editor}     ${mon-benq}
+bind pad8:ctrl ${terminal}   ${mon-dell}
+bind pad9:ctrl ${terminal}   ${mon-benq}
+bind pad7:ctrl ${terminal_r} ${mon-dell}
+bind pad0:ctrl ${fullscreen} ${mon-dell}
+bind pad1:ctrl ${fullscreen} ${mon-benq}
+
+bind 1:cmd;alt ${editor}     
+bind 2:cmd;alt ${terminal}   
+bind 3:cmd;alt ${fullscreen}
+bind 4:cmd;alt ${twitter}    
+bind 5:cmd;alt ${news}       
+
+bind 7:cmd;alt ${fullscreen} previous
+bind 9:cmd;alt throw next resize ${fullscreen}
+
+# Throw Bindings
+#bind 1:ctrl;alt         throw 0 resize
+#bind 2:ctrl;alt         throw 1 resize
+#bind right:ctrl;alt;cmd throw right resize
+#bind left:ctrl;alt;cmd  throw left  resize
+#bind up:ctrl;alt;cmd    throw up    resize
+#bind down:ctrl;alt;cmd  throw down  resize
+
+#bind return:shift;cmd ${full}
+#bind k:shift;cmd ${tophalf}
+#bind j:shift;cmd ${bottomhalf}
+##bind h:shift;cmd ${lefthalf}
+##bind h:shift;alt;cmd ${leftthird}
+#bind i:shift;alt;cmd ${middlethird}
+#bind b:shift;cmd ${bottomleft}
+#bind y:shift;cmd ${topleft}
+#bind l:shift;cmd ${righthalf}
+##bind l:shift;alt;cmd ${rightthird}
+#bind .:shift;cmd ${bottomright}
+##bind p:shift;cmd ${topright}
+
+# Focus Bindings
+#bind right:cmd    focus right
+#bind left:cmd     focus left
+#bind up:cmd       focus up
+#bind down:cmd     focus down
+#bind up:cmd;alt   focus behind
+#bind down:cmd;alt focus behind
+
+# Window Hints
+#bind esc:cmd hint
+
+### Layouts
+
+## Laptop display only
+layout laptop 'MacVim'              ${editor}     ${mon-laptop}
+layout laptop 'Sublime Text'        ${editor}     ${mon-laptop}
+layout laptop 'Sublime Text 2'      ${editor}     ${mon-laptop}
+layout laptop 'Google Chrome'       ${fullscreen} ${mon-laptop}
+layout laptop 'Mail'                ${mail}       ${mon-laptop}
+layout laptop 'Calendar'            ${calendar}   ${mon-laptop}
+layout laptop 'Wunderlist'          ${todo}       ${mon-laptop}
+layout laptop 'Cream'               ${news}       ${mon-laptop}
+layout laptop 'Tweetbot'            ${twitter}    ${mon-laptop}
+layout laptop 'Adium'               ${messages}   ${mon-laptop}
+layout laptop 'Skype'               ${skype}      ${mon-laptop}
+
+## 2 Stationary Monitors
+layout 2monitors 'MacVim'           ${editor}     ${mon-dell}
+layout 2monitors 'Sublime Text'     ${editor}     ${mon-dell}
+layout 2monitors 'Sublime Text 2'   ${editor}     ${mon-dell}
+layout 2monitors 'Google Chrome'    ${fullscreen} ${mon-dell}
+layout 2monitors 'Mail'             ${mail}       ${mon-dell}
+layout 2monitors 'Calendar'         ${calendar}   ${mon-dell}
+layout 2monitors 'Wunderlist'       ${todo}       ${mon-dell}
+layout 2monitors 'Cream'            ${news}       ${mon-benq}
+layout 2monitors 'Tweetbot'         ${twitter}    ${mon-benq}
+layout 2monitors 'Adium'            ${messages}   ${mon-benq}
+layout 2monitors 'Skype'            ${skype}      ${mon-benq}
+
+## Laptop + 2 Stationary Monitors
+layout 3monitors 'MacVim'           ${editor}     1
+layout 3monitors 'Sublime Text'     ${editor}     1
+layout 3monitors 'Sublime Text 2'   ${editor}     1
+#layout 3monitors 'Google Chrome'    ${fullscreen} 1
+layout 3monitors 'Mail'             ${mail}       1
+layout 3monitors 'Calendar'         ${calendar}   1
+layout 3monitors 'Wunderlist'       ${todo}       1
+layout 3monitors 'Cream'            ${news}       ${mon-benq}
+layout 3monitors 'Tweetbot'         ${news}       ${mon-dell}
+layout 3monitors 'Adium'            ${messages}   ${mon-benq}
+layout 3monitors 'Skype'            ${skype}      ${mon-benq}
+layout 3monitors 'Activity Monitor' ${rightthird} ${mon-benq}
+
+# Defaults
+#default laptop resolutions:${mon-laptop}
+#default 2monitors resolutions:${mon-dell};${mon-benq}
+#default 3monitors count:3
+
