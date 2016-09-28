@@ -1,9 +1,0 @@
-<snippet>
-	<content><![CDATA[
-margin-left: auto;
-margin-right: auto;
-$1
-]]></content>
-	<tabTrigger>center</tabTrigger>
-	<scope>source.css</scope>
-</snippet>

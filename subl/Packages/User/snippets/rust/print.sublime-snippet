@@ -1,9 +1,0 @@
-<snippet>
-	<content><![CDATA[
-io::println(fmt!($1));
-]]></content>
-	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	<tabTrigger>p</tabTrigger>
-	<!-- Optional: Set a scope to limit where the snippet will trigger -->
-	<scope>source.rust</scope>
-</snippet>
