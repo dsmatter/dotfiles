@@ -42,7 +42,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'vim-scripts/bufkill.vim'
 
 " Text Manipulation
-Bundle 'vim-scripts/UltiSnips'
+" Bundle 'vim-scripts/UltiSnips'
 Bundle 'drmingdrmer/xptemplate'
 Bundle 'dsmatter/vim-snippets'
 Bundle 'ervandew/supertab'
