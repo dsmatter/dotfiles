@@ -32,7 +32,7 @@ install_module() {
   # Find base path
   local base="$HOME"
   if [[ -f $module/.basepath ]]; then
-    base="$(cat $module/.basepath | head -n1)"
+    base="$HOME/$(cat $module/.basepath | head -n1)"
   fi
 
   # Create symlinks for each file or symlink
