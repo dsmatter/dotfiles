@@ -306,6 +306,19 @@ function gitMergeIntoMaster {
   fi
 }
 
+function st {
+  if [[ $# -eq 0 ]]; then
+    open -a SourceTree .
+  else
+    open -a SourceTree $@
+  fi
+}
+
+function md {
+  open -a Typora $@
+  open-in-emacs $@
+}
+
 # Less
 LESSOPEN="|/usr/bin/lesspipe.sh %s"
 export LESSOPEN
