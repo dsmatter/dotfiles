@@ -281,6 +281,31 @@ function tmpdir {
   cdmkdir /tmp/$UUID
 }
 
+function gitMergeIntoMaster {
+  git diff-index --quiet --cached HEAD
+  local dirty=$?
+  local branch="$(git rev-parse --abbrev-ref HEAD)"
+
+  if [[ $dirty != 0 ]]; then
+    echo "Stashing local changes!"
+    git stash
+  fi
+
+  git co master
+  git mff $branch
+
+  read -q "REPLY?Continue with push? [y/N] "
+  echo $REPLY
+
+  if [[ $REPLY == "y" ]]; then
+    git push
+    git co $branch
+    if [[ $dirty != 0 ]]; then
+      git pop
+    fi
+  fi
+}
+
 # Less
 LESSOPEN="|/usr/bin/lesspipe.sh %s"
 export LESSOPEN
