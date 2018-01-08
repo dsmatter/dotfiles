@@ -9,7 +9,7 @@ function prompt_char {
 }
 
 function letter {
-  echo -n 'α'
+  echo -n 'λ'
 }
 
 PROMPT='%(?, ,%{$fg_bold[red]%}💩 💩 💩  [%?]%{$reset_color%}

@@ -21,7 +21,7 @@ export SMSERVER="$HOME/smserver"
 export GOPATH="$DEVELOP_HOME/go/mygo"
 export ENWIDA_HOME="$DEVELOP_HOME/projects/enwida/enwida_home"
 
-path=(${HOME}/bin ${HOME}/.local/bin ${HOME}/.cabal/bin $GOPATH/bin /usr/local/bin /usr/local/sbin /opt/local/bin /usr/local/share/npm/bin /usr/texbin $path)
+path=(${HOME}/bin ${HOME}/.local/bin ${HOME}/.cabal/bin ${HOME}/.fastlane/bin $GOPATH/bin /usr/local/bin /usr/local/sbin /opt/local/bin /usr/local/share/npm/bin /usr/texbin $path)
 
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=5000
@@ -38,6 +38,6 @@ export ANDROID_HOME="/usr/local/Cellar/android-sdk/r21.1"
 
 export GISTY_DIR="$DEVELOP_HOME/gists"
 
-export SBT_OPTS=-XX:MaxPermSize=256m
+export SBT_OPTS="-XX:+UseConcMarkSweepGC -Xss4M -Xms4g -Xmx4g"
 export FZF_DEFAULT_COMMAND="find . -type f"
 

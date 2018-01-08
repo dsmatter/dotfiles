@@ -9,3 +9,7 @@ sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.pl
 
 # Stop spotlight indexing
 sudo mdutil -a -i off
+
+# Relink MySQL socket
+sudo mkdir /var/mysql
+sudo ln -s /tmp/mysql.sock /var/mysql/mysql.sock

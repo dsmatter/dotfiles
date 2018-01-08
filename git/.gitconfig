@@ -1,6 +1,6 @@
 [user]
 	name = Daniel Strittmatter
-	email = daniel@smattr.de
+	email = daniel@lockitnetwork.com
 [alias]
   co = checkout
   cob = checkout -b
@@ -15,6 +15,7 @@
   dl = clone --depth 1
   untracked = ls-files --others --exclude-standard
   mff = merge --no-ff
+  ff = merge --ff-only
   sub = submodule
   subdate = submodule update
   puu = push -u origin HEAD
@@ -28,6 +29,8 @@
 	excludesfile = /Users/smatter/.gitignore_global
 	precomposeunicode = true
 	editor = nvim -c \"startinsert!\"
+[commit]
+	template = /Users/smatter/.stCommitMsg
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

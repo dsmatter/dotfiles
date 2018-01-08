@@ -234,7 +234,7 @@ function vm() {
 }
 
 function open-in-emacs() {
-  local EMACS="/usr/local/Cellar/emacs-mac/emacs-25.1-rc1-mac-5.90/bin/emacsclient"
+  local EMACS="/usr/local/Cellar/emacs-plus/25.1/bin/emacsclient"
   $EMACS $* &>/dev/null &|
 }
 
@@ -292,6 +292,7 @@ function gitMergeIntoMaster {
   fi
 
   git co master
+  git pull
   git mff $branch
 
   read -q "REPLY?Continue with push? [y/N] "
@@ -302,6 +303,8 @@ function gitMergeIntoMaster {
     git co $branch
     if [[ $dirty != 0 ]]; then
       git pop
+    else
+      git merge --ff-only master
     fi
   fi
 }
@@ -317,6 +320,16 @@ function st {
 function md {
   open -a Typora $@
   open-in-emacs $@
+}
+
+function publishFile {
+  scp "$1" hetz:/var/www/files >&2
+  echo "http://files.lockitnetwork.com/$(basename $1)"
+}
+
+function exml {
+  tar xzvf "$1"
+  tar xzvf update-repository.tar.gz
 }
 
 # Less

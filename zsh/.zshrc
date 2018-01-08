@@ -37,6 +37,9 @@ if hash fasd &>/dev/null; then
   eval "$(fasd --init auto)"
 fi
 
+# Initialize fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Include user scripts
 for f in $ZSH_HOME/*.zsh; do
   source $f;
