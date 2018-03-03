@@ -68,6 +68,32 @@
                         ]
                     },
                     {
+                        "description": "' Hyper Key",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "quote"
+                                },
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "quote"
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "left_control",
+                                        "modifiers": [
+                                            "left_option",
+                                            "left_shift"
+                                        ],
+                                        "lazy": true
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "jk",
                         "manipulators": [
                             {
