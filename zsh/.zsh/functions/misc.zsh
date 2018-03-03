@@ -332,6 +332,10 @@ function exml {
   tar xzvf update-repository.tar.gz
 }
 
+function cheat {
+  cat "$HOME/.cheat/$*"
+}
+
 # Less
 LESSOPEN="|/usr/bin/lesspipe.sh %s"
 export LESSOPEN
