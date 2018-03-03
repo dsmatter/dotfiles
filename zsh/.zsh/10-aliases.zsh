@@ -50,7 +50,7 @@ alias sc="scratch vim"
 alias scc="scratch mvim"
 alias c="clear"
 alias h="history"
-alias m='mplay'
+alias m='mplayer'
 alias mm='command m'
 alias mx='mplayerx'
 alias n='notify'
@@ -96,7 +96,7 @@ alias mo='sleep 1 && xset dpms force off'
 alias mol='slock && sleep 1 && xset dpms force off'
 alias iown="sudo chown $(id -nu):$(id -ng) -R ."
 alias zconf="vim \"+set cmdheight=2\" $HOME/.zshrc $HOME/.zsh/**/*.zsh"
-alias serveHTTP="python -m SimpleHTTPServer"
+alias serveHTTP="python3 -m http.server"
 alias sleeplog='pmset -g log|grep -e " Sleep  " -e " Wake  "'
 
 alias sm="remountSmServer"
