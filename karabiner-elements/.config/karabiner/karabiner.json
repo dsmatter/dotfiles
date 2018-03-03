@@ -83,7 +83,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open '/Applications/Visual Studio Code.app'"
+                                        "shell_command": "open 'kmtrigger://macro=5A34BCA1-88B7-4B0A-9E64-AFD31C8D939A'"
                                     }
                                 ],
                                 "type": "basic"
@@ -154,6 +154,30 @@
                                     {
                                         "key_code": "f18",
                                         "modifiers": ["left_shift", "left_option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "sd",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "s"
+                                        },
+                                        {
+                                            "key_code": "d"
+                                        }
+                                    ]
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "grave_accent_and_tilde",
+                                        "modifiers": ["left_command"]
                                     }
                                 ],
                                 "type": "basic"
