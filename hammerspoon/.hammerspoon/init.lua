@@ -48,26 +48,23 @@ end
 --- Key Bindings
 ---
 
-k:bind('', 'C', launcher("Google Chrome"))
 k:bind('', "A", launcher("Things3"))
 k:bind('', "B", launcher("Sublime Text"))
+k:bind('', 'C', launcher("Google Chrome"))
 k:bind('', "C", launcher("Google Chrome"))
-k:bind('', "S", launcher("Safari"))
-k:bind('', "T", launcher("iTerm"))
---k:bind('', "T", launcher("Terminal"))
---k:bind('', "E", launcher("STS"))
-k:bind('', "I", launcher("IntelliJ IDEA CE"))
 k:bind('', "F", launcher("Finder"))
 k:bind('', "G", launcher("SourceTree"))
 k:bind('', "H", launcher("GitUp"))
+k:bind('', "I", launcher("IntelliJ IDEA CE"))
+k:bind('', "K", launcher("Karabiner-Elements"))
 k:bind('', "M", launcher("Mail"))
 k:bind('', "N", launcher("Evernote"))
 k:bind('', "P", launcher("Preview"))
 k:bind('', "R", launcher("Simulator"))
+k:bind('', "S", launcher("Safari"))
+k:bind('', "T", launcher("iTerm"))
 k:bind('', "U", launcher("Spotify"))
 k:bind('', "V", launcher("Visual Studio Code"))
 k:bind('', "W", launcher("WebStorm"))
 k:bind('', "X", launcher("XcodeGr8"))
 k:bind('', "Z", launcher("Slack"))
-
-
