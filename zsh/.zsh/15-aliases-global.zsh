@@ -20,4 +20,5 @@ alias -g RR=' "$(gfind ~/Desktop -maxdepth 1 -mindepth 1 -type f \! -name ".DS_S
 alias -g S="| percol"
 alias -g Sk="*~(*.bz2|*.gz|*.tgz|*.zip|*.z)"
 alias -g V='| vim -'
+alias -g VV='| code -'
 alias -g X='| xargs'
