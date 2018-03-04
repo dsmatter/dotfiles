@@ -1,3 +1,5 @@
+hs.allowAppleScript(true)
+
 ---
 --- Hyper Key Setup ---
 ---
@@ -66,5 +68,5 @@ k:bind('', "T", launcher("iTerm"))
 k:bind('', "U", launcher("Spotify"))
 k:bind('', "V", launcher("Visual Studio Code"))
 k:bind('', "W", launcher("WebStorm"))
-k:bind('', "X", launcher("XcodeGr8"))
+k:bind('', "X", launcher("Xcode"))
 k:bind('', "Z", launcher("Slack"))
