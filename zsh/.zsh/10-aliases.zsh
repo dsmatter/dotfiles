@@ -50,8 +50,6 @@ alias sc="scratch vim"
 alias scc="scratch mvim"
 alias c="clear"
 alias h="history"
-alias m='mplayer'
-alias mm='command m'
 alias mx='mplayerx'
 alias n='notify'
 alias s='sudo'
@@ -68,6 +66,7 @@ alias pdf="open"
 alias vv="code"
 alias e="code"
 alias chrome="open -a 'Google Chrome'"
+alias 2x="open -a /Applications/Retini.app"
 alias ee="/opt/homebrew-cask/Caskroom/emacs/24.4/Emacs.app/Contents/MacOS/Emacs"
 alias dv="dotView"
 alias tma="tmux attach -d -t"
@@ -77,7 +76,8 @@ alias fuck='$(thefuck $(fc -ln -1))'
 alias mvn-deploy-nexus="mvn deploy -DaltDeploymentRepository='lockitnetwork-release::default::http://nexus.code.easyscott.com/content/repositories/releases'"
 alias mvn-updateDeps="mvn versions:use-latest-versions -DgenerateBackupPoms=false"
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
-alias lock="pmset displaysleepnow"
+#alias lock="pmset displaysleepnow"
+alias lock="m lock"
 
 alias grepc="grep --color "
 alias pg="ps aux | grep -v grep | grep -i"
