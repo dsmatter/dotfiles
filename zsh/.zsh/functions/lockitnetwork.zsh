@@ -7,3 +7,7 @@ function lnusers {
   echo $URL
   curl -i "$URL"
 }
+
+function allreports {
+  curl -i "https://webtools.lockitnetwork.com/api/reports/all?token=$LN_API_TOKEN"
+}
