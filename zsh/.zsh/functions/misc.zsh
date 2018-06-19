@@ -243,6 +243,11 @@ function sml() {
   ssh ml
 }
 
+function smll() {
+  gsed -i '/masterlockit.local/d' $HOME/.ssh/known_hosts
+  ssh root@masterlockit.local
+}
+
 function sml2() {
   gsed -i '/172.20.50.1/d' $HOME/.ssh/known_hosts
   ssh root@172.20.50.1
@@ -311,7 +316,7 @@ function gitMergeIntoMaster {
 
 function st {
   if [[ $# -eq 0 ]]; then
-    open -a SourceTree .
+    open -a SourceTree "$(git rev-parse --show-toplevel)"
   else
     open -a SourceTree $@
   fi
@@ -334,6 +339,20 @@ function exml {
 
 function cheat {
   cat "$HOME/.cheat/$*"
+}
+
+function excel() {
+  open -a 'Microsoft Excel' $*
+}
+
+function xampp {
+  if [[ "$1" == "on" ]]; then
+    launchctl unload -w  /usr/local/Cellar/mysql/5.7.21/homebrew.mxcl.mysql.plist
+    sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist
+  else
+    launchctl load -w  /usr/local/Cellar/mysql/5.7.21/homebrew.mxcl.mysql.plist
+    sudo launchctl load -w /System/Library/LaunchDaemons/org.apache.httpd.plist
+  fi
 }
 
 # Less
