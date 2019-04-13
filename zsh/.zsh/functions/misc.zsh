@@ -316,9 +316,9 @@ function gitMergeIntoMaster {
 
 function st {
   if [[ $# -eq 0 ]]; then
-    open -a SourceTree "$(git rev-parse --show-toplevel)"
+    open -a Tower "$(git rev-parse --show-toplevel)"
   else
-    open -a SourceTree $@
+    open -a Tower $@
   fi
 }
 
