@@ -9,7 +9,7 @@ function prompt_char {
 }
 
 function letter {
-  echo -n 'α'
+  echo -n '☁'
 }
 
 PROMPT='%(?, ,%{$fg_bold[red]%}FAIL [%?]%{$reset_color%}

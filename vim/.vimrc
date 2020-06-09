@@ -66,7 +66,7 @@ Bundle 'vim-scripts/Gundo'
 "
 "" Fancy
 "Bundle 'bling/vim-airline'
-"Bundle 'flazz/vim-colorschemes'
+Bundle 'flazz/vim-colorschemes'
 "Bundle 'vim-scripts/CycleColor'
 "Bundle 'vim-scripts/CSApprox'
 "Bundle 'morhetz/gruvbox'

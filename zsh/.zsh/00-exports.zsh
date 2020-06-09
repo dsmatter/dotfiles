@@ -8,7 +8,7 @@ watch=(notme)
 fpath=("$HOME/.zsh/completions" $fpath)
 
 export EDITOR=vim
-export PAGER=vimpager
+export PAGER=less
 
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=5000
