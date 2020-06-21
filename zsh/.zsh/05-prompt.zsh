@@ -10,5 +10,5 @@ set_theme() {
 }
 
 # Use set_theme function to select a theme
-set_theme star
+set_theme star-native
 
