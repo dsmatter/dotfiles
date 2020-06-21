@@ -11,7 +11,6 @@ fpath=("$HOME/.zsh/completions" $fpath)
 
 export EDITOR=vim
 export PAGER=less
-export BROWSER=chromium
 
 export DEVELOP_HOME="$HOME/develop"
 export BIN_HOME="$HOME/bin"
