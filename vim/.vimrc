@@ -175,8 +175,8 @@ set noswapfile
 set title
 
 " Turn off VIM's crazy RegEx behaviour in search
-nnoremap / /\v
-vnoremap / /\v
+"nnoremap / /\v
+"vnoremap / /\v
 
 " Always enable syntax highlighting
 syntax on
