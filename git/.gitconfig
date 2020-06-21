@@ -1,6 +1,6 @@
 [user]
 	name = Daniel Strittmatter
-	email = daniel@lockitnetwork.com
+	email = github@smattr.de
 [alias]
   co = checkout
   cob = checkout -b
