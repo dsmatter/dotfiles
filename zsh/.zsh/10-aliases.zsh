@@ -32,6 +32,7 @@ alias o='a -e xdg-open'
 #git
 alias gs='git status --short -b'
 alias gp='git push'
+alias gl='git pull'
 alias gdd='git diff'
 alias gc='git commit'
 alias ac='a commit'
@@ -78,6 +79,7 @@ alias mvn-updateDeps="mvn versions:use-latest-versions -DgenerateBackupPoms=fals
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
 #alias lock="pmset displaysleepnow"
 alias lock="m lock"
+alias co=cargo
 
 alias grepc="grep --color "
 alias pg="ps aux | grep -v grep | grep -i"
