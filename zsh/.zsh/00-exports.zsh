@@ -10,7 +10,7 @@ watch=(notme)
 fpath=("$HOME/.zsh/completions" $fpath)
 
 export EDITOR=vim
-export PAGER=less
+export PAGER=bat
 
 export DEVELOP_HOME="$HOME/develop"
 export BIN_HOME="$HOME/bin"
