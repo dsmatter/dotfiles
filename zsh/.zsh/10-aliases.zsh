@@ -79,7 +79,7 @@ alias mvn-updateDeps="mvn versions:use-latest-versions -DgenerateBackupPoms=fals
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
 #alias lock="pmset displaysleepnow"
 alias lock="m lock"
-alias co=cargo
+alias co="cargo"
 
 alias grepc="grep --color "
 alias pg="ps aux | grep -v grep | grep -i"
@@ -92,7 +92,6 @@ alias syncTime='sudo ntpdate ntp1.lrz-muenchen.de'
 alias xconf="sudo vim /etc/X11/xorg.conf"
 alias rmpkg="rm *.pkg.tar.gz"
 alias pkginstall="p -U *.pkg.tar.gz"
-alias rec='ffmpeg -f x11grab -s 3360x1050 -r 150 -i :0.0 -sameq /tmp/foo.mpg'
 alias screen="TERM=xterm-new screen"
 alias mo='sleep 1 && xset dpms force off'
 alias mol='slock && sleep 1 && xset dpms force off'

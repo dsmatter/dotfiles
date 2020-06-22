@@ -323,8 +323,7 @@ function st {
 }
 
 function md {
-  open -a Typora $@
-  open-in-emacs $@
+  open -a Marked $@
 }
 
 function publishFile {

@@ -38,4 +38,4 @@ export ANDROID_HOME="/usr/local/Cellar/android-sdk/r21.1"
 export GISTY_DIR="$DEVELOP_HOME/gists"
 
 export FZF_DEFAULT_COMMAND="find . -type f"
-
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
