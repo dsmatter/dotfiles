@@ -2,48 +2,45 @@
 _z_cd() {
     cd "$@" || return "$?"
 
-    if [ -n "$_ZO_ECHO" ]; then
+    if [ "$_ZO_ECHO" = "1" ]; then
         echo "$PWD"
     fi
 }
 
 z() {
     if [ "$#" -eq 0 ]; then
-        _z_cd ~ || return "$?"
+        _z_cd ~
     elif [ "$#" -eq 1 ] && [ "$1" = '-' ]; then
         if [ -n "$OLDPWD" ]; then
-            _z_cd "$OLDPWD" || return "$?"
+            _z_cd "$OLDPWD"
         else
-            echo "zoxide: \$OLDPWD is not set"
+            echo 'zoxide: $OLDPWD is not set'
             return 1
         fi
     else
-        result="$(zoxide query "$@")" || return "$?"
-        case "$result" in
-            "query: "*)
-                _z_cd "${result#query: }" || return "$?"
-                ;;
-            *)
-                if [ -n "$result" ]; then
-                    echo "$result"
-                fi
-                ;;
-        esac
+        _zoxide_result="$(zoxide query -- "$@")" && _z_cd "$_zoxide_result"
     fi
 }
 
+zi() {
+    _zoxide_result="$(zoxide query -i -- "$@")" && _z_cd "$_zoxide_result"
+}
 
-alias zi='z -i'
+
 alias za='zoxide add'
+
 alias zq='zoxide query'
+alias zqi='zoxide query -i'
+
 alias zr='zoxide remove'
+zri() {
+    _zoxide_result="$(zoxide query -i -- "$@")" && zoxide remove "$_zoxide_result"
+}
 
 
 _zoxide_hook() {
-    zoxide add
+    zoxide add "$(pwd -L)"
 }
 
-[[ -n "${precmd_functions[(r)_zoxide_hook]}" ]] || {
-    precmd_functions+=(_zoxide_hook)
-}
+chpwd_functions=(${chpwd_functions[@]} "_zoxide_hook")
 
