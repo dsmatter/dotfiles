@@ -59,6 +59,8 @@ _increase_number() {
 zle -N increase-number _increase_number
 bindkey '^A' increase-number
 
+bindkey '^R' fzf-history-widget
+
 # Pasting the prompt makes it disappear
 # That's a non-breaking space
 nbsp=$'\u00A0'
