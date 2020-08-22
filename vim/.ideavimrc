@@ -1,0 +1,118 @@
+" Thanks to Yannick Gladow
+" https://www.dev-log.me/VimtelliJ:_All_the_best_of_Vim_in_IntelliJ/
+
+let mapleader = " "
+" :actionlist for all commands
+set surround
+set multiple-cursors
+set history=1000
+set visualbell
+set noerrorbells
+set incsearch " Highlight search results when typing
+set hlsearch " Highlight search results
+set relativenumber " relative numbers
+" for yanking to clipboard
+set clipboard+=unnamed
+set scrolloff=3 " Display at least 3 lines around you cursor
+
+set ignorecase " Ignore case when searching
+set smartcase " If there is an uppercase in your search term
+" KEYMAP
+
+map <c-n> <a-n>
+map <c-x> <a-x>
+map <c-p> <a-p>
+map g<c-n> g<a-p>
+nnoremap <c-w>j :action Activatesbt-shell-toolwindowToolWindow<CR>
+
+nnoremap <C-l> :<C-u>nohlsearch<CR><C-l>
+nnoremap <leader>/ :<C-u>nohlsearch<CR><C-l>
+
+" Pasting from yank history
+nnoremap <leader>y :action PasteMultiple<CR>
+
+" Comment
+nnoremap <leader>cc :action CommentByLineComment<CR>
+vmap <leader>cc :action CommentByLineComment<CR>
+vmap <leader>cb :action CommentByBlockComment<CR>
+
+" Menus
+nnoremap <leader>m :action ActivateProjectToolWindow<CR>
+
+" Zen
+nnoremap <leader>df :action ToggleDistractionFreeMode<CR>
+
+" Refactorings
+nnoremap <leader>oi :action OptimizeImports<CR>
+nnoremap <leader>rn :action RenameElement<CR>
+nnoremap <leader>rf :action RenameFile<CR>
+nnoremap <leader>ri :action Inline<CR>
+nnoremap <leader>rv :action IntroduceVariable<CR>
+nnoremap <leader>rm :action ExtractMethod<CR>
+nnoremap <leader>rr :action Refactorings.QuickListPopupAction<CR>
+
+vmap <leader>rp :action IntroduceParameter<CR>
+vmap <leader>rn :action RenameElement<CR>
+vmap <leader>rf :action RenameFile<CR>
+vmap <leader>ri :action Inline<CR>
+vmap <leader>rv :action IntroduceVariable<CR>
+vmap <leader>rm :action ExtractMethod<CR>
+vmap <leader>rr :action Refactorings.QuickListPopupAction<CR>
+vmap <leader>rr :action Refactorings.QuickListPopupAction<CR>
+nnoremap <leader>rp :action IntroduceParameter<CR>
+nnoremap <leader>im :action ImplementMethods<CR>
+nnoremap <leader>om :action OverrideMethods<CR>
+nnoremap <leader>qf :action ShowIntentionActions<CR>
+nnoremap <leader>F :action ReformatCode<CR>
+
+" GoTo
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gr :action FindUsages<CR>
+nnoremap <leader>gi :action GotoImplementation<CR>
+nnoremap <leader>gs :action ActivateStructureToolWindow<CR>
+nnoremap <leader>sp :action ParameterInfo<CR>
+nnoremap <leader>si :action Scala.ShowImplicitArguments<CR>
+nnoremap <leader>sd :action QuickImplementations<CR>
+
+" Types
+nnoremap K :action Scala.TypeInfo<CR>
+vmap K :action Scala.TypeInfo<CR>
+
+" Search
+nnoremap <leader>fs :action GotoSymbol<CR>
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>fc :action GotoClass<CR>
+nnoremap <leader>fa :action GotoAction<CR>
+nnoremap <leader>fg :action FindInPath<CR>
+nnoremap <leader>fr :action ReplaceInPath<CR>
+vmap <leader>fg :action FindInPath<CR>
+vmap <leader>fr :action ReplaceInPath<CR>
+
+" Test and Run
+nnoremap <leader>gt :action GotoTest<CR>
+nnoremap <leader>tn :action RunClass<CR>
+nnoremap <leader>tl :action Rerun<CR>
+nnoremap <leader>tf :action RerunFailedTests<CR>
+
+" Undo
+nnoremap <leader>uh :action LocalHistory.ShowHistory<CR>
+
+" Jumping
+" built-in navigation to navigated items works better
+nnoremap <c-o> :action Back<cr>
+nnoremap <c-i> :action Forward<cr>
+
+" Navigation
+nnoremap <leader>w :action NextSplitter<cr>
+nnoremap <leader>l :action NextSplitter<cr>
+nnoremap <leader>h :action NextSplitter<cr>
+
+nnoremap ]c :action GotoNextError<cr>
+nnoremap [c :action GotoPreviousError<cr>
+nnoremap ]h :action VcsShowNextChangeMarker<cr>
+nnoremap [h :action VcsShowPrevChangeMarker<cr>
+nnoremap <leader>se :action ShowErrorDescription<cr>
+
+" Misc
+nnoremap <leader>vr :source ~/.ideavimrc<CR>
+noremap <leader>vr :source ~/.ideavimrc<CR>
