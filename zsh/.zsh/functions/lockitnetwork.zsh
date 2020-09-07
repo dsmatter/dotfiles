@@ -22,14 +22,9 @@ function allreports {
   curl -i "$LN_API_BASE_URL/reports/all?token=$LN_API_TOKEN"
 }
 
-function fuzz4prepare {
-  PROJECT_ID="$1"
-  curl -i -F 'file=@-' "$LN_API_BASE_URL/projects/$PROJECT_ID/import/fuzz4/prepare?token=$LN_API_TOKEN"
+function publishFile {
+  scp "$1" ln:/var/www/files >&2
+  local path="$(echo "$(basename "$1")" | python -c "import urllib;print urllib.quote(raw_input())")"
+  echo "http://files.lockitnetwork.com/$path"
 }
 
-function fuzz4import {
-  PROJECT_ID="$1"
-  SCHEDULE="$2"
-
-  echo curl -i -F "'"file=@-"'" "'""$LN_API_BASE_URL/projects/$PROJECT_ID/import/fuzz4?token=$LN_API_TOKEN&schedule=$SCHEDULE&scheduleScenes=true""'"
-}

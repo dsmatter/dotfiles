@@ -326,11 +326,6 @@ function md {
   open -a Marked $@
 }
 
-function publishFile {
-  scp "$1" hetz:/var/www/files >&2
-  echo "http://files.lockitnetwork.com/$(basename $1)"
-}
-
 function exml {
   tar xzvf "$1"
   tar xzvf update-repository.tar.gz
