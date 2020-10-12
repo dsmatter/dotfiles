@@ -7,7 +7,9 @@ fpath=($fpath "$ZSH_HOME/completions")
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# Initialize path to avoid errors in /etc/profile
 typeset -U path
+path=(/usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin)
 
 # Source global profile
 source /etc/profile
