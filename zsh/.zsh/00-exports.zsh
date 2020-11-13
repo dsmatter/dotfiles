@@ -23,7 +23,7 @@ export ENWIDA_HOME="$DEVELOP_HOME/projects/enwida/enwida_home"
 path=(${HOME}/bin ${HOME}/.local/bin ${HOME}/.cabal/bin ${HOME}/.fastlane/bin $GOPATH/bin /usr/local/bin /usr/local/sbin /opt/local/bin /usr/local/share/npm/bin /usr/texbin $HOME/.cargo/bin $path)
 
 export HISTFILE=$HOME/.zsh_history
-export HISTSIZE=5000
+export HISTSIZE=1000000
 export SAVEHIST=1000000
 export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd*"
 
