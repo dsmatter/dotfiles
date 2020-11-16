@@ -448,3 +448,8 @@ bindkey '^R' fzf-history-widget
   eval $__fzf_key_bindings_options
   'unset' '__fzf_key_bindings_options'
 }
+
+__fzf_git_status() { git status --short | fzf | sgrep '/...(.*)/' }
+fzf-git-status-widget() { LBUFFER="${LBUFFER}$(__fzf_git_status)" ; local ret=$? ; zle reset-prompt ; return $ret }
+zle -N fzf-git-status-widget
+

@@ -62,8 +62,5 @@ help-conf() {
 }
 
 zle -N help-glob
-bindkey '^g' help-glob
-
 zle -N help-conf
-bindkey '^k' help-conf
 

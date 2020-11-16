@@ -69,3 +69,4 @@ bindkey -s $nbsp '^u'
 # fooling around
 #bindkey -s 'ss ' 'sudo '
 
+bindkey '^G' fzf-git-status-widget
