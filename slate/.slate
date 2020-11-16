@@ -51,6 +51,8 @@ bind up:ctrl;alt     resize +0   +5% bottom-right
 bind down:ctrl;alt   resize +0   -5% bottom-right
 bind left:cmd;alt    ${lefthalf}
 bind right:cmd;alt   ${righthalf}
+bind 1:cmd;alt;shift;ctrl    ${lefthalf}
+bind 2:cmd;alt;shift;ctrl   ${righthalf}
 
 # Push Bindings
 #bind right:ctrl;cmd  push right
@@ -76,11 +78,13 @@ bind pad1:ctrl ${fullscreen} ${mon-benq}
 bind 1:cmd;alt ${editor}     
 bind 2:cmd;alt ${terminal}   
 bind 3:cmd;alt ${fullscreen}
+bind 3:cmd;alt;ctrl;shift ${fullscreen}
 bind 4:cmd;alt ${twitter}    
 bind 5:cmd;alt ${news}       
 
 bind 7:cmd;alt ${fullscreen} previous
 bind 9:cmd;alt throw next resize ${fullscreen}
+bind 4:cmd;alt;ctrl;shift throw next resize ${fullscreen}
 
 # Throw Bindings
 #bind 1:ctrl;alt         throw 0 resize
