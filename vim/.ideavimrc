@@ -40,7 +40,7 @@ vmap <leader>cb :action CommentByBlockComment<CR>
 nnoremap <leader>m :action ActivateProjectToolWindow<CR>
 
 " Zen
-nnoremap <leader>df :action ToggleDistractionFreeMode<CR>
+nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
 
 " Refactorings
 nnoremap <leader>oi :action OptimizeImports<CR>
@@ -66,6 +66,7 @@ nnoremap <leader>qf :action ShowIntentionActions<CR>
 nnoremap <leader>F :action ReformatCode<CR>
 
 " GoTo
+nnoremap <leader>p :action FileStructurePopup<cr>
 nnoremap gd :action GotoDeclaration<CR>
 nnoremap gr :action FindUsages<CR>
 nnoremap <leader>gi :action GotoImplementation<CR>
@@ -103,9 +104,9 @@ nnoremap <c-o> :action Back<cr>
 nnoremap <c-i> :action Forward<cr>
 
 " Navigation
-nnoremap <leader>w :action NextSplitter<cr>
+" nnoremap <leader>w :action NextSplitter<cr>
 nnoremap <leader>l :action NextSplitter<cr>
-nnoremap <leader>h :action NextSplitter<cr>
+" nnoremap <leader>h :action NextSplitter<cr>
 
 nnoremap ]c :action GotoNextError<cr>
 nnoremap [c :action GotoPreviousError<cr>
@@ -116,3 +117,5 @@ nnoremap <leader>se :action ShowErrorDescription<cr>
 " Misc
 nnoremap <leader>vr :source ~/.ideavimrc<CR>
 noremap <leader>vr :source ~/.ideavimrc<CR>
+nnoremap <leader>d :action ShowErrorDescription<cr>
+nnoremap <leader>h :action HideActiveWindow<cr>
