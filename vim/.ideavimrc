@@ -9,7 +9,7 @@ set history=1000
 set visualbell
 set noerrorbells
 set incsearch " Highlight search results when typing
-set hlsearch " Highlight search results
+set nohlsearch " Highlight search results
 set relativenumber " relative numbers
 " for yanking to clipboard
 set clipboard+=unnamed
@@ -60,13 +60,14 @@ vmap <leader>rm :action ExtractMethod<CR>
 vmap <leader>rr :action Refactorings.QuickListPopupAction<CR>
 vmap <leader>rr :action Refactorings.QuickListPopupAction<CR>
 nnoremap <leader>rp :action IntroduceParameter<CR>
-nnoremap <leader>im :action ImplementMethods<CR>
+" nnoremap <leader>im :action ImplementMethods<CR>
 nnoremap <leader>om :action OverrideMethods<CR>
 nnoremap <leader>qf :action ShowIntentionActions<CR>
 nnoremap <leader>F :action ReformatCode<CR>
 
 " GoTo
 nnoremap <leader>p :action FileStructurePopup<cr>
+nnoremap <leader>i :action RecentFiles<cr>
 nnoremap gd :action GotoDeclaration<CR>
 nnoremap gr :action FindUsages<CR>
 nnoremap <leader>gi :action GotoImplementation<CR>
@@ -106,7 +107,7 @@ nnoremap <c-i> :action Forward<cr>
 " Navigation
 " nnoremap <leader>w :action NextSplitter<cr>
 nnoremap <leader>l :action NextSplitter<cr>
-" nnoremap <leader>h :action NextSplitter<cr>
+nnoremap <leader>h :action NextSplitter<cr>
 
 nnoremap ]c :action GotoNextError<cr>
 nnoremap [c :action GotoPreviousError<cr>
@@ -118,4 +119,5 @@ nnoremap <leader>se :action ShowErrorDescription<cr>
 nnoremap <leader>vr :source ~/.ideavimrc<CR>
 noremap <leader>vr :source ~/.ideavimrc<CR>
 nnoremap <leader>d :action ShowErrorDescription<cr>
-nnoremap <leader>h :action HideActiveWindow<cr>
+
+nmap <leader><leader> :action HideAllWindows<cr>
