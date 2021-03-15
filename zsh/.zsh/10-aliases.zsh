@@ -80,6 +80,7 @@ alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pb
 #alias lock="pmset displaysleepnow"
 alias lock="m lock"
 alias co="cargo"
+alias bat="bat --pager less"
 
 alias grepc="grep --color "
 alias pg="ps aux | grep -v grep | grep -i"
