@@ -349,6 +349,10 @@ function xampp {
   fi
 }
 
+function ffmaster {
+  git fetch . HEAD:master && git push origin master
+}
+
 # Less
 LESSOPEN="|/usr/bin/lesspipe.sh %s"
 export LESSOPEN
