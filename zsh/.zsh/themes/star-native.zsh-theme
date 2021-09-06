@@ -14,6 +14,10 @@ ps1_precmd() {
         PS1_END_TIME=$(~/.zsh/themes/ps1 dump_time)
         PS1_DURATION=$((PS1_END_TIME - PS1_START_TIME))
         unset PS1_START_TIME
+
+	if [[ $PS1_DURATION -gt 30000 ]]; then
+	    terminal-notifier -message "Task finished ${PS1_DURATION}"
+	fi
     else
         unset PS1_DURATION
     fi
