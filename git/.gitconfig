@@ -10,14 +10,15 @@
   k = gui
   cp = cherry-pick
   s = status -uno
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit --all
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit --all
   ec = config -global -e
   dl = clone --depth 1
   untracked = ls-files --others --exclude-standard
+  msq = merge --squash
   mff = merge --no-ff
   ff = merge --ff-only
   sub = submodule
-  subdate = submodule update
+  subdate = submodule update --init
   puu = push -u origin HEAD
   sdiff = diff --cached
   mergeAll = !git branch --contains HEAD --no-merge | xargs git merge
