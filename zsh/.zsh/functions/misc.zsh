@@ -353,6 +353,10 @@ function ffmaster {
   git fetch . HEAD:master && git push origin master
 }
 
+function tsvMaxLen {
+  awk -F'\t' '{for (i=1; i <= NF; i++) { if(length($i) > max_len) { max_len = length($i) } }} END { print max_len }' $@
+}
+
 # Less
 LESSOPEN="|/usr/bin/lesspipe.sh %s"
 export LESSOPEN
