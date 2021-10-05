@@ -449,7 +449,17 @@ bindkey '^R' fzf-history-widget
   'unset' '__fzf_key_bindings_options'
 }
 
+# Git status widget
 __fzf_git_status() { git status --short | fzf | sgrep '/...(.*)/' }
 fzf-git-status-widget() { LBUFFER="${LBUFFER}$(__fzf_git_status)" ; local ret=$? ; zle reset-prompt ; return $ret }
 zle -N fzf-git-status-widget
+
+# Latest downloads widget
+__fzf_downloads() {
+  gfind ~/Downloads -maxdepth 1 -mindepth 1 -type f \! -name ".DS_Store" -printf "%T@ %p\n"  | sort -rn | cut -d " " -f2- | fzf
+}
+fzf-downloads-widget() {
+  LBUFFER="${LBUFFER}$(__fzf_downloads)" ; local ret=$? ; zle reset-prompt ; return $ret
+}
+zle -N fzf-downloads-widget
 
