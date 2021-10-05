@@ -152,6 +152,12 @@ set tabstop=2
 set expandtab
 set softtabstop=2
 
+" netrw
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_winsize = 7
+
 " }}}
 " {{{ Completion
 " Set completeopt to have a better completion experience
@@ -283,22 +289,24 @@ nnoremap j gj
 nnoremap k gk
 
 " Switch to previously edited buffer
-nmap <leader>e :e#<CR>
+nnoremap <leader>e :e#<CR>
 
 " Delete current buffer
 nnoremap <leader>dd :bd<CR>
 
 " Open window splits in various places
-nmap <leader>sh :leftabove vnew<CR>
-nmap <leader>sl :rightbelow vnew<CR>
-nmap <leader>sk :leftabove new<CR>
-nmap <leader>sj :rightbelow new<CR>
+nnoremap <leader>sh :leftabove vnew<CR>
+nnoremap <leader>sl :rightbelow vnew<CR>
+nnoremap <leader>sk :leftabove new<CR>
+nnoremap <leader>sj :rightbelow new<CR>
 
-" Fuzzy file opener
-" TODO
+" Resize splits
+nnoremap <leader>0 <cmd>vertical resize +5<CR>
+nnoremap <leader>9 <cmd>vertical resize -5<CR>
 
+" Open explorer
+nnoremap <leader>E <cmd>Lexplore<CR>
 
-" }}}
 " {{{ Toggles
 
 nnoremap <leader>/ :set hlsearch! hlsearch?<CR>
@@ -336,12 +344,12 @@ tnoremap <C-M-Q> <cmd>lua require('lspsaga.floaterm').close_float_terminal()<CR>
 " {{{ Telescope
 
 nnoremap <leader>ff <cmd>Telescope find_files<CR>
+nnoremap <leader>fF <cmd>Telescope oldfiles<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fe <cmd>Telescope buffers<cr>
 nnoremap <leader>fb <cmd>Telescope file_browser<cr>
 nnoremap <leader>fs <cmd>Telescope grep_string<cr>
-nnoremap <leader>fc <cmd>Telescope commands<cr>
-nnoremap <leader>fh <cmd>Telescope command_history<cr>
+nnoremap <leader>fc <cmd>Telescope command_history<cr>
 nnoremap <leader>f/ <cmd>Telescope search_history<cr>
 nnoremap <leader>fr <cmd>Telescope registers<cr>
 nnoremap <leader>fk <cmd>Telescope keymaps<cr>
