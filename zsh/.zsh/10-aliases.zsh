@@ -36,9 +36,11 @@ alias gl='git pull'
 alias gdd='git diff'
 alias gc='git commit'
 alias ac='a commit'
+
+# CocoaPods
 alias poddev='/Users/smatter/develop/git/Rainforest/CocoaPods/bin/pod'
-alias ppod='bundle exec pod'
-alias groupTime='/Users/smatter/Documents/Arbeit/keksfabrik/scripts/Logging/groupTime'
+alias ppod='rbenv exec bundle exec pod'
+alias rbexec='rbenv exec bundle exec'
 
 #apt-get
 alias apt="sudo apt-get"
