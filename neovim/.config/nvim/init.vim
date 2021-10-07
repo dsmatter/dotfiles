@@ -343,9 +343,9 @@ tnoremap <C-M-Q> <cmd>lua require('lspsaga.floaterm').close_float_terminal()<CR>
 " }}}
 " {{{ Telescope
 
-nnoremap <leader>ff <cmd>Telescope find_files<CR>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({follow = true})<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep({follow = true})<cr>
 nnoremap <leader>fF <cmd>Telescope oldfiles<CR>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fe <cmd>Telescope buffers<cr>
 nnoremap <leader>fb <cmd>Telescope file_browser<cr>
 nnoremap <leader>fs <cmd>Telescope grep_string<cr>
