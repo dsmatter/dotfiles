@@ -270,7 +270,7 @@ augroup END
 " This removes the jitter when warnings/errors flow in.
 set signcolumn=yes
 
-autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+" autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 
 lua << EOF
 local saga = require 'lspsaga'
