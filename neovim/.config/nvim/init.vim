@@ -316,6 +316,8 @@ nnoremap <leader>sj :rightbelow new<CR>
 " Resize splits
 nnoremap <leader>0 <cmd>vertical resize +5<CR>
 nnoremap <leader>9 <cmd>vertical resize -5<CR>
+nnoremap <leader>8 <cmd>resize +5<CR>
+nnoremap <leader>7 <cmd>resize -5<CR>
 
 " Open explorer
 nnoremap <leader>E <cmd>Lexplore<CR>
@@ -401,5 +403,12 @@ nmap <leader>cd :lcd %:h<CR>
 
 " Change the (global) working directory to the current buffer's file's
 nmap <leader>ccd :cd %:h<CR>
+
+" Exit terminal mode
+tnoremap <C-M-W> <C-\><C-n>
+tnoremap `h <C-\><C-n><C-w>h
+tnoremap `j <C-\><C-n><C-w>j
+tnoremap `k <C-\><C-n><C-w>k
+tnoremap `l <C-\><C-n><C-w>l
 
 " }}}
