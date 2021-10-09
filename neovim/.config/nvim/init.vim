@@ -36,6 +36,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'vim-airline/vim-airline'
+Plug 'lukas-reineke/format.nvim'
 
 " Color schemes
 Plug 'arcticicestudio/nord-vim'
@@ -249,7 +250,19 @@ local opts = {
 }
 
 require('rust-tools').setup(opts)
+
+require "format".setup {
+  rust = {
+    {cmd = {"rustfmt"}}
+  }
+}
 EOF
+
+augroup Format
+  autocmd!
+  autocmd BufWritePost * FormatWrite
+augroup END
+
 " }}}
 " {{{ LSP
 
