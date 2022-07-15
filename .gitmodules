@@ -12,7 +12,7 @@
 	url = https://github.com/vim-scripts/buftabs.git
 [submodule "vim/.vim/bundle/coffee-script"]
 	path = vim/.vim/bundle/coffee-script
-	url = git://github.com/kchmck/vim-coffee-script.git
+	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "vim/.vim/bundle/compview"]
 	path = vim/.vim/bundle/compview
 	url = https://github.com/vim-scripts/compview.git
@@ -87,7 +87,7 @@
 	url = https://github.com/sjl/gundo.vim.git
 [submodule "vim/.vim/bundle/slime"]
 	path = vim/.vim/bundle/slime
-	url = git://github.com/jpalardy/vim-slime.git
+	url = https://github.com/jpalardy/vim-slime.git
 [submodule "vim/.vim/bundle/abolish"]
 	path = vim/.vim/bundle/abolish
 	url = https://github.com/tpope/vim-abolish.git
@@ -106,7 +106,7 @@
 
 [submodule "zsh/.zsh/completions/zsh-completions"]
 	path = zsh/.zsh/completions/zsh-completions
-	url = git://github.com/zsh-users/zsh-completions.git
+	url = https://github.com/zsh-users/zsh-completions.git
 [submodule "zsh/.zsh/lib/zsh-syntax-highlighting"]
 	path = zsh/.zsh/lib/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
@@ -115,7 +115,7 @@
 	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule "vim/.vim/snippets"]
 	path = vim/.vim/snippets
-	url = git://github.com/dsmatter/vim-snippets.git
+	url = https://github.com/dsmatter/vim-snippets.git
 [submodule "vim/.vim/bundle/vundle"]
 	path = vim/.vim/bundle/vundle
 	url = https://github.com/gmarik/vundle.git
