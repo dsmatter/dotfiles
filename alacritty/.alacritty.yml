@@ -105,10 +105,12 @@ font:
     #family: 'Hack'
     #family: 'Menlo'
     #family: 'Fira Code'
-    family: 'Input Mono'
+    #family: 'Input Mono'
+    #family: 'Iosevka Term SS02'
+    family: 'MonoLisa'
 
     # The `style` can be specified to pick a specific face.
-    #style: Regular
+    # style: 'Light Extended'
 
   # Bold font face
   #bold:
@@ -178,7 +180,7 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '#181818'
+    background: '#0a0a0a'
     foreground: '#f8f8f8'
 
     # Bright and dim foreground colors
