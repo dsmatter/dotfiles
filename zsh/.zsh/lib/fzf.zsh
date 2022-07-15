@@ -459,7 +459,7 @@ __fzf_downloads() {
   gfind ~/Downloads -maxdepth 1 -mindepth 1 -type f \! -name ".DS_Store" -printf "%T@ %p\n"  | sort -rn | cut -d " " -f2- | fzf
 }
 fzf-downloads-widget() {
-  LBUFFER="${LBUFFER}$(__fzf_downloads)" ; local ret=$? ; zle reset-prompt ; return $ret
+  LBUFFER="${LBUFFER}'$(__fzf_downloads)'" ; local ret=$? ; zle reset-prompt ; return $ret
 }
 zle -N fzf-downloads-widget
 

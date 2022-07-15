@@ -24,7 +24,7 @@ function allreports {
 
 function publishFile {
   scp "$1" ln:/var/www/files >&2
-  local path="$(echo "$(basename "$1")" | python -c "import urllib;print urllib.quote(raw_input())")"
+  local path="$(echo -n "$(basename "$1")" | python3 -c "import urllib.parse;import sys;print(urllib.parse.quote(sys.stdin.read()))")"
   echo "http://files.lockitnetwork.com/$path"
 }
 

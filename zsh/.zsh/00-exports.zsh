@@ -5,37 +5,25 @@ export LC_CTYPE="en_US.UTF-8"
 export COLORTERM=yes
 export TERM="xterm-256color"
 export DIRSTACKSIZE=10
-cdpath=(. ~ /media/smServer)
 watch=(notme)
 fpath=("$HOME/.zsh/completions" $fpath)
 
-export EDITOR=vim
+export EDITOR=nvim
 export PAGER="bat --pager less"
 
-export DEVELOP_HOME="$HOME/develop"
 export BIN_HOME="$HOME/bin"
 export DOC_HOME="$HOME/Documents"
-export MEDIA_HOME="$HOME/dl/media"
-export SMSERVER="$HOME/smserver"
-export GOPATH="$DEVELOP_HOME/go/mygo"
-export ENWIDA_HOME="$DEVELOP_HOME/projects/enwida/enwida_home"
 
-path=(${HOME}/bin ${HOME}/.local/bin ${HOME}/.cabal/bin ${HOME}/.fastlane/bin $GOPATH/bin /usr/local/bin /usr/local/sbin /opt/local/bin /usr/local/share/npm/bin /usr/texbin $HOME/.cargo/bin $path)
+path=(${HOME}/bin ${HOME}/.local/bin /usr/local/bin /usr/local/sbin "$HOME/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/11.2.1-1.1.1/.content/bin" $path)
 
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=1000000
 export SAVEHIST=1000000
 export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd*"
 
-export MPD_HOST=smServer
-export MPD_PORT=6600
-
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR="$ZSH_HOME/lib/zsh-syntax-highlighting/highlighters"
 export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent:4559:1"
 
-export ANDROID_HOME="/usr/local/Cellar/android-sdk/r21.1"
-
-export GISTY_DIR="$DEVELOP_HOME/gists"
-
-export FZF_DEFAULT_COMMAND="find . -type f"
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export FZF_DEFAULT_COMMAND="fd --type f"
+export JAVA_HOME=/opt/homebrew/opt/openjdk@11
+export RBENV_VERSION="2.7.5"

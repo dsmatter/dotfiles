@@ -39,7 +39,7 @@ alias ac='a commit'
 
 # CocoaPods
 alias poddev='/Users/smatter/develop/git/Rainforest/CocoaPods/bin/pod'
-alias ppod='rbenv exec bundle exec pod'
+alias ppod='rbenv exec pod'
 alias rbexec='rbenv exec bundle exec'
 
 #apt-get
@@ -78,7 +78,7 @@ alias curljson="curl -H 'Content-Type: application/json'"
 alias fuck='$(thefuck $(fc -ln -1))'
 alias mvn-deploy-nexus="mvn deploy -DaltDeploymentRepository='lockitnetwork-release::default::http://nexus.code.easyscott.com/content/repositories/releases'"
 alias mvn-updateDeps="mvn versions:use-latest-versions -DgenerateBackupPoms=false"
-alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
+alias uuid="python3 -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
 #alias lock="pmset displaysleepnow"
 alias lock="m lock"
 alias co="cargo"
@@ -99,7 +99,7 @@ alias screen="TERM=xterm-new screen"
 alias mo='sleep 1 && xset dpms force off'
 alias mol='slock && sleep 1 && xset dpms force off'
 alias iown="sudo chown $(id -nu):$(id -ng) -R ."
-alias zconf="vim \"+set cmdheight=2\" $HOME/.zshrc $HOME/.zsh/**/*.zsh"
+alias zconf="nvim \"+set cmdheight=2\" $HOME/.zshrc $HOME/.zsh/**/*.zsh"
 alias serveHTTP="python3 -m http.server"
 alias sleeplog='pmset -g log|grep -e " Sleep  " -e " Wake  "'
 
