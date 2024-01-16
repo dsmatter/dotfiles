@@ -1,0 +1,43 @@
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "#5D5D5D"
+blue = "#9CD9F0"
+cyan = "#77DFD8"
+green = "#CDEE69"
+magenta = "#FBB1F9"
+red = "#E09690"
+white = "#F7F7F7"
+yellow = "#FFE377"
+
+[colors.normal]
+black = "#000000"
+blue = "#4E90A7"
+cyan = "#218693"
+green = "#8EB33B"
+magenta = "#C8A0D1"
+red = "#C75646"
+white = "#B0B0B0"
+yellow = "#D0B03C"
+
+[colors.primary]
+background = "#0a0a0a"
+bright_foreground = "#ffffff"
+foreground = "#f8f8f8"
+
+[font]
+size = 12.0
+
+[font.normal]
+family = "MonoLisa"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Space"
+mods = "Shift|Control|Option"
+
+[window]
+dynamic_title = true
+startup_mode = "Maximized"
+title = "Alacritty"
