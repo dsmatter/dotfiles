@@ -22,6 +22,8 @@
   puu = push -u origin HEAD
   sdiff = diff --cached
   mergeAll = !git branch --contains HEAD --no-merge | xargs git merge
+  reb = rebase -i --committer-date-is-author-date
+	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f"
 [color]
   ui = auto
 [push]
@@ -30,6 +32,7 @@
 	excludesfile = /Users/smatter/.gitignore_global
 	precomposeunicode = true
 	editor = nvim -c \"startinsert!\"
+  pager = delta
 [commit]
 	template = /Users/smatter/.stCommitMsg
 [difftool "sourcetree"]
@@ -40,3 +43,16 @@
 	trustExitCode = true
 [pull]
 	rebase = true
+[interactive]
+    diffFilter = delta --color-only
+[diff]
+    colorMoved = default
+[delta]
+    navigate = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main
