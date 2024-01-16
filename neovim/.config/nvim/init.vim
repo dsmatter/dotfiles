@@ -62,6 +62,7 @@ set nocompatible
 
 " We're on a virtual terminal, right?
 set ttyfast
+set mouse=
 
 " Trigger CusorHold faster
 set updatetime=300

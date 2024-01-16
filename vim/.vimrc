@@ -184,8 +184,8 @@ filetype on
 filetype plugin indent on
 autocmd BufRead,BufNewFile syntax on
 
-" Enable the mouse
-set mouse=a
+" Disable the mouse
+set mouse=
 
 " Line wrap settings
 set wrap
