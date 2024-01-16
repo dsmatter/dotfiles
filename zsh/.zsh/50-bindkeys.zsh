@@ -74,4 +74,4 @@ bindkey '^G' fzf-git-status-widget
 bindkey '^[^F' fzf-file-widget
 bindkey '^[^G' fzf-git-status-widget
 bindkey '^[^A' fzf-history-widget
-bindkey '^[^J' fzf-downloads-widget
+bindkey '^K' fzf-downloads-widget

@@ -83,6 +83,7 @@ alias uuid="python3 -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | p
 alias lock="m lock"
 alias co="cargo"
 alias bat="bat --pager less"
+alias idf="idf.py"
 
 alias grepc="grep --color "
 alias pg="ps aux | grep -v grep | grep -i"

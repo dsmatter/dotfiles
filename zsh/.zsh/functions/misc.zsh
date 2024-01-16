@@ -171,6 +171,10 @@ function aca {
   a commit $@ -- -a
 }
 
+function aco {
+  a checkout-branch
+}
+
 function tmpdir {
   UUID=$(uuid)
   cdmkdir /tmp/$UUID
@@ -201,8 +205,23 @@ function excel() {
   open -a 'Microsoft Excel' $*
 }
 
-function ffmaster {
-  git fetch . HEAD:master && git push origin master
+function ffmain {
+  git fetch . HEAD:main && git push origin main
+}
+
+function mffmain {
+  local b="$(git symbolic-ref --short HEAD)"
+  git checkout main
+  git pull
+  git merge --no-ff "$b"
+  git push
+  git checkout "$b"
+  git merge --ff-only main
+  git push
+}
+
+function getIdf {
+  . $HOME/code/esp/esp-idf/export.sh 
 }
 
 function tsvMaxLen {
@@ -211,6 +230,11 @@ function tsvMaxLen {
 
 function rm-quarantine {
   xattr -r -d com.apple.quarantine $*
+}
+
+function a {
+  /Users/smatter/code/scratch/gijira-rs/target/release/gijira $*
+  #java -jar /Users/smatter/code/scratch/gijira/target/scala-3.1.0/gijira-assembly-0.1.0-SNAPSHOT.jar $*
 }
 
 # Less
