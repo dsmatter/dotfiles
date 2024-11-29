@@ -1,4 +1,5 @@
 function bankdata() {
+
   cd $HOME/.tmp
   local BANKDIR="$HOME/Documents/Bank"
   local TMPDIR=`mktemp -d bankdata`

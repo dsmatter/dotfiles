@@ -1,8 +1,9 @@
 #!/bin/zsh
 
-hash -d tum="$DOC_HOME/TUM"
+hash -d code="$HOME/code"
+hash -d ln="$HOME/code/ln"
+hash -d tum="$HOME/Documents/TUM"
 hash -d zc="$HOME/.zsh"
-hash -d keks=$HOME/Documents/Arbeit/Keksfabrik
 
 # Semesters
 for i in `seq 1 12`; do

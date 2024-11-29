@@ -1,3 +1,0 @@
-# Create .vmdk file from raw disk
-VBoxManage internalcommands createrawvmdk -filename raw_vb.vmdk -rawdisk /dev/disk3
-

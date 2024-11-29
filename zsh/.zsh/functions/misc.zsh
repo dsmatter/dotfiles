@@ -116,8 +116,7 @@ function send2kindle() {
 }
 
 function tm() {
-  tmux-layout $* 2>/dev/null ||
-  tmux-layout $HOME/.tmux-layouts/$1.json 2>/dev/null ||
+  tmux-layout create $* 2>/dev/null ||
   tmux $*
 }
 
@@ -176,8 +175,10 @@ function aco {
 }
 
 function tmpdir {
-  UUID=$(uuid)
-  cdmkdir /tmp/$UUID
+  local UUID=$(uuid)
+  local DIR=/tmp/$UUID
+  cdmkdir "$DIR"
+  echo "$DIR" | pbcopy
 }
 
 function st {
@@ -234,10 +235,13 @@ function rm-quarantine {
 
 function a {
   /Users/smatter/code/scratch/gijira-rs/target/release/gijira $*
-  #java -jar /Users/smatter/code/scratch/gijira/target/scala-3.1.0/gijira-assembly-0.1.0-SNAPSHOT.jar $*
 }
 
-# Less
-LESSOPEN="|/usr/bin/lesspipe.sh %s"
-export LESSOPEN
+function sbt {
+  command sbt -java-home $JAVA_HOME $*
+}
 
+function git-private {
+   git config user.email "github@smattr.de"
+   git config user.signingkey "/Users/smatter/.ssh/id_rsa.pub"
+}

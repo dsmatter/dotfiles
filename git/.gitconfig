@@ -1,6 +1,19 @@
+[includeIf "gitdir:~/code/ln/"]
+  path = ~/code/ln/.gitconfig
+
+[init]
+  defaultBranch = main
+
 [user]
-	name = Daniel Strittmatter
-	email = github@smattr.de
+  name = Daniel Strittmatter
+  email = daniel@lockitnetwork.com
+  signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDLsvcsP9Yot9F7VSVjVDnfIQy0+FgRs6bUXYuVcTJOIBHiF90iadceM2ifZVXeT9RXkGrbsg/3XGiO1RCHq4A3Wy/Re6I0ROwLeQ9bOfg/7jdWCMZwFab5NqjWHOPtRWAzaF0HZRHn6WnVuP0jvYXhEdAj1g/L4o6i+ZJrAJqCeaoDimuogL0zuQsC8//pXIheElSVMGtC0wWGACyHCdvbtFISaaqgDsGL7BVETpfmm4ECmsoRD5MoQRzZMtoOUR5pVPALBdLiu3Fr2goJwNQXwZRfo86k1JZNkMP1sncewyxHtIBWPvPHJCiQ7+DSCm4vLAGjXZ3KNTTf6RGHKGUR
+
+[core]
+  editor = nvim -c \"startinsert!\"
+  pager = delta
+  precomposeunicode = true
+
 [alias]
   co = checkout
   cob = checkout -b
@@ -23,36 +36,51 @@
   sdiff = diff --cached
   mergeAll = !git branch --contains HEAD --no-merge | xargs git merge
   reb = rebase -i --committer-date-is-author-date
-	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f"
-[color]
-  ui = auto
+  fp = push --force-with-lease
+
+[branch]
+  sort = -committerdate
+
+[commit]
+  template = /Users/smatter/.stCommitMsg
+  gpgsign = true
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  allowedSignersFile = /Users/smatter/.ssh/allowed_signers
+
 [push]
   default = simple
-[core]
-	excludesfile = /Users/smatter/.gitignore_global
-	precomposeunicode = true
-	editor = nvim -c \"startinsert!\"
-  pager = delta
-[commit]
-	template = /Users/smatter/.stCommitMsg
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+
 [pull]
-	rebase = true
-[interactive]
-    diffFilter = delta --color-only
-[diff]
-    colorMoved = default
-[delta]
-    navigate = true
+  rebase = true
+
+[color]
+  ui = auto
+
+[column]
+  ui = auto
+
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-[init]
-	defaultBranch = main
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+
+[diff]
+  colorMoved = default
+
+[delta]
+  navigation = true
+
+[merge]
+  conflictstyle = diff3
+
+[interactive]
+  diffFilter = delta --color-only
+
+[safe]
+	directory = /Users/smatter/code/ln/projects/viviana-cloudbox2/scratch/build

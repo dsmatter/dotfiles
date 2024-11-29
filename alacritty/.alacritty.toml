@@ -1,3 +1,32 @@
+[env]
+TERM = "xterm-256color"
+
+[window]
+dynamic_title = true
+title = "Alacritty"
+option_as_alt = "OnlyLeft"
+#startup_mode = "SimpleFullscreen"
+decorations = "none"
+
+[font]
+size = 12.5
+
+[font.normal]
+# style = "Light"
+
+# family = "MonoLisa Nerd Font"
+# family = "BlexMono Nerd Font Mono"
+# family = "CaskaydiaCove Nerd Font Mono"
+# family = "Hack Nerd Font Mono"
+# family = "IntoneMono Nerd Font Mono"
+# family = "InconsolataGo Nerd Font Mono"
+# family = "MonoFur Nerd Font Mono"
+# family = "Mononoki Nerd Font Mono"
+family = "SauceCodePro Nerd Font Mono"
+
+[font.italic]
+style = " Italic"
+
 [colors]
 draw_bold_text_with_bright_colors = true
 
@@ -26,18 +55,204 @@ background = "#0a0a0a"
 bright_foreground = "#ffffff"
 foreground = "#f8f8f8"
 
-[font]
-size = 12.0
-
-[font.normal]
-family = "MonoLisa"
+[[keyboard.bindings]]
+key = "V"
+mods = "Shift|Control|Option"
+action = "ToggleViMode"
 
 [[keyboard.bindings]]
-action = "ToggleViMode"
-key = "Space"
+key = "1"
 mods = "Shift|Control|Option"
+action= "ToggleSimpleFullscreen"
 
-[window]
-dynamic_title = true
-startup_mode = "Maximized"
-title = "Alacritty"
+# -------------------------------------------
+# Umlaut support
+# -------------------------------------------
+
+[[keyboard.bindings]]
+key = "A"
+mods = "Command|Option|Shift"
+chars = "ä"
+
+[[keyboard.bindings]]
+key = "U"
+mods = "Command|Option|Shift"
+chars = "ü"
+
+[[keyboard.bindings]]
+key = "O"
+mods = "Command|Option|Shift"
+chars = "ö"
+
+[[keyboard.bindings]]
+key = "s"
+mods = "Command|Option|Shift"
+chars = "ß"
+
+# -------------------------------------------
+# Option-Ctrl-Shift bindings for tmux support
+# -------------------------------------------
+
+[[keyboard.bindings]]
+key = "A"
+mods = "Shift|Control|Option"
+chars = "\u001b[65;8u"
+
+[[keyboard.bindings]]
+key = "B"
+mods = "Shift|Control|Option"
+chars = "\u001b[66;8u"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Shift|Control|Option"
+chars = "\u001b[67;8u"
+
+[[keyboard.bindings]]
+key = "D"
+mods = "Shift|Control|Option"
+chars = "\u001b[68;8u"
+
+[[keyboard.bindings]]
+key = "E"
+mods = "Shift|Control|Option"
+chars = "\u001b[69;8u"
+
+[[keyboard.bindings]]
+key = "F"
+mods = "Shift|Control|Option"
+chars = "\u001b[70;8u"
+
+[[keyboard.bindings]]
+key = "G"
+mods = "Shift|Control|Option"
+chars = "\u001b[71;8u"
+
+[[keyboard.bindings]]
+key = "H"
+mods = "Shift|Control|Option"
+chars = "\u001b[72;8u"
+
+[[keyboard.bindings]]
+key = "I"
+mods = "Shift|Control|Option"
+chars = "\u001b[73;8u"
+
+[[keyboard.bindings]]
+key = "J"
+mods = "Shift|Control|Option"
+chars = "\u001b[74;8u"
+
+[[keyboard.bindings]]
+key = "K"
+mods = "Shift|Control|Option"
+chars = "\u001b[75;8u"
+
+[[keyboard.bindings]]
+key = "L"
+mods = "Shift|Control|Option"
+chars = "\u001b[76;8u"
+
+[[keyboard.bindings]]
+key = "M"
+mods = "Shift|Control|Option"
+chars = "\u001b[77;8u"
+
+[[keyboard.bindings]]
+key = "N"
+mods = "Shift|Control|Option"
+chars = "\u001b[78;8u"
+
+[[keyboard.bindings]]
+key = "O"
+mods = "Shift|Control|Option"
+chars = "\u001b[79;8u"
+
+[[keyboard.bindings]]
+key = "P"
+mods = "Shift|Control|Option"
+chars = "\u001b[80;8u"
+
+[[keyboard.bindings]]
+key = "Q"
+mods = "Shift|Control|Option"
+chars = "\u001b[81;8u"
+
+[[keyboard.bindings]]
+key = "R"
+mods = "Shift|Control|Option"
+chars = "\u001b[82;8u"
+
+[[keyboard.bindings]]
+key = "S"
+mods = "Shift|Control|Option"
+chars = "\u001b[83;8u"
+
+[[keyboard.bindings]]
+key = "T"
+mods = "Shift|Control|Option"
+chars = "\u001b[84;8u"
+
+[[keyboard.bindings]]
+key = "U"
+mods = "Shift|Control|Option"
+chars = "\u001b[85;8u"
+
+[[keyboard.bindings]]
+key = "W"
+mods = "Shift|Control|Option"
+chars = "\u001b[87;8u"
+
+[[keyboard.bindings]]
+key = "X"
+mods = "Shift|Control|Option"
+chars = "\u001b[88;8u"
+
+[[keyboard.bindings]]
+key = "Y"
+mods = "Shift|Control|Option"
+chars = "\u001b[89;8u"
+
+[[keyboard.bindings]]
+key = "Z"
+mods = "Shift|Control|Option"
+chars = "\u001b[90;8u"
+
+[[keyboard.bindings]]
+key = "["
+mods = "Shift|Control|Option"
+chars = "\u001b[91;8u"
+
+[[keyboard.bindings]]
+key = "]"
+mods = "Shift|Control|Option"
+chars = "\u001b[93;8u"
+
+# Map App-Super-Space to Ctrl-Alt-Space to bind in nvim.
+# Currently disabled because we use Keyboard Maestro to
+# run a shell script using tmux panes.
+#
+# [[keyboard.bindings]]
+# key = "Space"
+# mods = "Shift|Control|Option"
+# chars = "\u001b[32;7u"
+
+# Code     Modifiers
+# ---------+---------------------------
+#    2     | Shift
+#    3     | Alt
+#    4     | Shift + Alt
+#    5     | Control
+#    6     | Shift + Control
+#    7     | Alt + Control
+#    8     | Shift + Alt + Control
+#    9     | Meta
+#    10    | Meta + Shift
+#    11    | Meta + Alt
+#    12    | Meta + Alt + Shift
+#    13    | Meta + Ctrl
+#    14    | Meta + Ctrl + Shift
+#    15    | Meta + Ctrl + Alt
+#    16    | Meta + Ctrl + Alt + Shift
+# ---------+---------------------------
+

@@ -28,3 +28,10 @@ function publishFile {
   echo "https://files.lockitnetwork.com/$path"
 }
 
+function publishAmbient {
+  local dir="${2:-/}"
+  scp "$1" "static.ambient.de:/web$dir" >&2
+  local path="$(echo -n "$(basename "$1")" | python3 -c "import urllib.parse;import sys;print(urllib.parse.quote(sys.stdin.read()))")"
+  echo "https://static.ambient.de$dir/$path"
+}
+
