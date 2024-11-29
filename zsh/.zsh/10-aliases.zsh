@@ -40,8 +40,6 @@ alias asearch="apt-cache search "
 #abbreviations
 alias c="clear"
 alias h="history"
-alias m='mplayer'
-alias n='notify'
 alias s='sudo'
 alias doch='sudo $(fc -ln -1)'
 alias v="vim"
@@ -49,22 +47,12 @@ alias :q='exit'
 alias ta='tmux attach'
 alias svi="sudo vim"
 alias ___="source ~/.zshrc && rehash"
-alias xx="gpgOpen"
-alias xxx="f -e"
-alias t="notify lib"
-alias tt="todoUrgent"
-alias vv="gvim"
 alias tma="tmux attach -d -t"
-alias jj="marks_jump"
 
-alias grepc="grep --color "
 alias pg="ps aux | grep -v grep | grep -i"
 alias px="ps auxf"
-alias rcd="sudo rc.d"
-alias fu="fusermount -u"
 alias ssh="TERM=screen ssh"
 
-alias syncTime='sudo ntpdate ntp1.lrz-muenchen.de'
 alias iown="sudo chown -R $(id -nu):(id -ng) ."
 alias zconf="vim \"+set cmdheight=2\" $HOME/.zshrc $HOME/.zsh/**/*.zsh"
 alias serveHTTP="python -m SimpleHTTPServer"

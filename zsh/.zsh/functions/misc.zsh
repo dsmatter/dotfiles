@@ -67,15 +67,6 @@ function sgrep() {
   cat | perl -ne "print \"\$1\\n\" if $1"
 }
 
-function pdfmerge() {
-  command gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=finished.pdf $*
-}
-
-function pdfgrayscale() {
-  command gs -sOutputFile=grayscale.pdf -sDEVICE=pdfwrite -sColorConversionStrategy=Gray -dProcessColorModel=/DeviceGray -dCompatibilityLevel=1.4 -dNOPAUSE -dBATCH $*
-
-}
-
 function df() {
   if [[ -z "$*" ]]; then
     command df -h | column -t
@@ -87,17 +78,6 @@ function df() {
 function spectrum_ls() {
   for code in {000..255}; do
     print -P -- "$code: %F{$code}Test%f"
-  done
-}
-
-# Interactively rename files
-function imv() {
-  local src dst
-  for src; do
-    [[ -e $src ]] || { print -u2 "$src does not exist"; continue }
-    dst=$src
-    vared dst
-    [[ $src != $dst ]] && mkdir -p $dst:h && mv -n $src $dst
   done
 }
 
@@ -123,23 +103,6 @@ function lineSelect() {
   echo -n "${lines[$no]}"
 }
 
-function vm() {
-  case $1 in
-    on     ) shift; VBoxManage startvm $* ;;
-    off    ) shift; local vm=$1; shift; VBoxManage controlvm $vm poweroff $* ;;
-    pause  ) shift; local vm=$1; shift; VBoxManage controlvm $vm pause $* ;;
-    resume ) shift; local vm=$1; shift; VBoxManage controlvm $vm resume $* ;;
-    save   ) shift; local vm=$1; shift; VBoxManage controlvm $vm savestate $* ;;
-    disk   ) shift; VBoxManage internalcommands createrawvmdk -filename ${2-raw.vmdk} -rawdisk $1 ;;
-    *      ) shift; VBoxManage $*
-  esac
-}
-
 function trailingWhitespace() {
   sed -i '' -E "s/[[:space:]]*$//" $*
 }
-
-# Less
-LESSOPEN="|/usr/bin/lesspipe.sh %s"
-export LESSOPEN
-
